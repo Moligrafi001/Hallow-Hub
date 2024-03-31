@@ -1,4 +1,3 @@
-if game.PlaceId == 16148053600 then
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Hallow Hub | The Upgrade Tree Of Tree", HidePremium = false, IntroText = "Script By Moligrafi", SaveConfig = false, ConfigFolder = "The Upgrade Tree of Tree"})
 OrionLib:MakeNotification({
@@ -285,5 +284,5 @@ Cheat:AddToggle({
 })
 Cheat:AddLabel("Cuidado com essa opção! É muito poderosa!")
 
-end
+
 OrionLib:Init()
