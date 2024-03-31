@@ -291,6 +291,9 @@ local Games = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+local Section = Games:AddSection({
+	Name = "All the available games for script"
+})
 Games:AddButton({
 	Name = "The Upgrade Tree Of Tree",
 	Callback = function()
