@@ -285,5 +285,18 @@ Cheat:AddToggle({
 })
 Cheat:AddLabel("Cuidado com essa opção! É muito poderosa!")
 
+-- Games
+local Games = Window:MakeTab({
+	Name = "Games",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+Games:AddButton({
+	Name = "The Upgrade Tree Of Tree",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
 
 OrionLib:Init()
