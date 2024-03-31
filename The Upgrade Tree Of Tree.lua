@@ -300,5 +300,6 @@ Games:AddButton({
       		print("button pressed")
   	end    
 })
+Games:AddLabel("Click to join!")
 
 OrionLib:Init()
