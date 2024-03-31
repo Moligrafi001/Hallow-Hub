@@ -35,7 +35,6 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SellFeathers"):FireServer(unpack(args))
-
     wait(0.0001)
    end
 end
