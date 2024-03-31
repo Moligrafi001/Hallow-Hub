@@ -20,11 +20,7 @@ end
 
 function AutoSell()
   while _G.AutoSell == true do
-    local args = {
-    [1] = workspace:WaitForChild("Map"):WaitForChild("Areas"):WaitForChild("Wing Land"):WaitForChild("Ruins Island"):WaitForChild("Seller"):WaitForChild("Double")
-}
-
-game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SellFeathers"):FireServer(unpack(args))
+    
     wait(0.0001)
    end
 end
