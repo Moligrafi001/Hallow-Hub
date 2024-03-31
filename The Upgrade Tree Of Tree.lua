@@ -1,4 +1,4 @@
-1
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Hallow Hub | The Upgrade Tree Of Tree", HidePremium = false, IntroText = "Script By Moligrafi", SaveConfig = false, ConfigFolder = "The Upgrade Tree of Tree"})
 OrionLib:MakeNotification({
