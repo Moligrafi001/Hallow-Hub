@@ -1,4 +1,4 @@
---
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/credits.lua",true))()
 -- Credits
 local Games = Window:MakeTab({
 	Name = "Another Games",
