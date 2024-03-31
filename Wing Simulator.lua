@@ -16,3 +16,23 @@ game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Click"
     wait(0.0001)
    end
 end
+
+-- Menu
+local Menu = Window:MakeTab({
+	Name = "Menu",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = Menu:AddSection({
+	Name = "Auto Farm"
+})
+Menu:AddToggle({
+	Name = "Auto Click",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoClick = Value
+		AutoClick()
+	end
+})
+
+OrionLib:Init()
