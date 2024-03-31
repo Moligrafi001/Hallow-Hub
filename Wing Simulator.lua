@@ -69,7 +69,6 @@ Menu:AddToggle({
 		AutoSell()
 	end
 })
-Menu:AddLabel("Instagram: _moligrafi_")
 
 -- Credits
 local Games = Window:MakeTab({
@@ -93,5 +92,6 @@ Games:AddButton({
   	end    
 })
 Games:AddLabel("Click to join!")
+Menu:AddLabel("Instagram: _moligrafi_")
 
 OrionLib:Init()
