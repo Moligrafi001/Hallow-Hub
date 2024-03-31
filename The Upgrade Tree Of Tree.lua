@@ -301,6 +301,12 @@ Games:AddButton({
       		print("button pressed")
   	end    
 })
+Games:AddButton({
+	Name = "Wing Simulator",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
 Games:AddLabel("Click to join!")
 
 OrionLib:Init()
