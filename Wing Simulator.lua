@@ -20,7 +20,7 @@ end
 
 function AutoSell()
   while _G.AutoSell == true do
-    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SellFeathers"):FireServer(unpack(args))
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SellFeathers"):FireServer(())
     wait(0.0001)
    end
 end
