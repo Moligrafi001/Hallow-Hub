@@ -133,7 +133,6 @@ Menu:AddToggle({
 		UpTree()
 	end
 })
-Menu:AddLabel("Instagram: _moligrafi_")
 
 -- Fruits
 local Fruits = Window:MakeTab({
@@ -286,7 +285,7 @@ Cheat:AddToggle({
 })
 Cheat:AddLabel("Cuidado com essa opção! É muito poderosa!")
 
--- Games
+-- Credits
 local Games = Window:MakeTab({
 	Name = "Another Games",
 	Icon = "rbxassetid://4483345998",
@@ -308,5 +307,6 @@ Games:AddButton({
   	end    
 })
 Games:AddLabel("Click to join!")
+Menu:AddLabel("Instagram: _moligrafi_")
 
 OrionLib:Init()
