@@ -268,7 +268,7 @@ Trees:AddToggle({
 
 -- Cheat
 local Cheat = Window:MakeTab({
-	Name = "Shh...",
+	Name = "Shhh...",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
