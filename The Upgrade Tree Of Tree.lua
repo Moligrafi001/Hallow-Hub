@@ -133,7 +133,7 @@ Menu:AddToggle({
 		UpTree()
 	end
 })
-Menu:AddLabel("Instagram: @_moligrafi_")
+Menu:AddLabel("Instagram: _moligrafi_")
 
 -- Fruits
 local Fruits = Window:MakeTab({
