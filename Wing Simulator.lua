@@ -35,6 +35,11 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SellFeathers"):FireServer(unpack(args))
+local args = {
+    [1] = workspace:WaitForChild("Map"):WaitForChild("Areas"):WaitForChild("Wing Land"):WaitForChild("Space Island"):WaitForChild("Seller"):WaitForChild("OnePointSix")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("SellFeathers"):FireServer(unpack(args))
     wait(0.0001)
    end
 end
