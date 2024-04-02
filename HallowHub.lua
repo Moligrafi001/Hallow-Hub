@@ -5,7 +5,7 @@ local Window = OrionLib:MakeWindow({Name = "Hallow Hub | NO GAME CONNECTED", Hid
 -- Games
 local Games = Window:MakeTab({
 	Name = "Games",
-	Icon = "rbxassetid://4483345998",
+	Icon = "https://cdn.discordapp.com/attachments/1208977324750536745/1224587306413981797/pumpkin_8745242.png?ex=661e08cd&is=660b93cd&hm=311a038333550879e433a2a976d7f5575ef0f097fa8a225a6ad17bc498bd74bc&",
 	PremiumOnly = false
 })
 Games:AddButton({
