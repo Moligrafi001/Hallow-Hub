@@ -30,8 +30,8 @@ Games:AddButton({
 })
 Games:AddDropdown({
 	Name = "Dropdown",
-	Default = "1",
-	Options = {"1", "2"},
+	Default = "2",
+	Options = {"Eu"},
 	Callback = function()
 		TeleportToGame(16148053600)
 	end    
