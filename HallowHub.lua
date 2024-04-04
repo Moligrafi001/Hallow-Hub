@@ -17,23 +17,17 @@ local Games = Window:MakeTab({
     PremiumOnly = false
 })
 Games:AddButton({
-    Name = "The Upgrade Tree Of Tree",
+    Name = "Join Selected Game",
     Callback = function()
-        TeleportToGame(16148053600)
-    end
-})
-Games:AddButton({
-    Name = "Wing Simulator",
-    Callback = function()
-        TeleportToGame(4535346003)
+      
     end
 })
 Games:AddDropdown({
 	Name = "Dropdown",
-	Default = "2",
-	Options = {"Eu", "2"},
+	Default = "The Upgrade Tree Of Tree",
+	Options = {"The Upgrade Tree Of Tree", "Wing Simulator"},
 	Callback = function()
-		TeleportToGame(16148053600)
+		
 	end    
 })
 
