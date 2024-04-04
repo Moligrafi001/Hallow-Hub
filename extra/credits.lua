@@ -1,11 +1,20 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/extra/credits.lua",true))()
--- Funcoes
+-- Teleport
+local selectedGame = "The Upgrade Tree Of Tree"
 function TeleportToGame(placeId)
     local teleportService = game:GetService("TeleportService")
     local success, errorMessage = pcall(function()
+        teleportService:Teleport(placeId, game.Players.LocalPlayer)
     end)
-        teleportService:Teleport(placeId)
+    if not success then
+        warn("Erro ao teletransportar: " .. errorMessage)
+    end
 end
+-- Lista de Place IDs correspondentes aos jogos
+local gamePlaceIds = {
+    ["The Upgrade Tree Of Tree"] = 16148053600,
+    ["Wing Simulator"] = 4535346003
+}
 
 -- Games
 local Games = Window:MakeTab({
@@ -13,15 +22,20 @@ local Games = Window:MakeTab({
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
-Games:AddButton({
-    Name = "The Upgrade Tree Of Tree",
-    Callback = function()
-        TeleportToGame(16148053600)
-    end
+Games:AddDropdown({
+    Name = "Select Game to Join",
+    Default = selectedGame,
+    Options = {"The Upgrade Tree Of Tree", "Wing Simulator"},
+    Callback = function(value)
+        selectedGame = value
+    end    
 })
 Games:AddButton({
-    Name = "Wing Simulator",
+    Name = "Join Selected Game",
     Callback = function()
-        TeleportToGame(4535346003)
+        local placeId = gamePlaceIds[selectedGame]
+        if placeId then
+            TeleportToGame(placeId)
+        end
     end
 })
