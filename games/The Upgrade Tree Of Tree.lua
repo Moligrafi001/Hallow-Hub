@@ -1,6 +1,11 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/The%20Upgrade%20Tree%20Of%20Tree.lua",true))()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Hallow Hub | The Upgrade Tree Of Tree", HidePremium = false, IntroText = "Hallow Hub", SaveConfig = false, ConfigFolder = "The Upgrade Tree of Tree"})
+local Window = OrionLib:MakeWindow({
+  Name = "Hallow Hub | The Upgrade Tree Of Tree",
+  HidePremium = false,
+  IntroText = "Hallow Hub",
+  SaveConfig = false,
+  ConfigFolder = "The Upgrade Tree of Tree"})
 OrionLib:MakeNotification({
 	Name = "Última atualização - 31/03/2024",
 	Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
