@@ -13,6 +13,9 @@ function TeleportToGame(placeId)
     end
 end
 
+-- Variável para armazenar o jogo selecionado
+local selectedGame = "The Upgrade Tree Of Tree"
+
 -- Games
 local Games = Window:MakeTab({
     Name = "Games",
@@ -29,7 +32,6 @@ local gamePlaceIds = {
 Games:AddButton({
     Name = "Join Selected Game",
     Callback = function()
-        local selectedGame = Games:GetValue("Select Game to Join")
         local placeId = gamePlaceIds[selectedGame]
         if placeId then
             TeleportToGame(placeId)
@@ -41,8 +43,11 @@ Games:AddButton({
 
 Games:AddDropdown({
     Name = "Select Game to Join",
-    Default = "The Upgrade Tree Of Tree",
-    Options = {"The Upgrade Tree Of Tree", "Wing Simulator"} 
+    Default = selectedGame,
+    Options = {"The Upgrade Tree Of Tree", "Wing Simulator"},
+    Callback = function(value)
+        selectedGame = value
+    end    
 })
 
 OrionLib:Init()
