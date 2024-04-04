@@ -25,6 +25,14 @@ local Games = Window:MakeTab({
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
+Games:AddDropdown({
+    Name = "Select Game to Join",
+    Default = selectedGame,
+    Options = {"The Upgrade Tree Of Tree", "Wing Simulator"},
+    Callback = function(value)
+        selectedGame = value
+    end    
+})
 Games:AddButton({
     Name = "Join Selected Game",
     Callback = function()
@@ -33,14 +41,6 @@ Games:AddButton({
             TeleportToGame(placeId)
         end
     end
-})
-Games:AddDropdown({
-    Name = "Select Game to Join",
-    Default = selectedGame,
-    Options = {"The Upgrade Tree Of Tree", "Wing Simulator"},
-    Callback = function(value)
-        selectedGame = value
-    end    
 })
 
 OrionLib:Init()
