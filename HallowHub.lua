@@ -28,27 +28,20 @@ Games:AddButton({
         TeleportToGame(4535346003)
     end
 })
-Games:AddSlider({
-	Name = "Slider",
-	Min = 0,
-	Max = 3,
-	Default = 5,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "The Upgrade Tree Of Tree",
+Games:AddDropdown({
+	Name = "Dropdown",
+	Default = "1",
+	Options = {"1", "2"},
 	Callback = function()
 		TeleportToGame(16148053600)
-	end
+	end    
 })
 
 --[[
-Name = <string> - The name of the slider.
-Min = <number> - The minimal value of the slider.
-Max = <number> - The maxium value of the slider.
-Increment = <number> - How much the slider will change value when dragging.
-Default = <number> - The default value of the slider.
-ValueName = <string> - The text after the value number.
-Callback = <function> - The function of the slider.
+Name = <string> - The name of the dropdown.
+Default = <string> - The default value of the dropdown.
+Options = <table> - The options in the dropdown.
+Callback = <function> - The function of the dropdown.
 ]]
 
 OrionLib:Init()
