@@ -13,13 +13,13 @@ local gamePlaceIds = {
     ["Wing Simulator"] = 4535346003
 }
 
--- Games
-local Games = Window:MakeTab({
-    Name = "Games",
+-- Credits
+local Credits = Window:MakeTab({
+    Name = "Credits",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
-Games:AddDropdown({
+Credits:AddDropdown({
     Name = "Select Game to Join",
     Default = selectedGame,
     Options = {"The Upgrade Tree Of Tree", "Wing Simulator"},
@@ -27,7 +27,7 @@ Games:AddDropdown({
         selectedGame = value
     end    
 })
-Games:AddButton({
+Credits:AddButton({
     Name = "Join Selected Game",
     Callback = function()
         local placeId = gamePlaceIds[selectedGame]
