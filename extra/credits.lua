@@ -6,9 +6,6 @@ function TeleportToGame(placeId)
     local success, errorMessage = pcall(function()
         teleportService:Teleport(placeId, game.Players.LocalPlayer)
     end)
-    if not success then
-        warn("Erro ao teletransportar: " .. errorMessage)
-    end
 end
 -- Lista de Place IDs correspondentes aos jogos
 local gamePlaceIds = {
