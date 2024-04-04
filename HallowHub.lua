@@ -6,7 +6,7 @@ local Window = OrionLib:MakeWindow({Name = "Hallow Hub | NO GAME CONNECTED", Hid
 function TeleportToGame(placeId)
     local teleportService = game:GetService("TeleportService")
     local success, errorMessage = pcall(function()
-        teleportService:Teleport(placeId)
+        teleportService:Teleport(placeId, game.Players.LocalPlayer)
     end)
     if not success then
         warn("Erro ao teletransportar: " .. errorMessage)
