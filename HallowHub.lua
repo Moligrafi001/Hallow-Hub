@@ -2,7 +2,7 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Hallow Hub | NO GAME CONNECTED", HidePremium = false, IntroText = "Hallow Hub", SaveConfig = false, ConfigFolder = "Hallow Hub"})
 
--- funcoes
+-- Funcoes
 function TeleportToGame(placeId)
     local teleportService = game:GetService("TeleportService")
     local success, errorMessage = pcall(function()
