@@ -23,7 +23,7 @@ Games:AddButton({
     end
 })
 Games:AddDropdown({
-	Name = "Dropdown",
+	Name = "Select Game to Join",
 	Default = "The Upgrade Tree Of Tree",
 	Options = {"The Upgrade Tree Of Tree", "Wing Simulator"},
 	Callback = function()
