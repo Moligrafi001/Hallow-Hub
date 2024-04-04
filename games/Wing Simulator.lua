@@ -6,6 +6,12 @@ local Window = OrionLib:MakeWindow({
   IntroText = "Hallow Hub",
   SaveConfig = false,
   ConfigFolder = "Wing Simulator"})
+OrionLib:MakeNotification({
+	Name = "Última atualização - 01/04/2024",
+	Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
+	Image = "rbxassetid://4483345998",
+	Time = 9
+})
 
 -- Valores
 _G.AutoClick = true
