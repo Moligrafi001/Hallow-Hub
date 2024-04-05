@@ -31,7 +31,7 @@ local Credits = Window:MakeTab({
 Credits:AddDropdown({
     Name = "Select Game to Join",
     Default = selectedGame,
-    Options = {"The Upgrade Tree Of Tree", "Wing Simulator"},
+    Options = {"The Upgrade Tree Of Tree", "Wing Simulator", "Farm for Fun! 🌾"},
     Callback = function(value)
         selectedGame = value
     end    
