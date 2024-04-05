@@ -17,6 +17,7 @@ OrionLib:MakeNotification({
 -- Valores
 _G.AutoHarvest = true
 _G.SpeedB = true
+_G.GoldB = true
 
 -- Funcoes
 function AutoHarvest()
@@ -39,6 +40,27 @@ function SpeedB()
         local boosts = {}
         for _, part in ipairs(workspace:GetDescendants()) do
             if part:IsA("Part") and part.Name == "Speed Boost" then
+                table.insert(boosts, part)
+            end
+        end
+        
+        for _, boost in ipairs(boosts) do
+            local args = {
+                [1] = {
+                    [1] = boost
+                }
+            }
+            workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("use boost"):InvokeServer(unpack(args))
+        end
+        wait(1)
+    end
+end
+
+function GoldB()
+    while _G.GoldB do
+        local boosts = {}
+        for _, part in ipairs(workspace:GetDescendants()) do
+            if part:IsA("Part") and part.Name == "Gold Boost" then
                 table.insert(boosts, part)
             end
         end
@@ -88,6 +110,14 @@ Boosts:AddToggle({
   Callback = function(Value)
     _G.SpeedB = Value
       SpeedB()
+    end
+})
+Boosts:AddToggle({
+  Name = "Gold Boost",
+  Default = false,
+  Callback = function(Value)
+    _G.GoldB = Value
+      GoldB()
     end
 })
 
