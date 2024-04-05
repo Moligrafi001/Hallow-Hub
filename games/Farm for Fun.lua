@@ -19,6 +19,7 @@ _G.AutoHarvest = true
 _G.SpeedB = true
 _G.GoldB = true
 _G.GrowB = true
+_G.MoneyB = true
 _G.AutoRB = true
 
 -- Funcoes
