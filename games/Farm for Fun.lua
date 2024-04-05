@@ -99,7 +99,7 @@ function GrowB()
     end
 end
 
-function MoneyBB()
+function MoneyB()
     while _G.MoneyB do
         local boosts = {}
         for _, part in ipairs(workspace:GetDescendants()) do
