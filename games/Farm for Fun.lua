@@ -1,4 +1,4 @@
--- 
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Farm%20for%20Fun.lua",true))()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({
   Name = "Hallow Hub | Farm for Fun! 🌾",
@@ -16,7 +16,7 @@ OrionLib:MakeNotification({
 
 -- Valores
 _G.AutoHarvest = true
-_G.AutoBuy = true
+_G.SpeedB = true
 
 -- Funcoes
 function AutoHarvest()
@@ -34,6 +34,27 @@ function AutoHarvest()
   end
 end
 
+function SpeedB()
+    while _G.SpeedB do
+        local boosts = {}
+        for _, part in ipairs(workspace:GetDescendants()) do
+            if part:IsA("Part") and part.Name == "Speed Boost" then
+                table.insert(boosts, part)
+            end
+        end
+        
+        for _, boost in ipairs(boosts) do
+            local args = {
+                [1] = {
+                    [1] = boost
+                }
+            }
+            workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("use boost"):InvokeServer(unpack(args))
+        end
+        wait(1)
+    end
+end
+
 -- Menu
 local Menu = Window:MakeTab({
   Name = "Menu",
@@ -49,6 +70,24 @@ Menu:AddToggle({
   Callback = function(Value)
     _G.AutoHarvest = Value
       AutoHarvest()
+    end
+})
+
+-- Boosts
+local Boosts = Window:MakeTab({
+  Name = "Boosts",
+  Icon = "rbxassetid://4483345998",
+  PremiumOnly = false
+})
+local Section = Boosts:AddSection({
+  Name = "Auto Boosts"
+})
+Boosts:AddToggle({
+  Name = "Speed Boost",
+  Default = false,
+  Callback = function(Value)
+    _G.SpeedB = Value
+      SpeedB()
     end
 })
 
