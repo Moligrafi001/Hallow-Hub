@@ -99,6 +99,27 @@ function GrowB()
     end
 end
 
+function MoneyBB()
+    while _G.MoneyB do
+        local boosts = {}
+        for _, part in ipairs(workspace:GetDescendants()) do
+            if part:IsA("Part") and part.Name == "Money Boost" then
+                table.insert(boosts, part)
+            end
+        end
+        
+        for _, boost in ipairs(boosts) do
+            local args = {
+                [1] = {
+                    [1] = boost
+                }
+            }
+            workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("use boost"):InvokeServer(unpack(args))
+        end
+        wait(1)
+    end
+end
+
 -- Menu
 local Menu = Window:MakeTab({
   Name = "Menu",
@@ -148,6 +169,14 @@ Boosts:AddToggle({
   Callback = function(Value)
     _G.GrowB = Value
       GrowB()
+    end
+})
+Boosts:AddToggle({
+  Name = "Money Boost",
+  Default = false,
+  Callback = function(Value)
+    _G.MoneyB = Value
+      MoneyB()
     end
 })
 
