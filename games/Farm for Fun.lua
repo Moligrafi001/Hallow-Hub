@@ -1,4 +1,4 @@
--- Carregar a biblioteca Orion
+-- 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({
   Name = "Hallow Hub | Farm for Fun! 🌾",
@@ -18,7 +18,7 @@ OrionLib:MakeNotification({
 _G.AutoHarvest = true
 _G.AutoBuy = true
 
--- Função para colher automaticamente
+-- Funcoes
 function AutoHarvest()
   while _G.AutoHarvest do
     for i = 1, 263 do
@@ -51,3 +51,5 @@ Menu:AddToggle({
       AutoHarvest()
     end
 })
+
+OrionLib:Init()
