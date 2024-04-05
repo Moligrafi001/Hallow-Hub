@@ -19,6 +19,7 @@ _G.AutoHarvest = true
 _G.SpeedB = true
 _G.GoldB = true
 _G.GrowB = true
+_G.AutoRB = true
 
 -- Funcoes
 function AutoHarvest()
@@ -120,6 +121,17 @@ function MoneyB()
     end
 end
 
+function AutoRB()
+  while _G.AutoRB do
+    local args = {
+    [1] = {}
+}
+
+workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("buy rebirth"):InvokeServer(unpack(args))
+wait(5)
+  end
+end
+
 -- Menu
 local Menu = Window:MakeTab({
   Name = "Menu",
@@ -135,6 +147,14 @@ Menu:AddToggle({
   Callback = function(Value)
     _G.AutoHarvest = Value
       AutoHarvest()
+    end
+})
+Menu:AddToggle({
+  Name = "Auto Rebirth",
+  Default = false,
+  Callback = function(Value)
+    _G.AutoRB = Value
+      AutoRB()
     end
 })
 
