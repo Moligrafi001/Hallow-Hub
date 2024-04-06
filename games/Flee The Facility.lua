@@ -132,6 +132,12 @@ Misc:AddToggle({
         NC()
     end
 })
+Misc:AddButton({
+  Name = "Invadir partida!"
+  Callback = function()
+    -- Adiciona aqui
+  end
+})
 
 Menu:AddLabel("Instagram: _moligrafi_")
 
