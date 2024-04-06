@@ -1,11 +1,11 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Flee%20The%20Facility.lua",true))()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({
-  Name = "Hallow Hub | Flee The Facility",
-  HidePremium = false,
-  IntroText = "Hallow Hub",
-  SaveConfig = false,
-  ConfigFolder = "Flee The Facility"
+    Name = "Hallow Hub | Flee The Facility",
+    HidePremium = false,
+    IntroText = "Hallow Hub",
+    SaveConfig = false,
+    ConfigFolder = "Flee The Facility"
 })
 OrionLib:MakeNotification({
     Name = "Última atualização - 06/04/2024",
@@ -15,10 +15,10 @@ OrionLib:MakeNotification({
 })
 
 -- Valores
-_G.FB = true
-_G.NC = true
+_G.FB = false
+_G.NC = false
 
--- Funcoes
+-- Funções
 function FB()
     while _G.FB do
         game:GetService("Lighting").Brightness = 2
@@ -29,10 +29,17 @@ function FB()
         wait(0.01)
     end
     game:GetService("Lighting").Brightness = 1
-    game:GetService("Lighting").ClockTime = 12
-    game:GetService("Lighting").FogEnd = 1000
+    game:GetService("Lighting").ClockTime = 14
+    game:GetService("Lighting").FogEnd = 10000000
     game:GetService("Lighting").GlobalShadows = true
     game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(127, 127, 127)
+end
+
+function NC()
+    while _G.NC do
+        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+        wait(0.1)
+    end
 end
 
 -- Menu
