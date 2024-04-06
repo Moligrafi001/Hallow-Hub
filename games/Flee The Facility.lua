@@ -57,7 +57,14 @@ Menu:AddButton({
 })
     end
 })
-local Section = Menu:AddSection({
+
+-- Misc
+local Menu = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+local Section = Misc:AddSection({
 	Name = "Useful"
 })
 Menu:AddToggle({
