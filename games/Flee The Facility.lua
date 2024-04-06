@@ -110,14 +110,6 @@ Misc:AddToggle({
     end
 })
 Misc:AddToggle({
-    Name = "No Clip",
-    Default = false,
-    Callback = function(Value)
-        _G.NC = Value
-        NC()
-    end
-})
-Misc:AddToggle({
     Name = "Inf Jump",
     Default = false,
     Callback = function(Value)
@@ -130,6 +122,14 @@ Misc:AddToggle({
                 _G.DisconnectIJ = nil
             end
         end
+    end
+})
+Misc:AddToggle({
+    Name = "No Clip",
+    Default = false,
+    Callback = function(Value)
+        _G.NC = Value
+        NC()
     end
 })
 
