@@ -18,6 +18,7 @@ OrionLib:MakeNotification({
 _G.FB = false
 _G.NC = false
 _G.IJ = false
+_G.DisconnectIJ = nil
 
 -- Funções
 function FB()
@@ -48,10 +49,13 @@ function NC()
 end
 
 -- Função para controlar o Infinite Jump
-function IJ()
-    game:GetService("UserInputService").JumpRequest:connect(function()
+local function IJ()
+    local function onJumpRequest()
         game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
-    end)
+    end
+
+    local userInputService = game:GetService("UserInputService")
+    _G.DisconnectIJ = userInputService.JumpRequest:Connect(onJumpRequest)
 end
 
 -- Menu
@@ -120,6 +124,11 @@ Misc:AddToggle({
         _G.IJ = Value
         if Value then
             IJ()
+        else
+            if _G.DisconnectIJ then
+                _G.DisconnectIJ:Disconnect()
+                _G.DisconnectIJ = nil
+            end
         end
     end
 })
