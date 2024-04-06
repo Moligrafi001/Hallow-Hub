@@ -58,6 +58,16 @@ local function IJ()
     _G.DisconnectIJ = userInputService.JumpRequest:Connect(onJumpRequest)
 end
 
+local function TeleportToCoordinates()
+    local player = game.Players.LocalPlayer
+    local character = player.Character
+    if character then
+        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+        humanoidRootPart.CFrame = CFrame.new(124.5, 25.99999857, 138.5)
+        game.Workspace.CurrentCamera.CFrame = CFrame.new(124.5, 4.99999857, 138.5, -0.351053178, 0, 0.936355531, 0, 1, 0, -0.936355531, 0, -0.351053178)
+    end
+end
+
 -- Menu
 local Menu = Window:MakeTab({
     Name = "Menu",
@@ -133,12 +143,10 @@ Misc:AddToggle({
     end
 })
 Misc:AddButton({
-  Name = "Invadir partida!"
-  Callback = function()
-    -- Adiciona aqui
-  end
+    Name = "Invadir partida!",
+    Callback = function()
+        TeleportToCoordinates()
+    end
 })
-
-Menu:AddLabel("Instagram: _moligrafi_")
 
 OrionLib:Init()
