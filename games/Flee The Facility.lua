@@ -59,7 +59,7 @@ Menu:AddButton({
 })
 
 -- Misc
-local Menu = Window:MakeTab({
+local Misc = Window:MakeTab({
 	Name = "Misc",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
