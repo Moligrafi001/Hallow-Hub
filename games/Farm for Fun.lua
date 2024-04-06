@@ -200,6 +200,7 @@ Boosts:AddToggle({
       MoneyB()
     end
 })
+
 Menu:AddLabel("Instagram: _moligrafi_")
 
 OrionLib:Init()
