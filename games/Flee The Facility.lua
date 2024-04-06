@@ -28,5 +28,9 @@ Menu:AddButton({
         loadstring(game:HttpGet("https://raw.githubusercontent.com/LeviTheOtaku/roblox-scripts/main/FTFHAX.lua",true))() 
     end
 })
+local Section = Menu:AddSection({
+	Name = "Useful"
+})
+
 
 OrionLib:Init()
