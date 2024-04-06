@@ -25,6 +25,7 @@ function FB()
     game:GetService("Lighting").GlobalShadows = false
     game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
     wait(0.01)
+  end
 end
 
 -- Menu
