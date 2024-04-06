@@ -47,6 +47,13 @@ function NC()
     end
 end
 
+-- Função para controlar o Infinite Jump
+function IJ()
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+    end)
+end
+
 -- Menu
 local Menu = Window:MakeTab({
     Name = "Menu",
@@ -111,7 +118,9 @@ Misc:AddToggle({
     Default = false,
     Callback = function(Value)
         _G.IJ = Value
-        IJ()
+        if Value then
+            IJ()
+        end
     end
 })
 
