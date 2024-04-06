@@ -23,9 +23,15 @@ local Section = Menu:AddSection({
 	Name = "OP Script"
 })
 Menu:AddButton({
-    Name = "Load Script",
+    Name = "FTFHAX",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/LeviTheOtaku/roblox-scripts/main/FTFHAX.lua",true))() 
+    end
+})
+Menu:AddButton({
+    Name = "Chat Spy",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/extra/ChatSpy.lua",true))()
     end
 })
 local Section = Menu:AddSection({
