@@ -17,7 +17,7 @@ OrionLib:MakeNotification({
 -- Valores
 _G.FB = true
 
--- Função para controlar as configurações de iluminação
+-- Funcoes
 function FB()
     while _G.FB do
         game:GetService("Lighting").Brightness = 2
@@ -27,6 +27,11 @@ function FB()
         game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
         wait(0.01)
     end
+    game:GetService("Lighting").Brightness = 1
+    game:GetService("Lighting").ClockTime = 12
+    game:GetService("Lighting").FogEnd = 1000
+    game:GetService("Lighting").GlobalShadows = true
+    game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(127, 127, 127)
 end
 
 -- Menu
