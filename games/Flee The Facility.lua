@@ -37,7 +37,11 @@ end
 
 function NC()
     while _G.NC do
-        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+        for _, part in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = false
+            end
+        end
         wait(0.1)
     end
 end
