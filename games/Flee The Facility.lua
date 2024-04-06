@@ -17,6 +17,7 @@ OrionLib:MakeNotification({
 -- Valores
 _G.FB = false
 _G.NC = false
+_G.IJ = false
 
 -- Funções
 function FB()
