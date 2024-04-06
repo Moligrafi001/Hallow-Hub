@@ -67,7 +67,7 @@ local Menu = Window:MakeTab({
 local Section = Misc:AddSection({
 	Name = "Useful"
 })
-Menu:AddToggle({
+Misc:AddToggle({
   Name = "Fullbright",
   Default = false,
   Callback = function(Value)
