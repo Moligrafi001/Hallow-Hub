@@ -13,6 +13,17 @@ OrionLib:MakeNotification({
 	Time = 9
 })
 
+-- Valores
+_G.FB = true
+
+-- Funcoes
+function FB()
+  while _G.FB do
+    game:GetService("Lighting").Brightness = 2
+    wait(0.1)
+  end
+end
+
 -- Menu
 local Menu = Window:MakeTab({
 	Name = "Menu",
@@ -49,6 +60,13 @@ Menu:AddButton({
 local Section = Menu:AddSection({
 	Name = "Useful"
 })
-
+Menu:AddToggle({
+  Name = "Fullbright",
+  Default = false,
+  Callback = function(Value)
+    _G.FB = Value
+      FB()
+    end
+})
 
 OrionLib:Init()
