@@ -106,5 +106,13 @@ Misc:AddToggle({
         NC()
     end
 })
+Misc:AddToggle({
+    Name = "Inf Jump",
+    Default = false,
+    Callback = function(Value)
+        _G.IJ = Value
+        IJ()
+    end
+})
 
 OrionLib:Init()
