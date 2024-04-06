@@ -32,7 +32,7 @@ function FB()
     game:GetService("Lighting").ClockTime = 14
     game:GetService("Lighting").FogEnd = 10000000
     game:GetService("Lighting").GlobalShadows = true
-    game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(127, 127, 127)
+    game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(200, 200, 200)
 end
 
 function NC()
