@@ -18,10 +18,13 @@ _G.FB = true
 
 -- Funcoes
 function FB()
-  while _G.FB do
+    while _G.FB do
     game:GetService("Lighting").Brightness = 2
-    wait(0.1)
-  end
+    game:GetService("Lighting").ClockTime = 14
+    game:GetService("Lighting").FogEnd = 100000
+    game:GetService("Lighting").GlobalShadows = false
+    game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+    wait(0.01)
 end
 
 -- Menu
