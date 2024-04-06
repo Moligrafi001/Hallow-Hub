@@ -16,6 +16,7 @@ OrionLib:MakeNotification({
 
 -- Valores
 _G.FB = true
+_G.NC = true
 
 -- Funcoes
 function FB()
@@ -83,6 +84,14 @@ Misc:AddToggle({
     Callback = function(Value)
         _G.FB = Value
         FB()
+    end
+})
+Misc:AddToggle({
+    Name = "No Clip",
+    Default = false,
+    Callback = function(Value)
+        _G.NC = Value
+        NC()
     end
 })
 
