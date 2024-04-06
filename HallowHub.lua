@@ -15,6 +15,7 @@ function TeleportToGame(placeId)
         teleportService:Teleport(placeId, game.Players.LocalPlayer)
     end)
 end
+
 -- Lista de Place IDs correspondentes aos jogos
 local gamePlaceIds = {
     ["The Upgrade Tree Of Tree"] = 16148053600,
