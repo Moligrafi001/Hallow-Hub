@@ -133,4 +133,6 @@ Misc:AddToggle({
     end
 })
 
+Menu:AddLabel("Instagram: _moligrafi_")
+
 OrionLib:Init()
