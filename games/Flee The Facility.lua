@@ -25,7 +25,7 @@ local Section = Menu:AddSection({
 Menu:AddButton({
     Name = "Load Script",
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Flee%20The%20Facility.lua",true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LeviTheOtaku/roblox-scripts/main/FTFHAX.lua",true))() 
     end
 })
 
