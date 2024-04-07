@@ -17,8 +17,8 @@ OrionLib:MakeNotification({
 _G.AutoCash = false
 
 -- Funcoes
-function AlgumaCoisa()
-  while _G.AlgumaCoisa == true do
+function AutoCash()
+  while _G.AutoCash == true do
       OrionLib:MakeNotification({
 	Name = "Teste",
 	Content = "minha bossetinha",
