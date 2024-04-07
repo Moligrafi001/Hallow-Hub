@@ -7,7 +7,7 @@ local Window = OrionLib:MakeWindow({
   SaveConfig = false,
   ConfigFolder = "2 Player Pizza Factory Tycoon"})
 OrionLib:MakeNotification({
-	Name = "Última atualização - ??/??/2024",
+	Name = "Última atualização - 07/04/2024",
 	Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
 	Image = "rbxassetid://4483345998",
 	Time = 9
