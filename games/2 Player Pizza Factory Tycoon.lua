@@ -17,10 +17,15 @@ OrionLib:MakeNotification({
 _G.AlgumaCoisa = false
 
 -- Funcoes
-function AutoClick()
-  while _G.AutoClick == true do
-      print("Hello World!")
-    wait(0.0001)
+function AlgumaCoisa()
+  while _G.AlgumaCoisa == true do
+      OrionLib:MakeNotification({
+	Name = "Teste",
+	Content = "minha bossetinha",
+	Image = "rbxassetid://4483345998",
+	Time = 1
+})
+    wait(5)
    end
 end
 
@@ -40,12 +45,6 @@ Menu:AddToggle({
 		_G.AlgumaCoisa = Value
 		AlgumaCoisa()
 	end
-})
-Menu:AddButton({
-	Name = "Nao sei",
-	Callback = function()
-      print("Goodbye World!")()
-  	end
 })
 
 Menu:AddLabel("Instagram: _moligrafi_")
