@@ -18,8 +18,8 @@ _G.AlgumaCoisa
 
 -- Funcoes
 function AutoClick()
-    print("Hello World!")
   while _G.AutoClick == true do
+      print("Hello World!")
     wait(0.0001)
    end
 end
