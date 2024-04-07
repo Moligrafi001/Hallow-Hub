@@ -1,10 +1,10 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({
-  Name = "Hallow Hub | Nome do Jogo",
+  Name = "Hallow Hub | 2 Player Pizza Factory Tycoon",
   HidePremium = false,
   IntroText = "Hallow Hub",
   SaveConfig = false,
-  ConfigFolder = "Nome do Jogo"})
+  ConfigFolder = "2 Player Pizza Factory Tycoon"})
 OrionLib:MakeNotification({
 	Name = "Última atualização - ??/??/2024",
 	Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
