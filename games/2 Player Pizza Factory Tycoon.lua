@@ -15,6 +15,7 @@ OrionLib:MakeNotification({
 
 -- Valores
 _G.AutoCash = false
+_G.AutoBox = false
 
 -- Funcoes
 function AutoCash()
@@ -26,7 +27,13 @@ function AutoCash()
 	Time = 1
 })
     wait(5)
-   end
+  end
+end
+
+function AutoBox()
+  while _G.AutoBox == true do
+    -- funcão que coleta as caixas
+  end
 end
 
 -- Menu
@@ -44,6 +51,14 @@ Menu:AddToggle({
 	Callback = function(Value)
 		_G.AutoCash = Value
 		AutoCash()
+	end
+})
+Menu:AddToggle({
+	Name = "Auto Collect Box",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoBox = Value
+		AutoBox()
 	end
 })
 
