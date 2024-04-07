@@ -14,7 +14,7 @@ OrionLib:MakeNotification({
 })
 
 -- Valores
-_G.AlgumaCoisa
+_G.AlgumaCoisa = true
 
 -- Funcoes
 function AutoClick()
