@@ -14,7 +14,7 @@ OrionLib:MakeNotification({
 })
 
 -- Valores
-_G.AlgumaCoisa = true
+_G.AlgumaCoisa 
 
 -- Funcoes
 function AutoClick()
@@ -33,5 +33,24 @@ local Menu = Window:MakeTab({
 local Section = Menu:AddSection({
 	Name = "Auto Farm"
 })
+Menu:AddToggle({
+	Name = "Loop Print",
+	Default = false,
+	Callback = function(Value)
+		_G.AlgumaCoisa = Value
+		AlgumaCoisa()
+	end
+})
+Menu:AddButton({
+	Name = "Nao sei",
+	Callback = function()
+      print("Goodbye World!")
+  	end
+})
+local Section = Trees:AddSection({
+	Name = "Auto Purchase"
+})
+
+Menu:AddLabel("Instagram: _moligrafi_")
 
 OrionLib:Init()
