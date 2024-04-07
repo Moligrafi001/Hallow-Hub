@@ -14,7 +14,7 @@ OrionLib:MakeNotification({
 })
 
 -- Valores
-_G.AlgumaCoisa 
+_G.AlgumaCoisa = false
 
 -- Funcoes
 function AutoClick()
@@ -44,11 +44,8 @@ Menu:AddToggle({
 Menu:AddButton({
 	Name = "Nao sei",
 	Callback = function()
-      print("Goodbye World!")
+      print("Goodbye World!")()
   	end
-})
-local Section = Trees:AddSection({
-	Name = "Auto Purchase"
 })
 
 Menu:AddLabel("Instagram: _moligrafi_")
