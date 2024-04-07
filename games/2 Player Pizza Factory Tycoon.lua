@@ -14,7 +14,7 @@ OrionLib:MakeNotification({
 })
 
 -- Valores
-_G.AlgumaCoisa = false
+_G.AutoCash = false
 
 -- Funcoes
 function AlgumaCoisa()
@@ -39,11 +39,11 @@ local Section = Menu:AddSection({
 	Name = "Auto Farm"
 })
 Menu:AddToggle({
-	Name = "Loop Print",
+	Name = "Auto Collect Cash",
 	Default = false,
 	Callback = function(Value)
-		_G.AlgumaCoisa = Value
-		AlgumaCoisa()
+		_G.AutoCash = Value
+		AutoCash()
 	end
 })
 
