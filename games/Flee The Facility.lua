@@ -84,6 +84,15 @@ function SP()
     end
 end
 
+-- Fly System
+_G.FY = false
+function FY()
+    while _G.FY do
+      game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Flying")
+      wait(0.1)
+    end
+end
+
 -- ESP System
 
 -- Invade Match System
@@ -214,7 +223,8 @@ Self:AddToggle({
 	Name = "Fly",
 	Default = false,
 	Callback = function(Value)
-		print(Value)
+				_G.FY = Value
+				NC()
 	end    
 })
 
