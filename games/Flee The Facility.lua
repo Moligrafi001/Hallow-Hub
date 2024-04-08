@@ -314,6 +314,18 @@ local Misc = Window:MakeTab({
 local Section = Misc:AddSection({
 	Name = "·-–— Fun —–-·"
 })
+Misc:AddButton({
+	Name = "Invade match!",
+	Callback = function()
+        TeleportToCoordinates()
+    end
+})
+Misc:AddButton({
+	Name = "Chat Spy",
+	Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/extra/ChatSpy.lua",true))()
+    end
+})
 Misc:AddToggle({
     Name = "Spin",
     Default = false,
@@ -321,12 +333,6 @@ Misc:AddToggle({
         _G.SP = Value
         SP()
     end    
-})
-Misc:AddButton({
-	Name = "Invade match!",
-	Callback = function()
-        TeleportToCoordinates()
-    end
 })
 
 OrionLib:Init()
