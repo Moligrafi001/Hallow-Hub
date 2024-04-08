@@ -87,9 +87,15 @@ end
 -- Fly System
 _G.FY = false
 function FY()
-    while _G.FY do
-      game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Flying")
-      wait(0.1)
+    local player = game.Players.LocalPlayer
+    local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+
+    while _G.FY and player.Character and humanoid do
+        humanoid.PlatformStand = false
+        humanoid.AutoRotate = false
+        humanoid.AutoRotateSpeed = 0
+        humanoid:Move(Vector3.new(0, 1, 0))
+        wait(0.1)
     end
 end
 
