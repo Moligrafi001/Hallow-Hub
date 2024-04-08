@@ -131,7 +131,7 @@ local Section = Menu:AddSection({
 	Name = "·-–— ESP —–-·"
 })
 Menu:AddToggle({
-	Name = "Computer ESP",
+	Name = "Player ESP",
 	Default = false,
 	Callback = function(Value)
 		print(Value)
