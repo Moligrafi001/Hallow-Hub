@@ -219,7 +219,8 @@ Self:AddToggle({
 	Name = "Inf Jump",
 	Default = false,
 	Callback = function(Value)
-		print(Value)
+        _G.IJ = Value
+        IJ()
 	end    
 })
 Self:AddToggle({
