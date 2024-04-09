@@ -100,8 +100,12 @@ function FY()
 end
 
 -- Inf Jump System
-
-
+_G.IJ = false
+function IJ()
+	while _G.IJ == true do
+		-- Aqui o script
+	end
+end
 -- Invade Match System
 local function TeleportToCoordinates()
     if character then
