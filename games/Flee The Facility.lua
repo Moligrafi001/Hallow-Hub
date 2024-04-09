@@ -101,11 +101,25 @@ end
 
 -- Inf Jump System
 _G.IJ = false
-function IJ()
-	while _G.IJ == true do
-		-- Aqui o script
-	end
+_G.IJ = false
+local userInputService = game:GetService("UserInputService")
+local disconnectIJ = nil
+
+local function onJumpRequest()
+    game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
 end
+
+function IJ()
+    if _G.IJ then
+        disconnectIJ = userInputService.JumpRequest:Connect(onJumpRequest)
+    else
+        if disconnectIJ then
+            disconnectIJ:Disconnect()
+            disconnectIJ = nil
+        end
+    end
+end
+
 -- Invade Match System
 local function TeleportToCoordinates()
     if character then
