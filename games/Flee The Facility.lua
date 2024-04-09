@@ -18,6 +18,8 @@ OrionLib:MakeNotification({
 local character = game.Players.LocalPlayer.character
 local humanoid = character
 local rotationSpeed = 64
+local userInputService = game:GetService("UserInputService")
+local disconnectIJ = nil
 
 -- Fullbright System
 _G.FB = false
@@ -101,8 +103,6 @@ end
 
 -- Inf Jump System
 _G.IJ = false
-local userInputService = game:GetService("UserInputService")
-local disconnectIJ = nil
 local function onJumpRequest()
     game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
 end
