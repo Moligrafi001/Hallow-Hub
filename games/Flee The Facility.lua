@@ -99,7 +99,8 @@ function FY()
     end
 end
 
--- ESP System
+-- Inf Jump System
+
 
 -- Invade Match System
 local function TeleportToCoordinates()
