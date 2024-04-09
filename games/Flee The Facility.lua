@@ -101,14 +101,11 @@ end
 
 -- Inf Jump System
 _G.IJ = false
-_G.IJ = false
 local userInputService = game:GetService("UserInputService")
 local disconnectIJ = nil
-
 local function onJumpRequest()
     game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
 end
-
 function IJ()
     if _G.IJ then
         disconnectIJ = userInputService.JumpRequest:Connect(onJumpRequest)
