@@ -146,7 +146,7 @@ local Section = Menu:AddSection({
 	Name = "·-–— Tools —–-·"
 })
 Menu:AddButton({
-		Name: "FTFHAX",
+		Name = "FTFHAX",
 		Callback = function()
 			loadstring(game:HttpGet("https://raw.githubusercontent.com/LeviTheOtaku/roblox-scripts/main/FTFHAX.lua",true))()
 		end
