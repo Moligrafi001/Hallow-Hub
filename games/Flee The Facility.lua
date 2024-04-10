@@ -20,6 +20,16 @@ local humanoid = character
 local rotationSpeed = 64
 local userInputService = game:GetService("UserInputService")
 local disconnectIJ = nil
+local walkSpeed = 16
+
+-- Walk Speed System
+_G.ChangeWalkSpeed = false
+function WalkSpeedLoop()
+    while _G.ChangeWalkSpeed do
+        game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = walkSpeed
+        wait(0.1)
+    end
+end
 
 -- Fullbright System
 _G.FB = false
@@ -185,21 +195,12 @@ local Self = Window:MakeTab({
 local Section = Self:AddSection({
 	Name = "·-–— Movement —–-·"
 })
-_G.ChangeWalkSpeed = false
-local walkSpeed = 16
-
-function WalkSpeedLoop()
-    while _G.ChangeWalkSpeed do
-        game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = walkSpeed
-        wait(0.1)
-    end
-end
 Self:AddSlider({
     Name = "Walk Speed",
     Min = 16,
     Max = 100,
     Default = 16,
-    Color = Color3.fromRGB(255,255,255),
+    Color = Color3.fromRGB(255,150,0),
     Increment = 1,
     ValueName = "",
     Callback = function(Value)
@@ -220,25 +221,6 @@ Self:AddToggle({
             WalkSpeedLoop()
         end
     end    
-})
-Self:AddSlider({
-	Name = "Jump High",
-	Min = 0,
-	Max = 100,
-	Default = 5,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "",
-	Callback = function(Value)
-		print(Value)
-	end    
-})
-Self:AddToggle({
-	Name = "Change Jump High",
-	Default = false,
-	Callback = function(Value)
-		print(Value)
-	end    
 })
 local Section = Self:AddSection({
 	Name = "·-–— More —–-·"
