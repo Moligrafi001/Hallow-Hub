@@ -145,6 +145,12 @@ local Menu = Window:MakeTab({
 local Section = Menu:AddSection({
 	Name = "·-–— Tools —–-·"
 })
+Menu:AddButton({
+		Name: "FTFHAX"
+		Callback = function()
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/LeviTheOtaku/roblox-scripts/main/FTFHAX.lua",true))()
+		end
+})
 Menu:AddToggle({
     Name = "Anti Slow",
     Default = false,
@@ -154,35 +160,11 @@ Menu:AddToggle({
     end    
 })
 Menu:AddToggle({
-	Name = "Anti PC Error",
-	Default = false,
-	Callback = function(Value)
-		print(Value)
-	end    
-})
-Menu:AddToggle({
 	Name = "Fullbright",
 	Default = false,
 	Callback = function(Value)
         _G.FB = Value
         FB()
-	end    
-})
-local Section = Menu:AddSection({
-	Name = "·-–— ESP —–-·"
-})
-Menu:AddToggle({
-	Name = "Player ESP",
-	Default = false,
-	Callback = function(Value)
-		print(Value)
-	end    
-})
-Menu:AddToggle({
-	Name = "Computer ESP",
-	Default = false,
-	Callback = function(Value)
-		print(Value)
 	end    
 })
 
