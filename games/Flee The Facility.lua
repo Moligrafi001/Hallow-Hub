@@ -187,7 +187,7 @@ local Section = Self:AddSection({
 })
 Self:AddSlider({
 	Name = "Walk Speed",
-	Min = 0,
+	Min = 16,
 	Max = 100,
 	Default = 16,
 	Color = Color3.fromRGB(255,255,255),
