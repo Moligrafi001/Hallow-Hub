@@ -185,24 +185,41 @@ local Self = Window:MakeTab({
 local Section = Self:AddSection({
 	Name = "·-–— Movement —–-·"
 })
+_G.ChangeWalkSpeed = false
+local walkSpeed = 16
+
+function WalkSpeedLoop()
+    while _G.ChangeWalkSpeed do
+        game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = walkSpeed
+        wait(0.1)
+    end
+end
 Self:AddSlider({
-	Name = "Walk Speed",
-	Min = 16,
-	Max = 100,
-	Default = 16,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "",
-	Callback = function(Value)
-		print(Value)
-	end    
+    Name = "Walk Speed",
+    Min = 16,
+    Max = 100,
+    Default = 16,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(Value)
+        walkSpeed = Value
+    end    
 })
 Self:AddToggle({
-	Name = "Change Walk Speed",
-	Default = false,
-	Callback = function(Value)
-		print(Value)
-	end    
+    Name = "Change Walk Speed",
+    Default = false,
+    Callback = function(Value)
+        _G.ChangeWalkSpeed = Value
+        if not Value then
+            local humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+            if humanoid and humanoid.WalkSpeed > 16 then
+                humanoid.WalkSpeed = 16
+            end
+        else
+            WalkSpeedLoop()
+        end
+    end    
 })
 Self:AddSlider({
 	Name = "Jump High",
