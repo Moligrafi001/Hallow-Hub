@@ -8,7 +8,7 @@ local Window = OrionLib:MakeWindow({
     ConfigFolder = "Build Bunker To Survive"
 })
 OrionLib:MakeNotification({
-    Name = "Última atualização - 06/04/2024",
+    Name = "Última atualização - 14/04/2024",
     Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
     Image = "rbxassetid://4483345998",
     Time = 9
