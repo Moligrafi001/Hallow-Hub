@@ -1,3 +1,4 @@
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Planet%20Clicker.lua",true))()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
 local Window = OrionLib:MakeWindow({
     Name = "Hallow Hub | Planet Clicker 🌎",
