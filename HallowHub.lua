@@ -24,7 +24,7 @@ local gamePlaceIds = {
     ["Flee The Facility"] = 893973440,
     ["Build a bunker in your house to survive zombies"] = 12684368460,
     ["Planet Clicker 🌎"] = 6428116890,
-    ["Legends Of Speed ⚡" = 101667897
+    ["Legends Of Speed ⚡"] = 101667897,
 }
 
 -- Credits
