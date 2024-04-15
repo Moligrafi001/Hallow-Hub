@@ -1,11 +1,11 @@
 -- aqui o loadstring
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))() -- Define a biblioteca da interface
 local Window = OrionLib:MakeWindow({
   Name = "Hallow Hub | Nome do Jogo",
   HidePremium = false,
   IntroText = "Hallow Hub",
   SaveConfig = false,
-  ConfigFolder = "Nome do Jogo"})
+  ConfigFolder = "Nome do Jogo"}) -- Cria a janela
 OrionLib:MakeNotification({
 	Name = "Última atualização - ??/??/2024",
 	Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
