@@ -4,13 +4,14 @@ local Window = OrionLib:MakeWindow({
   Name = "Hallow Hub | Farm for Fun! 🌾",
   HidePremium = false,
   IntroText = "Hallow Hub",
-  SaveConfig = false,
+  SaveConfig = false, 
+  IntroIcon = "rbxassetid://17091459839",
   ConfigFolder = "Farm for Fun! 🌾"
 })
 OrionLib:MakeNotification({
   Name = "Última atualização - 05/04/2024",
   Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
-  Image = "rbxassetid://4483345998",
+  Image = "rbxassetid://17091459839",
   Time = 9
 })
 
