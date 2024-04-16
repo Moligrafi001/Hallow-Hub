@@ -13,6 +13,8 @@ elseif game.PlaceId == 6428116890 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Planet%20Clicker.lua",true))()
 elseif game.PlaceId == 3101667897 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Legends%20Of%20Speed.lua",true))()
+elseif game.PlaceId == 10824616460 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Sword%20Slasher.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
