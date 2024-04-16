@@ -5,6 +5,7 @@ local Window = OrionLib:MakeWindow({
   HidePremium = false,
   IntroText = "Hallow Hub",
   SaveConfig = false,
+  IntroIcon = "rbxassetid://17091459839",
   ConfigFolder = "The Upgrade Tree of Tree"})
 OrionLib:MakeNotification({
 	Name = "Última atualização - 31/03/2024",
