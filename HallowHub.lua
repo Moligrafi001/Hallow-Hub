@@ -4,7 +4,8 @@ local Window = OrionLib:MakeWindow({
   Name = "Hallow Hub | NO GAME CONNECTED", 
   HidePremium = false, 
   IntroText = "Hallow Hub", 
-  SaveConfig = false, 
+  SaveConfig = false,
+  IntroIcon = "rbxassetid://17091459839",
   ConfigFolder = "Hallow Hub"})
 
 -- Teleport
