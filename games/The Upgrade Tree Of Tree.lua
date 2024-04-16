@@ -10,7 +10,7 @@ local Window = OrionLib:MakeWindow({
 OrionLib:MakeNotification({
 	Name = "Última atualização - 31/03/2024",
 	Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
-	Image = "rbxassetid://4483345998",
+	Image = "rbxassetid://17091459839",
 	Time = 9
 })
 
