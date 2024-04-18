@@ -69,7 +69,7 @@ function NoDamage()
                 primaryPart.CFrame = CFrame.new(primaryPart.Position.X, 48.5, primaryPart.Position.Z)
             end
         end
-        wait(0.5)
+        wait(0.0001)
     end
 end
 
