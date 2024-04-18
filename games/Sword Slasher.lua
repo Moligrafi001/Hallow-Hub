@@ -61,8 +61,15 @@ end
 _G.NoDamage = false
 function NoDamage()
     while _G.NoDamage == true do
-     game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(0, -16.5, 0))
-      wait(0.1)
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+        if character then
+            local primaryPart = character.PrimaryPart
+            if primaryPart then
+                primaryPart.CFrame = CFrame.new(primaryPart.Position.X, 48.5, primaryPart.Position.Z)
+            end
+        end
+        wait(0.5)
     end
 end
 
