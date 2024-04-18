@@ -62,7 +62,7 @@ _G.NoDamage = false
 function NoDamage()
     while _G.NoDamage == true do
       game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.PrimaryPart.CFrame + Vector3.new(0, 50, 0))
-      wait(1)
+      wait(0.5)
     end
 end
 
