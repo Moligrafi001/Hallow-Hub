@@ -57,6 +57,17 @@ function BuySword()
 		end
 end
 
+-- No Damage
+_G.NoDamage = false
+function NoDamage()
+    while NoDamage == true do
+      game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.PrimaryPart.CFrame + Vector3.new(0, 50, 0))
+      wait(1)
+    end
+end
+
+TeleportPlayer()
+
 -- Menu
 local Menu = Window:MakeTab({
     Name = "Menu",
@@ -72,6 +83,14 @@ Menu:AddToggle({
     Callback = function(Value)
       _G.KillAura = Value
       KillAura()
+    end
+})
+Menu:AddToggle({
+    Name = "No Damage",
+    Default = false,
+    Callback = function(Value)
+      _G.NoDamage = Value
+      NoDamage()
     end
 })
 
