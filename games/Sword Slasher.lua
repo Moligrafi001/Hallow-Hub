@@ -66,8 +66,6 @@ function NoDamage()
     end
 end
 
-TeleportPlayer()
-
 -- Menu
 local Menu = Window:MakeTab({
     Name = "Menu",
