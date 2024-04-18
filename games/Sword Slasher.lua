@@ -1,4 +1,5 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Sword%20Slasher.lua",true))()
+-- game:GetService("ReplicatedStorage").EventStorage.Rebirth:InvokeServer()
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
 local Window = OrionLib:MakeWindow({
     Name = "Hallow Hub | ⚔️ Sword Slasher",
