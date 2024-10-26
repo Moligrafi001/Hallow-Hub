@@ -14,13 +14,29 @@ local function CandyFarm()
     game:GetService("Players").LocalPlayer.Character.Head:Destroy()
 end
 
+-- Anti AFK System
+_G.AntiAFK = false
+local function AntiAFK()
+    while _G.AntiAFK == true do
+        for _, v in pairs(getconnections(plr.Idled)) do
+            v:Disable()
+        end
+        wait(60)
+    end
+end
+
 Menu:Toggle("Collect Candies", 
 	false,
 	function(Value)
 	_G.CandyFarm = Value
 	CandyFarm()
-	wait(3)
-	game:GetService("Players").LocalPlayer.Character.Head:Destroy()
+end)
+
+Menu:Toggle("Anti AFK", 
+	false,
+	function(Value)
+	_G.AntiAFK = Value
+	AntiAFK()
 end)
 
 Menu:Label("t.me/HallowHub")
