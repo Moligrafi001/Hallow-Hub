@@ -39,4 +39,4 @@ Menu:Toggle("Anti AFK",
 	AntiAFK()
 end)
 
-Menu:Label("t.me/HallowHub")
+Menu:Label("Thank You!")
