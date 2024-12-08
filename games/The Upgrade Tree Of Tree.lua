@@ -21,6 +21,7 @@ _G.AutoBuyApple = false
 _G.SacrificeApples = false
 _G.AutoBuySproot = false
 _G.SacrificeSproots = false
+_G.AutoBuyPlank = false
 
 -- Auto Buy Trees
 _G.BuyTP = false
@@ -274,6 +275,41 @@ local function SacrificeSproots()
 	end
 end
 
+local function AutoBuyPlank()
+	while _G.AutoBuyPlank == true do
+		if workspace:FindFirstChild("TreeMap") then
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr1") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr1.Main.ClickDetector)
+			end
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr2") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr2.Main.ClickDetector)
+			end
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr3") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr3.Main.ClickDetector)
+			end
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr4") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr4.Main.ClickDetector)
+			end
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr5") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr5.Main.ClickDetector)
+			end
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr6") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr6.Main.ClickDetector)
+			end
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr7") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr7.Main.ClickDetector)
+			end
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr8") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr9.Main.ClickDetector)
+			end
+			if workspace.TreeMap.Upgrades:FindFirstChild("Tr9") then
+				fireclickdetector(workspace.TreeMap.Upgrades.Tr9.Main.ClickDetector)
+			end
+		end
+	wait(1)
+	end
+end
+
 -- Menu
 local Menu = Window:CreateTab("Leaves", "home")
 local Section = Menu:CreateSection("Auto Farm")
@@ -413,6 +449,15 @@ local Toggle =  Trees:CreateToggle({
    Callback = function(Value)
    	_G.AutoPoints = Value
    	AutoPoints()
+   end,
+})
+local Section = Trees:CreateSection("Upgrade")
+local Toggle =  Trees:CreateToggle({
+   Name = "Auto Buy Upgrades",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoBuyPlank = Value
+   	AutoBuyPlank()
    end,
 })
 local Section = Trees:CreateSection("Auto Purchase")
