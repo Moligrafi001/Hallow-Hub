@@ -387,7 +387,7 @@ local Toggle =  Fruits:CreateToggle({
 local Sproots = Window:CreateTab("Sproots", "bean")
 local Section = Sproots:CreateSection("Upgrade")
 local Toggle =  Sproots:CreateToggle({
-   Name = "Auto Buy Upgrade",
+   Name = "Auto Buy Upgrades",
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoBuySproot = Value
@@ -406,6 +406,40 @@ local Toggle =  Sproots:CreateToggle({
 
 -- Trees
 local Trees = Window:CreateTab("Trees", "trees")
+local Section = Trees:CreateSection("Auto Farm")
+local Toggle =  Trees:CreateToggle({
+   Name = "Auto Tree Points",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoPoints = Value
+   	AutoPoints()
+   end,
+})
+local Section = Trees:CreateSection("Auto Purchase")
+local Toggle =  Trees:CreateToggle({
+   Name = "Buy TP Generator - 100 Tree Points",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.BuyTP = Value
+   	BuyTP()
+   end,
+})
+local Toggle =  Trees:CreateToggle({
+   Name = "Buy Forest Generator - 100 TP Generator",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.BuyForest = Value
+   	BuyForest()
+   end,
+})
+local Toggle =  Trees:CreateToggle({
+   Name = "Buy Mystic Generator - 100 Forest Generator",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.BuyMystic = Value
+   	BuyMystic()
+   end,
+})
 
 -- Sproots
 local Cheat = Window:CreateTab("Extra OP", "triangle-alert")
