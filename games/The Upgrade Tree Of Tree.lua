@@ -1,5 +1,5 @@
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/The%20Upgrade%20Tree%20Of%20Tree.lua",true))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-
 local Window = Rayfield:CreateWindow({
    Name = "Hallow Hub | The Upgrade Tree Of Tree",
    Icon = 17091459839,
