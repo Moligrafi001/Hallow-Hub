@@ -1,98 +1,105 @@
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/The%20Upgrade%20Tree%20Of%20Tree.lua",true))()
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({
-  Name = "Hallow Hub | The Upgrade Tree Of Tree",
-  HidePremium = false,
-  IntroText = "Hallow Hub",
-  SaveConfig = false,
-  IntroIcon = "rbxassetid://17091459839",
-  ConfigFolder = "The Upgrade Tree of Tree"})
-OrionLib:MakeNotification({
-	Name = "Última atualização - 31/03/2024",
-	Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
-	Image = "rbxassetid://17091459839",
-	Time = 9
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Hallow Hub | The Upgrade Tree Of Tree",
+   Icon = 17091459839,
+   LoadingTitle = "Hallow Hub",
+   LoadingSubtitle = "By Marc",
+   Theme = "Amethyst"
 })
 
 -- Valores
-_G.FastGains = true
-_G.GodMode = true
-_G.AutoPoints = true
-_G.UpTree = true
-_G.AutoHarvest = true
+_G.FastGains = false
+_G.GodMode = false
+_G.AutoPoints = false
+_G.UpTree = false
+_G.AutoHarvest = false
+_G.AutoClick = false
+_G.AutoBuyTree = false
+_G.SacrificeLeaves = false
+_G.AutoBuyApple = false
+_G.SacrificeApples = false
+_G.AutoBuySproot = false
+_G.SacrificeSproots = false
 
 -- Auto Buy Trees
-_G.BuyTP = true
-_G.BuyForest = true
-_G.BuyMystic = true
+_G.BuyTP = false
+_G.BuyForest = false
+_G.BuyMystic = false
 
 -- Auto Buy Fruits
-_G.FruitUPG = true
-_G.BackpackUPG = true
-_G.LeavesUPG = true
+_G.FruitUPG = false
+_G.BackpackUPG = false
+_G.LeavesUPG = false
 
 -- Funcoes
-function FastGains()
+local function FastGains()
   while _G.FastGains == true do
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("LeafClicker"):FireServer()
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("Boosts"):FireServer()
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("TreeLevelSystem"):WaitForChild("XP"):FireServer()
-    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("Fruit"):FireServer()
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("TimeSystem"):WaitForChild("SecondGain"):FireServer()
     wait(0.0001)
    end
 end
 
-function FruitUPG()
+local function FastApples()
+	while _G.FastApples == true do
+		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("Fruit"):FireServer()
+		wait(0.0001)
+	end
+end
+
+local function FruitUPG()
   while _G.FruitUPG == true do
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("BuyFruitUpg"):FireServer()
     wait(0.0001)
    end
 end
 
-function BackpackUPG()
+local function BackpackUPG()
   while _G.BackpackUPG == true do
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("BuyBackpackUpg"):FireServer()
     wait(0.0001)
    end
 end
 
-function LeavesUPG()
+local function LeavesUPG()
   while _G.LeavesUPG == true do
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("BuyLeavesUpg"):FireServer()
     wait(0.0001)
    end
 end
 
-function BuyTP()
+local function BuyTP()
   while _G.BuyTP == true do
     game:GetService("ReplicatedStorage").Remotes.TreePointSystem.TPGen:FireServer()
     wait(0.0001)
    end
 end
 
-function BuyForest()
+local function BuyForest()
   while _G.BuyForest == true do
     game:GetService("ReplicatedStorage").Remotes.TreePointSystem.ForestGen:FireServer()
     wait(0.0001)
    end
 end
 
-function BuyMystic()
+local function BuyMystic()
   while _G.BuyMystic == true do
     game:GetService("ReplicatedStorage").Remotes.TreePointSystem.MysticForestGen:FireServer()
     wait(0.0001)
    end
 end
 
-function GodMode()
+local function GodMode()
   while _G.GodMode == true do
     game:GetService("ReplicatedStorage").Remotes.RemoteEvent:FireServer()
     wait(0.0001)
    end
 end
 
-function AutoPoints()
+local function AutoPoints()
   while _G.AutoPoints == true do
     game:GetService("ReplicatedStorage").Remotes.TreePointSystem.TreePoint:FireServer()
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("TreePointSystem"):WaitForChild("StatGiver"):FireServer()
@@ -100,197 +107,314 @@ function AutoPoints()
    end
 end
 
-function UpTree()
+local function UpTree()
   while _G.UpTree == true do
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("TreeLevelSystem"):WaitForChild("LevelUp"):FireServer()
     wait(0.0001)
    end
 end
 
-function AutoHarvest()
+local function AutoHarvest()
   while _G.AutoHarvest == true do
     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("Harvest"):FireServer()
     wait(0.0001)
    end
 end
 
+local function AutoClick()
+	while _G.AutoClick == true do
+		fireclickdetector(workspace.FirstMap.U0.Main.ClickDetector)
+		wait(0.01)
+	end
+end
+
+local function SacrificeLeaves()
+	while _G.SacrificeLeaves == true do
+		if workspace.FirstMap.Final:FindFirstChild("FinalTreeU") then
+			fireclickdetector(workspace.FirstMap.Final.FinalTreeU.Main.ClickDetector)
+		end
+		wait(1)
+	end
+end
+
+local function AutoBuyTree()
+	while _G.AutoBuyTree == true do
+		if workspace.FirstMap.Upgrades:FindFirstChild("U1") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U1.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U2") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U2.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U3") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U3.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U4") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U4.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U5") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U5.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U6") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U6.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U7") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U7.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U8") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U8.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U9") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U9.Main.ClickDetector)
+		end
+		if workspace.FirstMap.Upgrades:FindFirstChild("U10") then
+			fireclickdetector(workspace.FirstMap.Upgrades.U10.Main.ClickDetector)
+		end
+		wait(1)
+	end
+end
+
+local function AutoBuyApple()
+	while _G.AutoBuyApple == true do
+		if workspace:FindFirstChild("AppleMap") then
+			if workspace.AppleMap.Upgrades:FindFirstChild("A1") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A1.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A2") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A2.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A3") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A3.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A4") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A4.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A5") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A5.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A6") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A6.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A7") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A7.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A8") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A8.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A9") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A9.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A10") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A10.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A11") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A11.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A12") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A12.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A13") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A13.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A14") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A14.Main.ClickDetector)
+			end
+			if workspace.AppleMap.Upgrades:FindFirstChild("A15") then
+				fireclickdetector(workspace.AppleMap.Upgrades.A15.Main.ClickDetector)
+			end
+		end
+	wait(1)
+	end
+end
+
+local function SacrificeApples()
+	while _G.SacrificeApples == true do
+		if workspace:FindFirstChild("AppleMap") then
+			if workspace.AppleMap.Final:FindFirstChild("FinalTreeA") then
+				fireclickdetector(workspace.AppleMap.Final.FinalTreeA.Main.ClickDetector)
+			end
+		end
+	wait(1)
+	end
+end
+
+local function AutoBuySproot()
+	while _G.AutoBuySproot == true do
+		if workspace:FindFirstChild("SprootMap") then
+			if workspace.SprootMap.Upgrades:FindFirstChild("S1") then
+				fireclickdetector(workspace.SprootMap.Upgrades.S1.Main.ClickDetector)
+			end
+			if workspace.SprootMap.Upgrades:FindFirstChild("S2") then
+				fireclickdetector(workspace.SprootMap.Upgrades.S2.Main.ClickDetector)
+			end
+			if workspace.SprootMap.Upgrades:FindFirstChild("S3") then
+				fireclickdetector(workspace.SprootMap.Upgrades.S3.Main.ClickDetector)
+			end
+			if workspace.SprootMap.Upgrades:FindFirstChild("S4") then
+				fireclickdetector(workspace.SprootMap.Upgrades.S4.Main.ClickDetector)
+			end
+			if workspace.SprootMap.Upgrades:FindFirstChild("S5") then
+				fireclickdetector(workspace.SprootMap.Upgrades.S5.Main.ClickDetector)
+			end
+			if workspace.SprootMap.Upgrades:FindFirstChild("S6") then
+				fireclickdetector(workspace.SprootMap.Upgrades.S6.Main.ClickDetector)
+			end
+		end
+	wait(1)
+	end
+end
+
+local function SacrificeSproots()
+	while _G.SacrificeSproots == true do
+		if workspace:FindFirstChild("SprootMap") then
+			if workspace.SprootMap:FindFirstChild("FinalTreeS") then
+				fireclickdetector(workspace.SprootMap.Final.FinalTreeS.Main.ClickDetector)
+			end
+		end
+	wait(1)
+	end
+end
+
 -- Menu
-local Menu = Window:MakeTab({
-	Name = "Menu",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+local Menu = Window:CreateTab("Leaves", "home")
+local Section = Menu:CreateSection("Auto Farm")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Click",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoClick = Value
+   	AutoClick()
+   end,
 })
-local Section = Menu:AddSection({
-	Name = "Auto Farm"
+local Toggle =  Menu:CreateToggle({
+   Name = "Fast Gains",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.FastGains = Value
+   	FastGains()
+   end,
 })
-Menu:AddToggle({
-	Name = "Fast Gains",
-	Default = false,
-	Callback = function(Value)
-		_G.FastGains = Value
-		FastGains()
-	end
+local Section = Menu:CreateSection("Upgrade")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Level Up Tree",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.UpTree = Value
+   	UpTree()
+   end,
 })
-Menu:AddToggle({
-	Name = "Auto Level Up Tree",
-	Default = false,
-	Callback = function(Value)
-		_G.UpTree = Value
-		UpTree()
-	end
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Buy Upgrades",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoBuyTree = Value
+   	AutoBuyTree()
+   end,
+})
+local Section = Menu:CreateSection("Sacrifice")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Sarifice Leaves",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.SacrificeLeaves = Value
+   	SacrificeLeaves()
+   end,
 })
 
 -- Fruits
-local Fruits = Window:MakeTab({
-	Name = "Fruits",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+local Fruits = Window:CreateTab("Apples", "apple")
+local Section = Fruits:CreateSection("Auto Farm")
+local Toggle =  Fruits:CreateToggle({
+   Name = "Fast Apples",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.FastApples = Value
+   	FastApples()
+   end,
 })
-local Section = Fruits:AddSection({
-	Name = "Auto Farm"
+local Toggle =  Fruits:CreateToggle({
+   Name = "Auto Harvest",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoHarvest = Value
+   	AutoHarvest()
+   end,
 })
-Fruits:AddToggle({
-	Name = "Auto Harvest",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoHarvest = Value
-		AutoHarvest()
-	end
+local Section = Fruits:CreateSection("Upgrade")
+local Toggle =  Fruits:CreateToggle({
+   Name = "Auto Buy Upgrades",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoBuyApple = Value
+   	AutoBuyApple()
+   end,
 })
-local Section = Fruits:AddSection({
-	Name = "Manual Purchase"
+local Section = Fruits:CreateSection("Fruit Harvest System")
+local Toggle =  Fruits:CreateToggle({
+   Name = "Upgrade Fruit/s",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.FruitUPG = Value
+   	FruitUPG()
+   end,
 })
-Fruits:AddButton({
-	Name = "Upgrade Fruits",
-	Callback = function()
-      		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("BuyFruitUpg"):FireServer()
-  	end    
+local Toggle =  Fruits:CreateToggle({
+   Name = "Upgrade Backpack",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.BackpackUPG = Value
+   	BackpackUPG()
+   end,
 })
-Fruits:AddButton({
-	Name = "Upgrade Backpack",
-	Callback = function()
-      		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("BuyBackpackUpg"):FireServer()
-  	end    
+local Toggle =  Fruits:CreateToggle({
+   Name = "Upgrade Leaves",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.LeavesUPG = Value
+   	LeavesUPG()
+   end,
 })
-Fruits:AddButton({
-	Name = "Upgrade Leaves/s",
-	Callback = function()
-      		game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("FruitHarvestSystem"):WaitForChild("BuyLeavesUpg"):FireServer()
-  	end    
+local Section = Fruits:CreateSection("Sacrifice")
+local Toggle =  Fruits:CreateToggle({
+   Name = "Auto Sacrifice Apples",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.SacrificeApples = Value
+   	SacrificeApples()
+   end,
 })
-local Section = Fruits:AddSection({
-	Name = "Auto Purchase"
+
+-- Sproots
+local Sproots = Window:CreateTab("Sproots", "bean")
+local Section = Sproots:CreateSection("Upgrade")
+local Toggle =  Sproots:CreateToggle({
+   Name = "Auto Buy Upgrade",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoBuySproot = Value
+   	AutoBuySproot()
+   end,
 })
-Fruits:AddToggle({
-	Name = "Upgrade Fruits",
-	Default = false,
-	Callback = function(Value)
-		_G.FruitUPG = Value
-		FruitUPG()
-	end
-})
-Fruits:AddToggle({
-	Name = "Upgrade Backpack",
-	Default = false,
-	Callback = function(Value)
-		_G.BackpackUPG = Value
-		BackpackUPG()
-	end
-})
-Fruits:AddToggle({
-	Name = "Upgrade Leave/s",
-	Default = false,
-	Callback = function(Value)
-		_G.LeavesUPG = Value
-		LeavesUPG()
-	end
+local Section = Sproots:CreateSection("Sacrifice")
+local Toggle =  Sproots:CreateToggle({
+   Name = "Auto Sacrifice Sproots",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.SacrificeSproots = Value
+   	SacrificeSproots()
+   end,
 })
 
 -- Trees
-local Trees = Window:MakeTab({
-	Name = "Trees",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local Section = Trees:AddSection({
-	Name = "Auto Farm"
-})
-Trees:AddToggle({
-	Name = "Auto Tree Points",
-	Default = false,
-	Callback = function(Value)
-		_G.AutoPoints = Value
-		AutoPoints()
-	end
-})
-local Section = Trees:AddSection({
-	Name = "Manual Purchase"
-})
-Trees:AddButton({
-	Name = "Buy TP Generator - 100 Tree Points",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").Remotes.TreePointSystem.TPGen:FireServer()
-  	end    
-})
-Trees:AddButton({
-	Name = "Buy Forest Generator - 100 TP Generator",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").Remotes.TreePointSystem.ForestGen:FireServer()
-  	end    
-})
-Trees:AddButton({
-	Name = "Buy Mystic Generator - 100 Forest Generator",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").Remotes.TreePointSystem.MysticForestGen:FireServer()
-  	end    
-})
-local Section = Trees:AddSection({
-	Name = "Auto Purchase"
-})
-Trees:AddToggle({
-	Name = "Buy TP Generator - 100 Tree Points",
-	Default = false,
-	Callback = function(Value)
-		_G.BuyTP = Value
-		BuyTP()
-	end
-})
-Trees:AddToggle({
-	Name = "Buy Forest Generator - 100 TP Generator",
-	Default = false,
-	Callback = function(Value)
-		_G.BuyForest = Value
-		BuyForest()
-	end
-})
-Trees:AddToggle({
-	Name = "Buy Mystic Generator - 100 Forest Generator",
-	Default = false,
-	Callback = function(Value)
-		_G.BuyMystic = Value
-		BuyMystic()
-	end
-})
+local Trees = Window:CreateTab("Trees", "trees")
 
--- Cheat
-local Cheat = Window:MakeTab({
-	Name = "Shhh...",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+-- Sproots
+local Cheat = Window:CreateTab("Extra OP", "triangle-alert")
+local Section = Cheat:CreateSection("God Mode")
+local Toggle =  Cheat:CreateToggle({
+   Name = "Secret Feature",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.GodMode = Value
+   	GodMode()
+   end,
 })
-local Section = Cheat:AddSection({
-	Name = "Powerful Option"
-})
-Cheat:AddToggle({
-	Name = "OP GAINS",
-	Default = false,
-	Callback = function(Value)
-		_G.GodMode = Value
-		GodMode()
-	end
-})
-Cheat:AddLabel("Cuidado com essa opção! É muito poderosa!")
-
-Menu:AddLabel("Instagram: _moligrafi_")
-
-OrionLib:Init()
