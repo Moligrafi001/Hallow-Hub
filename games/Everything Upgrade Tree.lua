@@ -36,10 +36,10 @@ local function AutoUpLab()
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("RightSide")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("LeftSide")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("Materialize")
+		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("Materialize2")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain2")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain3")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain4")
-		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain2")
 		wait(1)
 	end
 end
