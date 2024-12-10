@@ -1,12 +1,12 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({
-  Name = "Hallow Hub | NO GAME CONNECTED", 
-  HidePremium = false, 
-  IntroText = "Hallow Hub", 
-  SaveConfig = false,
-  IntroIcon = "rbxassetid://17091459839",
-  ConfigFolder = "Hallow Hub"})
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Hallow Hub | No Game Dettected",
+   Icon = 17091459839,
+   LoadingTitle = "Hallow Hub",
+   LoadingSubtitle = "By Marc",
+   Theme = "Amethyst"
+})
 
 -- Teleport
 local selectedGame = "The Upgrade Tree Of Tree"
@@ -20,36 +20,35 @@ end
 -- Lista de Place IDs correspondentes aos jogos
 local gamePlaceIds = {
     ["The Upgrade Tree Of Tree"] = 16148053600,
-    ["Wing Simulator"] = 4535346003,
-    ["Farm for Fun! 🌾"] = 6598746935,
-    ["Flee The Facility"] = 893973440,
-    ["Build a bunker in your house to survive zombies"] = 12684368460,
-    ["Planet Clicker 🌎"] = 6428116890,
-    ["Legends Of Speed ⚡"] = 101667897
+    ["Everything Upgrade Tree"] = 122809141833750
 }
 
--- Credits
-local Credits = Window:MakeTab({
-    Name = "Credits",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
+-- Menu
+local Menu = Window:CreateTab("Credits", "info")
+local Section = Menu:CreateSection("Creator")
+local Label = Menu:CreateLabel("Discord: moligrafi", "at-sign")
+local Label = Menu:CreateLabel("You can contact me to suggest something or even to ask for a game script")
+
+
+-- Games
+local Games = Window:CreateTab("Supported Games", "gamepad-2")
+local Section = Games:CreateSection("Join game system")
+local Label = Games:CreateLabel("Here are all the supported games in this script <3", "smile")
+local Dropdown = Games:CreateDropdown({
+   Name = "Select Game to Join",
+   Options = {"The Upgrade Tree Of Tree", "Everything Upgrade Tree"},
+   CurrentOption = {"Choose one"},
+   MultipleOptions = false,
+   Callback = function(Options)
+   		selectedGame = CurrentOption
+   end,
 })
-Credits:AddDropdown({
-    Name = "Select Game to Join",
-    Default = selectedGame,
-    Options = {"The Upgrade Tree Of Tree", "Wing Simulator", "Farm for Fun! 🌾", "Flee The Facility", "Build a bunker in your house to survive zombies", "Planet Clicker 🌎", "Legends Of Speed ⚡"},
-    Callback = function(value)
-        selectedGame = value
-    end    
-})
-Credits:AddButton({
-    Name = "Join Selected Game",
-    Callback = function()
+local Button = Games:CreateButton({
+   Name = "Teleport to selected game",
+   Callback = function()
         local placeId = gamePlaceIds[selectedGame]
         if placeId then
             TeleportToGame(placeId)
         end
-    end
+    end,
 })
-
-OrionLib:Init()
