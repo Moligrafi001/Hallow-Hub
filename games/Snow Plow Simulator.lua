@@ -16,7 +16,7 @@ local function AutoSnow()
 	while _G.AutoSnow == true do
 		 for i = 1, 8 do
 		 	local nevinha = "workspace.HitParts.Snow" .. i
-		 	game:GetService("ReplicatedStorage").Events.e8eGb8RgRXFcug8q:FireServer(nevinha, "Snow8", "Stick")
+		 	game:GetService("ReplicatedStorage").Events.e8eGb8RgRXFcug8q:FireServer(nevinha, "Snow8", "MagicWand")
 		 end
 	wait(0.0001)
 	end
