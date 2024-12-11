@@ -9,6 +9,7 @@ local Window = Rayfield:CreateWindow({
 })
 
 -- Valores
+local WalkSpeedText = 16
 _G.AutoSnow = false
 
 -- Funções
@@ -21,6 +22,9 @@ local function AutoSnow()
 	wait(0.0001)
 	end
 end
+local function SetWalkSpeed()
+	game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = WalkSpeedText
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -32,6 +36,22 @@ local Toggle =  Menu:CreateToggle({
    	_G.AutoSnow = Value
    	AutoSnow()
    end,
+})
+local Section = Menu:CreateSection("Movement")
+local Input = Menu:CreateInput({
+   Name = "WalkSpeed",
+   CurrentValue = "",
+   PlaceholderText = "Default WalkSpeed = 16",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   	WalkSpeedText = Text
+   end,
+})
+local Button = Menu:CreateButton({
+   Name = "Set WalkSpeed",
+   Callback = function()
+   	SetWalkSpeed()
+    end,
 })
 
 -- Credits
