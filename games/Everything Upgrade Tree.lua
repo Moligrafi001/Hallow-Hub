@@ -62,7 +62,6 @@ local function AutoUpLab()
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain3")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain4")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain1b")
-
 		wait(0.33)
 	end
 end
