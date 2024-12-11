@@ -30,3 +30,9 @@ local Toggle =  Menu:CreateToggle({
    	AutoSnow()
    end,
 })
+
+-- Credits
+local Credits = Window:CreateTab("Credits", "info")
+local Section = Credits:CreateSection("Creator")
+local Label = Credits:CreateLabel("Discord: moligrafi", "at-sign")
+local Label = Credits:CreateLabel("You can contact me to suggest something or even to ask for a game script")
