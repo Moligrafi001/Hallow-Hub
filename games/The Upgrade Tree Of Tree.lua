@@ -4,7 +4,7 @@ local Window = Rayfield:CreateWindow({
    Name = "Hallow Hub | The Upgrade Tree Of Tree",
    Icon = 17091459839,
    LoadingTitle = "Hallow Hub",
-   LoadingSubtitle = "By Marc",
+   LoadingSubtitle = "By Moligrafi",
    Theme = "Amethyst"
 })
 
