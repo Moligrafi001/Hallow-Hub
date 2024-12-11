@@ -20,7 +20,8 @@ end
 -- Lista de Place IDs correspondentes aos jogos
 local gamePlaceIds = {
     ["The Upgrade Tree Of Tree"] = 16148053600,
-    ["Everything Upgrade Tree"] = 122809141833750
+    ["Everything Upgrade Tree"] = 122809141833750,
+    ["Snow Plow Simulator"] = 11701792069
 }
 
 -- Menu
@@ -36,7 +37,7 @@ local Section = Games:CreateSection("Join game system")
 local Label = Games:CreateLabel("Here are all the supported games in this script <3", "smile")
 local Dropdown = Games:CreateDropdown({
    Name = "Select Game to Join",
-   Options = {"The Upgrade Tree Of Tree", "Everything Upgrade Tree"},
+   Options = {"The Upgrade Tree Of Tree", "Everything Upgrade Tree", "Snow Plow Simulator"},
    CurrentOption = {"Choose one"},
    MultipleOptions = false,
    Callback = function(Options)
