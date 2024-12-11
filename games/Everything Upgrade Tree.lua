@@ -42,7 +42,7 @@ local function AutoUpgrade()
 			local numero = v .. "b"
 			game:GetService("ReplicatedStorage").remotes.upgrade:FireServer(numero)
 		end
-		wait(1)
+		wait(0.5)
 	end
 end
 local function AutoConvert()
@@ -61,7 +61,7 @@ local function AutoUpLab()
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain2")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain3")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain4")
-		wait(1)
+		wait(0.33)
 	end
 end
 
