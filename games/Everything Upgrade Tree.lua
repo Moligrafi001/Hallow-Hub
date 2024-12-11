@@ -17,7 +17,7 @@ _G.AutoUpgrade = false
 local function AutoUpgrade()
 	while _G.AutoUpgrade == true do
 		for i = 1, 30 do
-			if i ~= 22 then
+			if i ~= 20 then
 				game:GetService("ReplicatedStorage").remotes.upgrade:FireServer(i)
 			end
 		end
