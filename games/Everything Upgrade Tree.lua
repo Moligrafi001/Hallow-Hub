@@ -12,14 +12,35 @@ local Window = Rayfield:CreateWindow({
 _G.AutoUpgrade = false
 _G.AutoConvert = false
 _G.AutoUpgrade = false
+_G.AutoPrestige = false
+_G.AutoUpPrestige = false
 
 -- Funções
+local function AutoUpPrestige()
+	while _G.AutoUpPrestige == true do
+		for i = 2, 30 do
+			local numero = i .. "p"
+			game:GetService("ReplicatedStorage").remotes.upgrade:FireServer(numero)
+		end
+	wait(1)
+	end
+end
+local function AutoPrestige()
+	while _G.AutoPrestige do
+		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("prestige")
+		wait(1)
+	end
+end
 local function AutoUpgrade()
 	while _G.AutoUpgrade == true do
 		for i = 1, 30 do
 			if i ~= 20 then
 				game:GetService("ReplicatedStorage").remotes.upgrade:FireServer(i)
 			end
+		end
+		for v = 1, 30 do
+			local numero = v .. "b"
+			game:GetService("ReplicatedStorage").remotes.upgrade:FireServer(numero)
 		end
 		wait(1)
 	end
@@ -70,6 +91,27 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoUpLab = Value
    	AutoUpLab()
+   end,
+})
+
+-- Prestige
+local Prestige = Window:CreateTab("Prestige", "shield")
+local Section = Prestige:CreateSection("Auto Farm")
+local Toggle =  Prestige:CreateToggle({
+   Name = "Auto Prestige",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoPrestige = Value
+   	AutoPrestige()
+   end,
+})
+local Section = Prestige:CreateSection("Upgrade")
+local Toggle =  Prestige:CreateToggle({
+   Name = "Auto Buy Upgrades",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoUpPrestige = Value
+   	AutoUpPrestige()
    end,
 })
 
