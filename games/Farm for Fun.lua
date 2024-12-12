@@ -1,30 +1,23 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Farm%20for%20Fun.lua",true))()
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
-local Window = OrionLib:MakeWindow({
-  Name = "Hallow Hub | Farm for Fun! 🌾",
-  HidePremium = false,
-  IntroText = "Hallow Hub",
-  SaveConfig = false, 
-  IntroIcon = "rbxassetid://17091459839",
-  ConfigFolder = "Farm for Fun! 🌾"
-})
-OrionLib:MakeNotification({
-  Name = "Última atualização - 05/04/2024",
-  Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
-  Image = "rbxassetid://17091459839",
-  Time = 9
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Hallow Hub | Farm for Fun! 🌾",
+   Icon = 17091459839,
+   LoadingTitle = "Hallow Hub",
+   LoadingSubtitle = "By Moligrafi",
+   Theme = "Amethyst"
 })
 
 -- Valores
-_G.AutoHarvest = true
-_G.SpeedB = true
-_G.GoldB = true
-_G.GrowB = true
-_G.MoneyB = true
-_G.AutoRB = true
+_G.AutoHarvest = false
+_G.SpeedB = false
+_G.GoldB = false
+_G.GrowB = false
+_G.MoneyB = false
+_G.AutoRB = false
 
 -- Funcoes
-function AutoHarvest()
+local function AutoHarvest()
   while _G.AutoHarvest do
     for i = 1, 263 do
       local crop = "s" .. i
@@ -38,8 +31,7 @@ function AutoHarvest()
     wait(1)
   end
 end
-
-function SpeedB()
+local function SpeedB()
     while _G.SpeedB do
         local boosts = {}
         for _, part in ipairs(workspace:GetDescendants()) do
@@ -59,8 +51,7 @@ function SpeedB()
         wait(1)
     end
 end
-
-function GoldB()
+local function GoldB()
     while _G.GoldB do
         local boosts = {}
         for _, part in ipairs(workspace:GetDescendants()) do
@@ -80,8 +71,7 @@ function GoldB()
         wait(1)
     end
 end
-
-function GrowB()
+local function GrowB()
     while _G.GrowB do
         local boosts = {}
         for _, part in ipairs(workspace:GetDescendants()) do
@@ -101,8 +91,7 @@ function GrowB()
         wait(1)
     end
 end
-
-function MoneyB()
+local function MoneyB()
     while _G.MoneyB do
         local boosts = {}
         for _, part in ipairs(workspace:GetDescendants()) do
@@ -122,8 +111,7 @@ function MoneyB()
         wait(1)
     end
 end
-
-function AutoRB()
+local function AutoRB()
   while _G.AutoRB do
     local args = {
     [1] = {}
@@ -135,73 +123,60 @@ wait(5)
 end
 
 -- Menu
-local Menu = Window:MakeTab({
-  Name = "Menu",
-  Icon = "rbxassetid://4483345998",
-  PremiumOnly = false
+local Menu = Window:CreateTab("Main", "home")
+local Section = Menu:CreateSection("Auto Farm")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Harvest",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoHarvest = Value
+   	AutoHarvest()
+   end,
 })
-local Section = Menu:AddSection({
-  Name = "Auto Farm"
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto rebirth",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoRB = Value
+   	AutoRB()
+   end,
 })
-Menu:AddToggle({
-  Name = "Auto Harvest",
-  Default = false,
-  Callback = function(Value)
-    _G.AutoHarvest = Value
-      AutoHarvest()
-    end
+local Section = Menu:CreateSection("Boosts")
+local Toggle =  Menu:CreateToggle({
+   Name = "Speed Boost",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.SpeedB = Value
+   	AutoRB()
+   end,
 })
-Menu:AddToggle({
-  Name = "Auto Rebirth",
-  Default = false,
-  Callback = function(Value)
-    _G.AutoRB = Value
-      AutoRB()
-    end
+local Toggle =  Menu:CreateToggle({
+   Name = "Gold Boost",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.GoldB = Value
+   	GoldB()
+   end,
 })
-
--- Boosts
-local Boosts = Window:MakeTab({
-  Name = "Boosts",
-  Icon = "rbxassetid://4483345998",
-  PremiumOnly = false
+local Toggle =  Menu:CreateToggle({
+   Name = "Grow Boost",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.GrowB = Value
+   	GrowB()
+   end,
 })
-local Section = Boosts:AddSection({
-  Name = "Auto Boosts"
-})
-Boosts:AddToggle({
-  Name = "Speed Boost",
-  Default = false,
-  Callback = function(Value)
-    _G.SpeedB = Value
-      SpeedB()
-    end
-})
-Boosts:AddToggle({
-  Name = "Gold Boost",
-  Default = false,
-  Callback = function(Value)
-    _G.GoldB = Value
-      GoldB()
-    end
-})
-Boosts:AddToggle({
-  Name = "Grow Boost",
-  Default = false,
-  Callback = function(Value)
-    _G.GrowB = Value
-      GrowB()
-    end
-})
-Boosts:AddToggle({
-  Name = "Money Boost",
-  Default = false,
-  Callback = function(Value)
-    _G.MoneyB = Value
-      MoneyB()
-    end
+local Toggle =  Menu:CreateToggle({
+   Name = "Money Boost",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.MoneyB = Value
+   	MoneyB()
+   end,
 })
 
-Menu:AddLabel("Instagram: _moligrafi_")
-
-OrionLib:Init()
+-- Credits
+local Credits = Window:CreateTab("Credits", "info")
+local Section = Credits:CreateSection("Creator")
+local Label = Credits:CreateLabel("Discord: moligrafi", "at-sign")
+local Label = Credits:CreateLabel("You can contact me to suggest something or even to ask for a game script")
