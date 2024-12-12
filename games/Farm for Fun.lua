@@ -134,14 +134,14 @@ local Toggle =  Menu:CreateToggle({
    end,
 })
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto rebirth",
+   Name = "Auto Rebirth",
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoRB = Value
    	AutoRB()
    end,
 })
-local Section = Menu:CreateSection("Boosts")
+local Section = Menu:CreateSection("Auto.Collect Boosts")
 local Toggle =  Menu:CreateToggle({
    Name = "Speed Boost",
    CurrentValue = false,
