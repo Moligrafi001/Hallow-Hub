@@ -7,6 +7,8 @@ elseif game.PlaceId == 122809141833750 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Everything%20Upgrade%20Tree.lua",true))()
 elseif game.PlaceId == 11701792069 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Snow%20Plow%20Simulator.lua",true))()
+elseif game.PlaceId == 6598746935 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Farm%20for%20Fun.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
