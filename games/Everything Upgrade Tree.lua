@@ -11,7 +11,7 @@ local Window = Rayfield:CreateWindow({
 -- Valores
 _G.AutoUpgrade = false
 _G.AutoConvert = false
-_G.AutoUpgrade = false
+_G.AutoUpLab = false
 _G.AutoPrestige = false
 _G.AutoUpPrestige = false
 
