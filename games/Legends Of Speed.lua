@@ -1,23 +1,16 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Legends%20Of%20Speed.lua",true))()
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/thanhdat4461/OrionMoblie/main/source')))()
-local Window = OrionLib:MakeWindow({
-    Name = "Hallow Hub | Legends Of Speed ⚡",
-    HidePremium = false,
-    IntroText = "Hallow Hub",
-    SaveConfig = false,
-    IntroIcon = "rbxassetid://17091459839",
-    ConfigFolder = "Legends Of Speed ⚡"
-})
-OrionLib:MakeNotification({
-    Name = "Última atualização - 15/04/2024",
-    Content = "Este script pode estar desatualizado devido a possíveis atualizações do jogo.",
-    Image = "rbxassetid://17091459839",
-    Time = 9
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Hallow Hub | Legends Of Speed",
+   Icon = 17091459839,
+   LoadingTitle = "Hallow Hub",
+   LoadingSubtitle = "By Moligrafi",
+   Theme = "Amethyst"
 })
 
 -- Auto XP
 _G.AutoXP = false
-function AutoXP()
+local function AutoXP()
 		while _G.AutoXP == true do
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "Snow City")
@@ -31,7 +24,7 @@ end
 
 -- Farm Steps
 _G.FarmS = false
-function FarmS()
+local function FarmS()
 		while _G.FarmS == true do
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "Snow City")
@@ -45,7 +38,7 @@ end
 
 -- Farm Gems
 _G.FarmG = false
-function FarmG()
+local function FarmG()
 		while _G.FarmG == true do
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Gem", "Snow City")
@@ -59,58 +52,61 @@ end
 
 -- Auto Rebirth
 _G.AutoRebirth = false
-function AutoRebirth()
+local function AutoRebirth()
 		while _G.AutoRebirth == true do
 			game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer("rebirthRequest")
 			wait(1)
 		end
 end
 
--- Menu
-local Menu = Window:MakeTab({
-    Name = "Menu",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
+local Menu = Window:CreateTab("Main", "home")
+local Section = Menu:CreateSection("Auto Farm")
+local Toggle =  Menu:CreateToggle({
+   Name = "Farm XP",
+   CurrentValue = false,
+   Callback = function(Value)
+       _G.AutoXP = Value
+       AutoXP()
+   end,
 })
-local Section = Menu:AddSection({
-    Name = "Auto Farm"
+local Toggle =  Menu:CreateToggle({
+   Name = "Farm Steps",
+   CurrentValue = false,
+   Callback = function(Value)
+       _G.FarmS = Value
+       FarmS()
+   end,
 })
-Menu:AddToggle({
-    Name = "Farm XP",
-    Default = false,
-    Callback = function(Value)
-      _G.AutoXP = Value
-      AutoXP()
-    end
+local Toggle =  Menu:CreateToggle({
+   Name = "Farm Gems",
+   CurrentValue = false,
+   Callback = function(Value)
+       _G.FarmG = Value
+       FarmG()
+   end,
 })
-Menu:AddToggle({
-    Name = "Farm Gems",
-    Default = false,
-    Callback = function(Value)
-      _G.FarmG = Value
-      FarmG()
-    end
-})
-Menu:AddToggle({
-    Name = "Farm Steps",
-    Default = false,
-    Callback = function(Value)
-      _G.FarmS = Value
-      FarmS()
-    end
-})
-local Section = Menu:AddSection({
-    Name = "Others"
-})
-Menu:AddToggle({
-    Name = "Auto Rebirth",
-    Default = false,
-    Callback = function(Value)
-      _G.AutoRebirth = Value
-      AutoRebirth()
-    end
+local Section = Menu:CreateSection("Others")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Rebirth",
+   CurrentValue = false,
+   Callback = function(Value)
+       _G.AutoRebirth = Value
+       AutoRebirth()
+   end,
 })
 
-Menu:AddLabel("Instagram: _moligrafi_")
-
-OrionLib:Init()
+-- Credits.
+local Credits = Window:CreateTab("Credits", "info")
+local Section = Credits:CreateSection("Creator")
+local Label = Credits:CreateLabel("Discord: moligrafi", "at-sign")
+local Section = Credits:CreateSection("Co-Dev")
+local Label = Credits:CreateLabel("Discord: world_star_hacker", "at-sign")
+local Section = Credits:CreateSection("Discord Server")
+local Label = Credits:CreateLabel("https://discord.gg/AESCuek87s")
+local Button = Credits:CreateButton({
+   Name = "Copy Server Link",
+   Callback = function()
+       setclipboard("https://discord.gg/AESCuek87s")
+       toclipboard("https://discord.gg/AESCuek87s")
+    end,
+})
