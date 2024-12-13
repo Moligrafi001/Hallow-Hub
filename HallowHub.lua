@@ -25,12 +25,21 @@ local gamePlaceIds = {
     ["Farm for Fun! 🌾"] = 6598746935
 }
 
--- Menu
-local Menu = Window:CreateTab("Credits", "info")
-local Section = Menu:CreateSection("Creator")
-local Label = Menu:CreateLabel("Discord: moligrafi", "at-sign")
-local Label = Menu:CreateLabel("You can contact me to suggest something or even to ask for a game script")
-
+-- Credits.
+local Credits = Window:CreateTab("Credits", "info")
+local Section = Credits:CreateSection("Creator")
+local Label = Credits:CreateLabel("Discord: moligrafi", "at-sign")
+local Section = Credits:CreateSection("Co-Dev")
+local Label = Credits:CreateLabel("Discord: world_star_hacker", "at-sign")
+local Section = Credits:CreateSection("Discord Server")
+local Label = Credits:CreateLabel("https://discord.gg/AESCuek87s")
+local Button = Credits:CreateButton({
+   Name = "Copy Server Link",
+   Callback = function()
+       setclipboard("https://discord.gg/AESCuek87s")
+       toclipboard("https://discord.gg/AESCuek87s")
+    end,
+})
 
 -- Games
 local Games = Window:CreateTab("Supported Games", "gamepad-2")
