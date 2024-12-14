@@ -37,6 +37,12 @@ local Toggle =  Menu:CreateToggle({
    	AutoSnow()
    end,
 })
+local Button = Menu:CreateButton({
+   Name = "Inf Gems",
+   Callback = function()
+   	game:GetService("ReplicatedStorage").ServerEvents.treasureChestCollection:FireServer(999999999999999)
+    end,
+})
 local Section = Menu:CreateSection("Movement")
 local Input = Menu:CreateInput({
    Name = "WalkSpeed",
