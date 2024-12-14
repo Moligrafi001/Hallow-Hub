@@ -48,8 +48,8 @@ local function AutoRebirth()
 end
 local function AutoWin()
 	while _G.AutoWin == true do
-		for w = 1, 3 do
-			game:GetService("ReplicatedStorage").Win:FireServer(w)
+		for w = 1, 11 do
+		game:GetService("ReplicatedStorage").Win:FireServer(w)
 		end
 		wait(0.0001)
 	end
