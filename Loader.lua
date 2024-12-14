@@ -15,6 +15,8 @@ elseif game.PlaceId == 8034886758 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Punch%20Monsters.lua",true))()
 elseif game.PlaceId == 81257648942232 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Slash%20Mobs%20Simulator.lua",true))()
+elseif game.PlaceId == 101162558216961 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Rune%20INC.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
