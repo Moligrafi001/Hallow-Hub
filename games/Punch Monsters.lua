@@ -74,6 +74,7 @@ local Toggle =  Menu:CreateToggle({
    	AutoWin()
    end,
 })
+local Section = Menu:CreateSection("More")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Rebirth",
    CurrentValue = false,
