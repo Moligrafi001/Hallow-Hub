@@ -17,6 +17,8 @@ _G.AutoAscend = false
 _G.AscMulti = false
 _G.MoreSucess = false
 _G.MoreAscend = false
+_G.GemRoll = false
+_G.GemMulti = false
 
 -- Funções
 local function AutoRoll()
@@ -64,6 +66,18 @@ end
 local function MoreAscend()
 	while _G.MoreAscend == true do
 		game:GetService("ReplicatedStorage").Upgrades.Upgrade:FireServer(game:GetService("Players").LocalPlayer.PlayerGui.UI.Frame.Frames.AscensionUpgrades.CurrencyFolder.AscensionUp)
+		wait(0.5)
+	end
+end
+local function GemMulti()
+	while _G.GemMulti == true do
+		game:GetService("ReplicatedStorage").Upgrades.Upgrade:FireServer(game:GetService("Players").LocalPlayer.PlayerGui.UI.Frame.Frames:FindFirstChild("2GemUpgrades").leaderstats.GemMultiUp)
+		wait(0.5)
+	end
+end
+local function GemRoll()
+	while _G.GemRoll == true do
+		game:GetService("ReplicatedStorage").RollRemoteEvent.GemRoll:FireServer()
 		wait(0.5)
 	end
 end
@@ -139,6 +153,18 @@ local Toggle =  Ascend:CreateToggle({
    Callback = function(Value)
    	_G.MoreAscend = Value
    	MoreAscend()
+   end,
+})
+
+-- Gem
+local Gem = Window:CreateTab("Gem", "diamond")
+local Section = Gem:CreateSection("Auto Farm")
+local Toggle =  Gem:CreateToggle({
+   Name = "Auto Roll Gem",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.GemRoll = Value
+   	GemRoll()
    end,
 })
 
