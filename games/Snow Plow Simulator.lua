@@ -11,6 +11,7 @@ local Window = Rayfield:CreateWindow({
 -- Valores
 local WalkSpeedText = 16
 _G.AutoSnow = false
+_G.AutoRebirth = false
 
 -- Funções
 local function AutoSnow()
@@ -25,6 +26,12 @@ end
 local function SetWalkSpeed()
 	game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = WalkSpeedText
 end
+local function AutoRebirth()
+	while _G.AutoRebirth == true do
+		game:GetService("ReplicatedStorage").RebirthEvent:FireServer()
+		wait(1)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -35,6 +42,14 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoSnow = Value
    	AutoSnow()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Rebirth",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoRebirth = Value
+   	AutoRebirth()
    end,
 })
 local Button = Menu:CreateButton({
