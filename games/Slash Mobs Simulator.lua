@@ -10,6 +10,7 @@ local Window = Rayfield:CreateWindow({
 
 -- Valores
 _G.FastRegen = false
+_G.QuestRewards = false
 
 -- Funções
 local function FastRegen()
@@ -17,6 +18,22 @@ local function FastRegen()
 		game:GetService("ReplicatedStorage").Remote.Event.Up:FindFirstChild("[C-S]TryRegen"):FireServer(1)
 		wait(0.0001)
 	end
+end
+local function GetCodes()
+	game:GetService("ReplicatedStorage").CdkRewardFuntion.isPlayerUseCdkRequest:InvokeServer("SLASHRELEASE")
+	game:GetService("ReplicatedStorage").CdkRewardFuntion.isPlayerUseCdkRequest:InvokeServer("2000likes")
+end
+local function QuestRewards()
+	while _G.QuestRewards == true do
+		for q = 1, 2 do
+			local questie = "Q" .. q
+			game:GetService("ReplicatedStorage").Remote.Event.DailyMission:FindFirstChild("[C-S]PlayerGetReward"):FireServer(questie)
+		end
+		wait(0.5)
+	end
+end
+local function DoChallenge()
+	game:GetService("ReplicatedStorage").Remote.Event.Eco:FindFirstChild("[C-S]Trybreakthrough"):FireServer()
 end
 
 -- Menu
@@ -29,4 +46,24 @@ local Toggle =  Menu:CreateToggle({
    	_G.FastRegen = Value
    	FastRegen()
    end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Gems (Slow)",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.QuestRewards = Value
+   	QuestRewards()
+   end,
+})
+local Button = Menu:CreateButton({
+   Name = "Reedem Codes",
+   Callback = function()
+   	GetCodes()
+    end,
+})
+local Button = Menu:CreateButton({
+   Name = "Start Challenge",
+   Callback = function()
+   	DoChallenge()
+    end,
 })
