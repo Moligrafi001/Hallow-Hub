@@ -18,6 +18,17 @@ _G.TimeRewards = false
 local function AutoTrain()
 	while _G.AutoTrain == true do
 		game:GetService("ReplicatedStorage").Train:FireServer("0A", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0B", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0C", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0D", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0E", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0F", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0G", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0H", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0I", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0J", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0K", 1)
+		game:GetService("ReplicatedStorage").Train:FireServer("0L", 1)
 		wait(0.0001)
 	end
 end
