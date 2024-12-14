@@ -38,7 +38,7 @@ end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
-local Section = Menu:CreateSection("Auto Farm")
+local Section = Menu:CreateSection("Combat")
 local Toggle =  Menu:CreateToggle({
    Name = "Fast Regen",
    CurrentValue = false,
@@ -47,6 +47,13 @@ local Toggle =  Menu:CreateToggle({
    	FastRegen()
    end,
 })
+local Button = Menu:CreateButton({
+   Name = "Start Challenge",
+   Callback = function()
+   	DoChallenge()
+    end,
+})
+local Section = Menu:CreateSection("Extra")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Gems (Slow)",
    CurrentValue = false,
@@ -59,12 +66,6 @@ local Button = Menu:CreateButton({
    Name = "Reedem Codes",
    Callback = function()
    	GetCodes()
-    end,
-})
-local Button = Menu:CreateButton({
-   Name = "Start Challenge",
-   Callback = function()
-   	DoChallenge()
     end,
 })
 
