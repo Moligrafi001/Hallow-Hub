@@ -167,6 +167,15 @@ local Toggle =  Gem:CreateToggle({
    	GemRoll()
    end,
 })
+local Section = Gem:CreateSection("Auto Buy Upgrades")
+local Toggle =  Gem:CreateToggle({
+   Name = "Upgrade GEM Multi",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.GemMulti = Value
+   	GemMulti()
+   end,
+})
 
 -- Credits.
 local Credits = Window:CreateTab("Credits", "info")
