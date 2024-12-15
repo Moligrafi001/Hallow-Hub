@@ -1,3 +1,4 @@
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Hockey%20Noobs%20League.lua",true))()
 if game.Players.LocalPlayer.Name == "MurdersRBLX" then
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
