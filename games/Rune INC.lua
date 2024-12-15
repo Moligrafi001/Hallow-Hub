@@ -1,7 +1,7 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Rune%20INC.lua",true))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
-   Name = "Hallow Hub | Rune Inc",
+   Name = "Hallow Hub | Rune Incremental",
    Icon = 17091459839,
    LoadingTitle = "Hallow Hub",
    LoadingSubtitle = "By Moligrafi",
@@ -19,6 +19,9 @@ _G.MoreSucess = false
 _G.MoreAscend = false
 _G.GemRoll = false
 _G.GemMulti = false
+_G.MultiGem = false
+_G.GemLuck = false
+_G.GemSpeed = false
 
 -- Funções
 local function AutoRoll()
@@ -78,6 +81,30 @@ end
 local function GemRoll()
 	while _G.GemRoll == true do
 		game:GetService("ReplicatedStorage").RollRemoteEvent.GemRoll:FireServer()
+		wait(0.5)
+	end
+end
+local function MultiGem()
+	while _G.MultiGem == true do
+		game:GetService("ReplicatedStorage").Upgrades.Upgrade:FireServer(game:GetService("Players").LocalPlayer.PlayerGui.UI.Frame.Frames:FindFirstChild("2GemUpgrades").leaderstats.MultiUp3)
+		wait(0.5)
+	end
+end
+local function GemLuck()
+	while _G.GemLuck == true do
+		game:GetService("ReplicatedStorage").Upgrades.Upgrade:FireServer(game:GetService("Players").LocalPlayer.PlayerGui.UI.Frame.Frames:FindFirstChild("2GemUpgrades").leaderstats.GemLuckUp)
+		wait(0.5)
+	end
+end
+local function LuckGem()
+	while _G.LuckGem == true do
+		game:GetService("ReplicatedStorage").Upgrades.Upgrade:FireServer(game:GetService("Players").LocalPlayer.PlayerGui.UI.Frame.Frames:FindFirstChild("2GemUpgrades").leaderstats.LuckUp3)
+		wait(0.5)
+	end
+end
+local function GemSpeed()
+	while _G.GemSpeed == true do
+		game:GetService("ReplicatedStorage").Upgrades.Upgrade:FireServer(game:GetService("Players").LocalPlayer.PlayerGui.UI.Frame.Frames:FindFirstChild("2GemUpgrades").leaderstats.GemRollSpeedUp)
 		wait(0.5)
 	end
 end
@@ -174,6 +201,38 @@ local Toggle =  Gem:CreateToggle({
    Callback = function(Value)
    	_G.GemMulti = Value
    	GemMulti()
+   end,
+})
+local Toggle =  Gem:CreateToggle({
+   Name = "Upgrade Multi",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.MultiGem = Value
+   	MultiGem()
+   end,
+})
+local Toggle =  Gem:CreateToggle({
+   Name = "Upgrade GEM Luck",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.GemLuck = Value
+   	GemLuck()
+   end,
+})
+local Toggle =  Gem:CreateToggle({
+   Name = "Upgrade Luck",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.LuckGem = Value
+   	LuckGem()
+   end,
+})
+local Toggle =  Gem:CreateToggle({
+   Name = "Upgrade GEM Speed",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.GemSpeed = Value
+   	GemSpeed()
    end,
 })
 
