@@ -110,7 +110,7 @@ local function GemSpeed()
 end
 
 -- Menu
-local Menu = Window:CreateTab("Main", "home")
+local Menu = Window:CreateTab("Money", "dollar-sign")
 local Section = Menu:CreateSection("Auto Farm")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Roll",
