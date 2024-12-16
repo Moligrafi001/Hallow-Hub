@@ -19,6 +19,8 @@ elseif game.PlaceId == 101162558216961 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Rune%20INC.lua",true))()
 elseif game.PlaceId == 109819539837829 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Make%20and%20Sell%20Cars.lua",true))()
+elseif game.PlaceId == 91314495602934 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Find%20The%20Buttons.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
