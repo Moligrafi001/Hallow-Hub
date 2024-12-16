@@ -40,7 +40,7 @@ local Input = Menu:CreateInput({
    PlaceholderText = "Level from 1 to 40",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
-       AlmostSelected = Text
+       SelectedLevel = Text
    end,
 })
 local Button = Menu:CreateButton({
