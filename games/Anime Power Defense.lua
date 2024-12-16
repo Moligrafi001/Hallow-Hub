@@ -22,7 +22,7 @@ end
 
 - Menu
 local Menu = Window:CreateTab("Main", "home")
-local Section = Menu:CreateSection("Summo")
+local Section = Menu:CreateSection("Summon")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Summon",
    CurrentValue = false,
