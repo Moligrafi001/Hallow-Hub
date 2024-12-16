@@ -1,5 +1,4 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/extra/Credits.lua",true))()
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- Credits.
 local Credits = Window:CreateTab("Credits", "info")
