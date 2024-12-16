@@ -20,7 +20,7 @@ local function AutoHatch()
 	end
 end
 
-- Menu
+-- Menu
 local Menu = Window:CreateTab("Main", "home")
 local Section = Menu:CreateSection("Summon")
 local Toggle =  Menu:CreateToggle({
