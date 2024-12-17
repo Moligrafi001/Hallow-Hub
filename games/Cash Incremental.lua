@@ -42,7 +42,7 @@ local function UpgRebXP()
 		wait(0.33)
 	end
 end
-local function UpgRebRate
+local function UpgRebRate()
 	while _G.UpgRebRate == true do
 		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("RebirthBoard", "RebirthLessSpawnCooldown", true, "Single")
 		wait(0.33)
