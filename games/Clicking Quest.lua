@@ -18,6 +18,7 @@ _G.AutoRebirth = false
 local function AutoClick()
 	while _G.AutoClick == true do
 		game:GetService("ReplicatedStorage").TappingRemote.Tap:FireServer()
+		game:GetService("ReplicatedStorage").TappingRemote.SuperTap:FireServer()
 		wait(0.01)
 	end
 end
