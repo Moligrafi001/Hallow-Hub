@@ -1,3 +1,4 @@
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Cash%20Incremental.lua",true))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "Hallow Hub | Cash Incremental",
@@ -174,7 +175,7 @@ local Toggle =  XpShop:CreateToggle({
 })
 
 -- Rebirth
-local RebirthTab = Window:CreateTab("Rebirth", "sparkles")
+local RebirthTab = Window:CreateTab("Rebirth", "gem")
 local Section = RebirthTab:CreateSection("Auto Farm")
 local Toggle =  RebirthTab:CreateToggle({
    Name = "Auto Rebirth",
