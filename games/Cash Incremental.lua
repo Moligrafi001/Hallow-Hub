@@ -9,6 +9,14 @@ local Window = Rayfield:CreateWindow({
 
 -- Valores
 _G.AutoCollect = false
+_G.UpgMainCash = false
+_G.UpgMainXP = false
+_G.UpgMainBag = false
+_G.UpgMainWalk = false
+_G.UpgMainRang = false
+_G.UpgMainLimit = false
+_G.UpgMainRate = false
+_G.UpgMainBulk = false
 
 -- Funções
 local function AutoCollect()
