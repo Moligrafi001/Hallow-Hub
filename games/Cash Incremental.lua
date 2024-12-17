@@ -19,8 +19,50 @@ _G.UpgMainLimit = false
 _G.UpgMainRate = false
 _G.UpgMainBulk = false
 _G.AutoRebirth = false
+_G.UpgXpCash = false
+_G.UpgXpXP = false
+_G.UpgXpLimit = false
+_G.UpgXpRang = false
+_G.UpgXpRate = false
+_G.UpgXpBulk = false
 
 -- Funções
+local function UpgXpCash()
+	while _G.UpgXpCash == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("XPUpgrades", "MoreCash", true, "Single")
+		wait(0.33)
+	end
+end
+local function UpgXpXP()
+	while _G.UpgXpXP == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("XPUpgrades", "MoreXP", true, "Single")
+		wait(0.33)
+	end
+end
+local function UpgXpLimit()
+	while _G.UpgXpLimit == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("XPUpgrades", "MoreCap", true, "Single")
+		wait(0.33)
+	end
+end
+local function UpgXpRang()
+	while _G.UpgXpRang == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("XPUpgrades", "MoreCollectionRange", true, "Single")
+		wait(0.33)
+	end
+end
+local function UpgXpRate()
+	while _G.UpgXpRate == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("XPUpgrades", "LessSpawnCooldown", true, "Single")
+		wait(0.33)
+	end
+end
+local function UpgXpBulk()
+	while _G.UpgXpBulk == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("XPUpgrades", "MoreSpawnBulk", true, "Single")
+		wait(0.33)
+	end
+end
 local function AutoCollect()
 	while _G.AutoCollect == true do
 		for _, child in pairs(workspace.Spawned:GetChildren()) do
@@ -169,8 +211,48 @@ local Toggle =  XpShop:CreateToggle({
    Name = "More Cash",
    CurrentValue = false,
    Callback = function(Value)
-   	_G.AutoCollect = Value
-   	AutoCollect()
+   	_G.UpgXpCash = Value
+   	UpgXpCash()
+   end,
+})
+local Toggle =  XpShop:CreateToggle({
+   Name = "More XP",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.UpgXpXP = Value
+   	UpgXpXP()
+   end,
+})
+local Toggle =  XpShop:CreateToggle({
+   Name = "More Spawn Limit",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.UpgXpLimit = Value
+   	UpgXpLimit()
+   end,
+})
+local Toggle =  XpShop:CreateToggle({
+   Name = "More Range",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.UpgXpRang = Value
+   	UpgXpRang()
+   end,
+})
+local Toggle =  XpShop:CreateToggle({
+   Name = "Increase Spawn Rate",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.UpgXpRate = Value
+   	UpgXpRate()
+   end,
+})
+local Toggle =  XpShop:CreateToggle({
+   Name = "More Spawn Bulk",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.UpgXpBulk = Value
+   	UpgXpBulk()
    end,
 })
 
