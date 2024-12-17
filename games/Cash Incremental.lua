@@ -25,8 +25,29 @@ _G.UpgXpLimit = false
 _G.UpgXpRang = false
 _G.UpgXpRate = false
 _G.UpgXpBulk = false
+_G.UpgRebCash = false
+_G.UpgRebRate = false
+_G.UpgRebXP = false
 
 -- Funções
+local function UpgRebCash()
+	while _G.UpgRebCash == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("RebirthBoard", "RebirthMoreCash", true, "Single")
+		wait(0.33)
+	end
+end
+local function UpgRebXP()
+	while _G.UpgRebXP == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("RebirthBoard", "RebirthMoreXP", true, "Single")
+		wait(0.33)
+	end
+end
+local function UpgRebRate
+	while _G.UpgRebRate == true do
+		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("RebirthBoard", "RebirthLessSpawnCooldown", true, "Single")
+		wait(0.33)
+	end
+end
 local function UpgXpCash()
 	while _G.UpgXpCash == true do
 		game:GetService("ReplicatedStorage").Remotes.Upgrade:FireServer("XPUpgrades", "MoreCash", true, "Single")
@@ -125,6 +146,29 @@ local function AutoRebirth()
 		game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
 		wait(0.5)
 	end
+end
+
+while true do
+	UpgXpCash()
+	UpgXpXP()
+	UpgXpLimit()
+	UpgXpRang()
+	UpgXpRate()
+	UpgXpBulk()
+	AutoCollect()
+	UpgMainCash()
+	UpgMainXP()
+	UpgMainBag()
+	UpgMainWalk()
+	UpgMainRang()
+	UpgMainRate()
+	UpgMainLimit()
+	UpgMainBulk()
+	AutoRebirth()
+	UpgRebCash()
+	UpgRebXP()
+	UpgRebRate()
+	wait(1)
 end
 
 -- Menu
@@ -269,11 +313,27 @@ local Toggle =  RebirthTab:CreateToggle({
 })
 local Section = RebirthTab:CreateSection("Auto Buy Upgrades")
 local Toggle =  RebirthTab:CreateToggle({
-   Name = "Auto Collect Cash",
+   Name = "More Cash",
    CurrentValue = false,
    Callback = function(Value)
-   	_G.AutoCollect = Value
-   	AutoCollect()
+   	_G.UpgRebCash = Value
+   	UpgRebCash()
+   end,
+})
+local Toggle =  RebirthTab:CreateToggle({
+   Name = "More XP",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.UpgRebXP = Value
+   	UpgRebXP()
+   end,
+})
+local Toggle =  RebirthTab:CreateToggle({
+   Name = "Increase Spawn Rate",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.UpgRebRate = Value
+   	UpgRebRate()
    end,
 })
 
