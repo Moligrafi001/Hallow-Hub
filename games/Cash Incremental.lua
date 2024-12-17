@@ -147,30 +147,7 @@ local function AutoRebirth()
 		wait(0.5)
 	end
 end
-local function AntiLaggy()
-	while true do
-		UpgXpCash()
-		UpgXpXP()
-		UpgXpLimit()
-		UpgXpRang()
-		UpgXpRate()
-		UpgXpBulk()
-		AutoCollect()
-		UpgMainCash()
-		UpgMainXP()
-		UpgMainBag()
-		UpgMainWalk()
-		UpgMainRang()
-		UpgMainRate()
-		UpgMainLimit()
-		UpgMainBulk()
-		AutoRebirth()
-		UpgRebCash()
-		UpgRebXP()
-		UpgRebRate()
-		wait(1)
-	end
-end
+
 -- Menu
 local Menu = Window:CreateTab("Cash", "dollar-sign")
 local Section = Menu:CreateSection("Auto Farm")
@@ -352,5 +329,3 @@ local Button = Credits:CreateButton({
    	toclipboard("discord.gg/AESCuek87s")
     end,
 })
-
-AntiLaggy()
