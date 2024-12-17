@@ -17,6 +17,7 @@ _G.UpgMainRang = false
 _G.UpgMainLimit = false
 _G.UpgMainRate = false
 _G.UpgMainBulk = false
+_G.AutoRebirth = false
 
 -- Funções
 local function AutoCollect()
@@ -76,9 +77,15 @@ local function UpgMainBulk()
 		wait(0.33)
 	end
 end
+local function AutoRebirth()
+	while _G.AutoRebirth == true do
+		game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
+		wait(0.5)
+	end
+end
 
 -- Menu
-local Menu = Window:CreateTab("Main", "home")
+local Menu = Window:CreateTab("Cash", "dollar-sign")
 local Section = Menu:CreateSection("Auto Farm")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Collect Cash",
@@ -88,7 +95,7 @@ local Toggle =  Menu:CreateToggle({
    	AutoCollect()
    end,
 })
-local Section = Menu:CreateSection("Main Upgrades (Cash)")
+local Section = Menu:CreateSection("Main Upgrades")
 local Toggle =  Menu:CreateToggle({
    Name = "More Cash",
    CurrentValue = false,
@@ -151,5 +158,38 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.UpgMainBulk = Value
    	UpgMainBulk()
+   end,
+})
+
+-- XP Shop
+local XpShop = Window:CreateTab("XP Shop", "sparkles")
+local Section = XpShop:CreateSection("Auto Buy Upgrades")
+local Toggle =  XpShop:CreateToggle({
+   Name = "Auto Collect Cash",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoCollect = Value
+   	AutoCollect()
+   end,
+})
+
+-- Rebirth
+local RebirthTab = Window:CreateTab("Rebirth", "sparkles")
+local Section = RebirthTab:CreateSection("Auto Farm")
+local Toggle =  RebirthTab:CreateToggle({
+   Name = "Auto Rebirth",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoRebirth = Value
+   	AutoRebirth()
+   end,
+})
+local Section = RebirthTab:CreateSection("Auto Buy Upgrades")
+local Toggle =  RebirthTab:CreateToggle({
+   Name = "Auto Collect Cash",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoCollect = Value
+   	AutoCollect()
    end,
 })
