@@ -13,14 +13,53 @@ _G.FastRegen = false
 _G.QuestRewards = false
 _G.KillAll = false
 
-game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(workspace.Room1.Room1.Mob.Mob1002.Humanoid)
-
-
 -- Funções
 local function KillAll()
 	while _G.KillAll == true do
 		for _, child in pairs(workspace.Room1.Room1.Mob:GetChildren()) do
-			game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
+		end
+		for _, child in pairs(workspace.Room1.Room2.Mob:GetChildren()) do
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
+		end
+		for _, child in pairs(workspace.Room1.Room3.Mob:GetChildren()) do
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
+		end
+		for _, child in pairs(workspace.Room2.Room1.Mob:GetChildren()) do
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
+		end
+		for _, child in pairs(workspace.Room2.Room2.Mob:GetChildren()) do
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
+		end
+		for _, child in pairs(workspace.Room2.Room3.Mob:GetChildren()) do
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
+		end
+		for _, child in pairs(workspace.Room3.Room1.Mob:GetChildren()) do
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
+		end
+		for _, child in pairs(workspace.Room3.Room2.Mob:GetChildren()) do
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
+		end
+		for _, child in pairs(workspace.Room3.Room3.Mob:GetChildren()) do
+			pcall(function()
+				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+			end)
 		end
 		wait(0.05)
 	end
@@ -51,6 +90,14 @@ end
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
 local Section = Menu:CreateSection("Combat")
+local Toggle =  Menu:CreateToggle({
+   Name = "Kill Aura",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.KillAll = Value
+   	KillAll()
+   end,
+})
 local Toggle =  Menu:CreateToggle({
    Name = "Fast Regen",
    CurrentValue = false,
