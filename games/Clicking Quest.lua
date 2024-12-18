@@ -48,10 +48,11 @@ local Toggle =  Menu:CreateToggle({
    	AutoClick()
    end,
 })
+local Section = Menu:CreateSection("Rebirth")
 local Dropdown = Menu:CreateDropdown({
-   Name = "Select Game to Join",
+   Name = "How many rebirths at once?",
    Options = {1, 5, 10, 25, 50, 100, 250, 500},
-   CurrentOption = {"Choose one"},
+   CurrentOption = {"Sigma Boy Sigma Sigma Boy"},
    MultipleOptions = false,
    Callback = function(Options)
    		RebirthNumber = Options[1]
