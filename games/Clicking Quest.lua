@@ -48,6 +48,15 @@ local Toggle =  Menu:CreateToggle({
    	AutoClick()
    end,
 })
+local Input = Menu:CreateInput({
+   Name = "Rebirth Number",
+   CurrentValue = "",
+   PlaceholderText = "How many rebirths per time?",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+       RebirthNumber = Text
+   end,
+})
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Rebirth",
    CurrentValue = false,
