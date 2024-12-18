@@ -11,8 +11,20 @@ local Window = Rayfield:CreateWindow({
 -- Valores
 _G.FastRegen = false
 _G.QuestRewards = false
+_G.KillAll = false
+
+game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(workspace.Room1.Room1.Mob.Mob1002.Humanoid)
+
 
 -- Funções
+local function KillAll()
+	while _G.KillAll == true do
+		for _, child in pairs(workspace.Room1.Room1.Mob:GetChildren()) do
+			game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
+		end
+		wait(0.05)
+	end
+end
 local function FastRegen()
 	while _G.FastRegen == true do
 		game:GetService("ReplicatedStorage").Remote.Event.Up:FindFirstChild("[C-S]TryRegen"):FireServer(1)
