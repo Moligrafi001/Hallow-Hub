@@ -14,52 +14,24 @@ _G.QuestRewards = false
 _G.KillAll = false
 
 -- Funções
+local function TakeDamageForChildren(children)
+	for _, child in pairs(children) do
+		pcall(function()
+			local takeDamageEvent = game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage")
+			if takeDamageEvent and child:FindFirstChild("Humanoid") then
+				takeDamageEvent:FireServer(child.Humanoid)
+			end
+		end)
+	end
+end
 local function KillAll()
 	while _G.KillAll == true do
-		for _, child in pairs(workspace.Room1.Room1.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
-		end
-		for _, child in pairs(workspace.Room1.Room2.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
-		end
-		for _, child in pairs(workspace.Room1.Room3.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
-		end
-		for _, child in pairs(workspace.Room2.Room1.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
-		end
-		for _, child in pairs(workspace.Room2.Room2.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
-		end
-		for _, child in pairs(workspace.Room2.Room3.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
-		end
-		for _, child in pairs(workspace.Room3.Room1.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
-		end
-		for _, child in pairs(workspace.Room3.Room2.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
-		end
-		for _, child in pairs(workspace.Room3.Room3.Mob:GetChildren()) do
-			pcall(function()
-				game:GetService("ReplicatedStorage").Remote.Event.Fight:FindFirstChild("[C-S]TakeDamage"):FireServer(child.Humanoid)
-			end)
+		for _, roomGroup in pairs({"Room1", "Room2", "Room3"}) do
+			for _, room in pairs(workspace[roomGroup]:GetChildren()) do
+				if room:FindFirstChild("Mob") then
+					TakeDamageForChildren(room.Mob:GetChildren())
+				end
+			end
 		end
 		wait(0.05)
 	end
