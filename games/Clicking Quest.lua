@@ -48,13 +48,13 @@ local Toggle =  Menu:CreateToggle({
    	AutoClick()
    end,
 })
-local Input = Menu:CreateInput({
-   Name = "Rebirth Number",
-   CurrentValue = "",
-   PlaceholderText = "How many rebirths per time?",
-   RemoveTextAfterFocusLost = false,
-   Callback = function(Text)
-       RebirthNumber = Text
+local Dropdown = Menu:CreateDropdown({
+   Name = "Select Game to Join",
+   Options = {1, 5, 10, 25, 50, 100, 250, 500},
+   CurrentOption = {"Choose one"},
+   MultipleOptions = false,
+   Callback = function(Options)
+   		RebirthNumber = Options[1]
    end,
 })
 local Toggle =  Menu:CreateToggle({
