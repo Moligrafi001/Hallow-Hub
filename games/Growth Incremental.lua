@@ -52,7 +52,7 @@ local function LPsUpgrades()
 		wait(0.33)
 	end
 end
-local function _G.AutoCashUpg()
+local function AutoCashUpg()
 	while _G.AutoCashUpg == true do
 		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 1, 15, "xMoney", 2)
 		game:GetService("ReplicatedStorage").HandleStats:FireServer("Add", 2, 50, "BaseMoney", 1)
