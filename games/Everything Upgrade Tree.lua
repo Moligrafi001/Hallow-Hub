@@ -40,7 +40,7 @@ local function AutoUpgrade()
 		if BuySpeed == "Slow" then
 			wait(0.5)
 		end
-		if BuySpeed == "Fast (Not Recommended)" then
+		if BuySpeed == "Fast" then
 			wait(0.2)
 		end
 	end
