@@ -9,10 +9,10 @@ local Window = Rayfield:CreateWindow({
 })
 
 -- Valores
+local BuySpeed = 0.5
 _G.AutoUpgrade = false
 _G.AutoConvert = false
 _G.AutoUpLab = false
-_G.AutoPrestige = false
 _G.AutoUpPrestige = false
 
 -- Funções
@@ -25,17 +25,6 @@ local function AutoUpPrestige()
 	wait(1)
 	end
 end
-local function AutoPrestige()
-	while _G.AutoPrestige do
-		local args = {
-    [1] = true
-}
-
-workspace.upgrades:FindFirstChild("0p").vote_request:FireServer(unpack(args))
-
-		wait(1)
-	end
-end
 local function AutoUpgrade()
 	while _G.AutoUpgrade == true do
 		for i = 1, 30 do
@@ -43,10 +32,11 @@ local function AutoUpgrade()
 				game:GetService("ReplicatedStorage").remotes.upgrade:FireServer(i)
 			end
 		end
-		for v = 1, 30 do
-			local numero = v .. "b"
-			game:GetService("ReplicatedStorage").remotes.upgrade:FireServer(numero)
-		end
+		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("1b", true)
+		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("2b_3", true)
+		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("4b", true)
+		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("3b", true)
+		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("5b_3", true)
 		wait(0.5)
 	end
 end
