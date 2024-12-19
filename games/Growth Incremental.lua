@@ -10,6 +10,8 @@ local Window = Rayfield:CreateWindow({
 
 -- Valores
 _G.AutoXP = false
+_G.ClaimTime = false
+_G.AutoMoney = false
 
 -- Funções
 local function AutoXP()
@@ -18,16 +20,39 @@ local function AutoXP()
 		wait(1)
 	end
 end
+local function ClaimTime()
+	while _G.ClaimTime == true do
+		for time = 1, 9 do
+			game:GetService("ReplicatedStorage").GiftFolder.ClaimGift:InvokeServer(time)
+		end
+		wait(0.5)
+	end
+end
+local function AutoMoney()
+	while _G.AutoMoney == true do
+		remote
+		wait(0.01)
+	end
+end
 
 -- Menu
-local Menu = Window:CreateTab("Main", "home")
-local Section = Menu:CreateSection("Upgrade")
+local Menu = Window:CreateTab("Money", "dollar-sign")
+local Section = Menu:CreateSection("Auto Farm")
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto Buy Upgrades",
+   Name = "Auto Money",
    CurrentValue = false,
    Callback = function(Value)
-   	_G.AutoUpgrade = Value
-   	AutoUpgrade()
+   	_G.AutoMoney = Value
+   	AutoMoney()
+   end,
+})
+local Section = Menu:CreateSection("Extra")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Claim Time Rewards",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.ClaimTime = Value
+   	ClaimTime()
    end,
 })
 
