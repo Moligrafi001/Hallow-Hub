@@ -17,11 +17,28 @@ _G.LPsRange = false
 _G.LpsOrbR = false
 _G.AutoCashUpg = false
 _G.AutoRB = false
+_G.RebSpawn = false
+_G.RebMulti = false
+_G.RebWS = false
 
 -- Funções
+local function RebUPG()
+	while _G.RebSpawn == true do
+		game:GetService("ReplicatedStorage").UpgradeEvent:FireServer(9, "PP", "SRupg", "SpawnRate", 0.1, false, false, true, false, 3.5)
+		wait(0.33)
+	end
+	while _G.RebMulti == true do
+		game:GetService("ReplicatedStorage").UpgradeEvent:FireServer(25, "PP", "BMupg", "BaseMoneyUpg", 2, true, false, false, false, 1)
+		wait(0.33)
+	end
+	while _G.RebWS == true do
+		game:GetService("ReplicatedStorage").UpgradeEvent:FireServer(7, "PP", "WSupg", "WalkSpeed", 2, true, false, false, false, 1)
+		wait(0.33)
+	end
+end
 local function AutoRB()
 	while _G.AutoRB == true do
-		print("rebirthado")
+		game:GetService("ReplicatedStorage").Prestige:FireServer()
 		wait(0.33)
 	end
 end
@@ -152,6 +169,31 @@ local Toggle =  RebirthTab:CreateToggle({
    Callback = function(Value)
    	_G.AutoRB = Value
    	AutoRB()
+   end,
+})
+local Section = RebirthTab:CreateSection("Upgrade")
+local Toggle =  RebirthTab:CreateToggle({
+   Name = "Upgrade Spawn Rate",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.RebSpawn = Value
+   	RebUPG()
+   end,
+})
+local Toggle =  RebirthTab:CreateToggle({
+   Name = "Upgrade Money Multi",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.RebMulti = Value
+   	RebUPG()
+   end,
+})
+local Toggle =  RebirthTab:CreateToggle({
+   Name = "Upgrade WalkSpeed",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.RebWS = Value
+   	RebUPG()
    end,
 })
 
