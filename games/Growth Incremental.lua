@@ -58,7 +58,13 @@ local function AutoCashUpg()
 		game:GetService("ReplicatedStorage").HandleStats:FireServer("Add", 2, 50, "BaseMoney", 1)
 		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 3, 200, "xMoney", 3)
 		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 4, 450, "xMoney", 5)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Add", 5, 2500, "BaseMoney", 3)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 6, 6000, "xMoney", 7)
 		game:GetService("ReplicatedStorage").HandleStats:FireServer("Add", 7, 35000, "BaseMoney", 1)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 8, 50000, "xMoney", 2)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Add", 9, 250000, "BaseMoney", 2)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 10, 1000000, "xMoney", 1.5)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 11, 750000, "xMoney", 1.5)
 		wait(0.33)
 	end
 end
