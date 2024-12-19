@@ -75,7 +75,7 @@ local Toggle =  Menu:CreateToggle({
 })
 local Section = Menu:CreateSection("Upgrade")
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto Claim Time Rewards",
+   Name = "Auto Buy Upgrades",
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoCashUpg = Value
