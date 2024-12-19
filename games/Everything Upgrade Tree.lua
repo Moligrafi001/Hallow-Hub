@@ -37,7 +37,15 @@ local function AutoUpgrade()
 		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("4b", true)
 		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("3b", true)
 		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("5b_3", true)
-		wait(0.5)
+		if BuySpeed == "Slow" then
+			wait(0.5)
+		end
+		if BuySpeed == "Fast" then
+			wait(0.2)
+		end
+		if BuySpeed == "Super Fast" then
+			wait(0.05)
+		end
 	end
 end
 local function AutoConvert()
@@ -72,13 +80,13 @@ local Toggle =  Menu:CreateToggle({
    	AutoUpgrade()
    end,
 })
-local Input = Menu:CreateInput({
-   Name = "Buy Upgrade Speed",
-   CurrentValue = "",
-   PlaceholderText = "Default Buy Speed = 0.5 (In Seconds)",
-   RemoveTextAfterFocusLost = false,
-   Callback = function(Text)
-   	BuySpeed = Text
+local Dropdown = Menu:CreateDropdown({
+   Name = "Select the Auto Buy Speed",
+   Options = {"Slow", "Fast", "Super Fast"},
+   CurrentOption = {"Slow"},
+   MultipleOptions = false,
+   Callback = function(Options)
+   		BuySpeed = Options[1]
    end,
 })
 local Section = Menu:CreateSection("Research Center")
