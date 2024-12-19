@@ -93,14 +93,6 @@ local Toggle =  Menu:CreateToggle({
 -- Prestige
 local Prestige = Window:CreateTab("Prestige", "shield")
 local Section = Prestige:CreateSection("Auto Farm")
-local Toggle =  Prestige:CreateToggle({
-   Name = "Auto Prestige",
-   CurrentValue = false,
-   Callback = function(Value)
-   	_G.AutoPrestige = Value
-   	AutoPrestige()
-   end,
-})
 local Section = Prestige:CreateSection("Upgrade")
 local Toggle =  Prestige:CreateToggle({
    Name = "Auto Buy Upgrades",
