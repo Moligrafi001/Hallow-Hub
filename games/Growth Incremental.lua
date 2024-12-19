@@ -56,7 +56,7 @@ local Toggle =  Menu:CreateToggle({
    end,
 })
 -- LPs Tab
-local LPsTab = Window:CreateTab("LPs", "dollar-sign")
+local LPsTab = Window:CreateTab("LPs", "sparkles")
 local Section = LPsTab:CreateSection("Auto Farm")
 local Toggle =  LPsTab:CreateToggle({
    Name = "Auto XP",
@@ -66,6 +66,7 @@ local Toggle =  LPsTab:CreateToggle({
    	AutoXP()
    end,
 })
+local Section = LPsTab:CreateSection("Upgrade")
 
 -- Credits.
 local Credits = Window:CreateTab("Credits", "info")
