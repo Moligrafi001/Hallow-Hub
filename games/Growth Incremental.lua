@@ -152,7 +152,7 @@ local Toggle =  LPsTab:CreateToggle({
    end,
 })
 local Toggle =  LPsTab:CreateToggle({
-   Name = "Upgrade Range",
+   Name = "Upgrade Orb Range",
    CurrentValue = false,
    Callback = function(Value)
    	_G.LpsOrbR = Value
