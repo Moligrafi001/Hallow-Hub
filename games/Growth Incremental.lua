@@ -12,6 +12,9 @@ local Window = Rayfield:CreateWindow({
 _G.AutoXP = false
 _G.ClaimTime = false
 _G.AutoMoney = false
+_G.LPsSpLmt = false
+_G.LPsRange = false
+_G.LpsOrbR = false
 
 -- Funções
 local function AutoXP()
@@ -32,6 +35,20 @@ local function AutoMoney()
 	while _G.AutoMoney == true do
 		game:GetService("ReplicatedStorage").HandleMoney:FireServer(0)
 		wait(0.01)
+	end
+end
+local function LPsUpgrades()
+	while _G.LPsSpLmt == true do
+		game:GetService("ReplicatedStorage").UpgradeEvent:FireServer(45, "LP", "SLupg", "SpawnLimit", 2, true, false, false, true, 1)
+		wait(0.33)
+	end
+	while _G.LPsRange == true do
+		game:GetService("ReplicatedStorage").UpgradeEvent:FireServer(25, "LP", "Rupg", "Range", 1, true, false, false, true, 2)
+		wait(0.33)
+	end
+	while _G.LpsOrbR == true do
+		game:GetService("ReplicatedStorage").UpgradeEvent:FireServer(10, "LP", "Oupg", "OrbRange", 5, true, false, false, true, 3)
+		wait(0.33)
 	end
 end
 
@@ -67,6 +84,30 @@ local Toggle =  LPsTab:CreateToggle({
    end,
 })
 local Section = LPsTab:CreateSection("Upgrade")
+local Toggle =  LPsTab:CreateToggle({
+   Name = "Upgrade Spawn Limit",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.LPsSpLmt = Value
+   	LPsUpgrades()
+   end,
+})
+local Toggle =  LPsTab:CreateToggle({
+   Name = "Upgrade Range",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.LPsRange = Value
+   	LPsUpgrades()
+   end,
+})
+local Toggle =  LPsTab:CreateToggle({
+   Name = "Upgrade Range",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.LpsOrbR = Value
+   	LPsUpgrades()
+   end,
+})
 
 -- Credits.
 local Credits = Window:CreateTab("Credits", "info")
