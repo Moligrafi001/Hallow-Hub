@@ -16,7 +16,7 @@ _G.AutoMoney = false
 -- Funções
 local function AutoXP()
 	while _G.AutoXP == true do
-		game:GetService("ReplicatedStorage").HandleXP:FireServer("XP", 999999999999999999999999999999999999999999999999999999)
+		game:GetService("ReplicatedStorage").HandleXP:FireServer("XP", math.huge)
 		wait(1)
 	end
 end
