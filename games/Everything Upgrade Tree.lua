@@ -14,7 +14,7 @@ _G.AutoUpgrade = false
 _G.AutoConvert = false
 _G.AutoUpLab = false
 _G.AutoUpPrestige = false
-_G.VerifierTime = true
+_G.VerifierTimeng = true
 
 -- Funções
 local function VerifierTime()
@@ -94,7 +94,7 @@ local Dropdown = Menu:CreateDropdown({
    MultipleOptions = false,
    Callback = function(Options)
    		BuySpeed = Options[1]
-   		VerifierTime()
+   		VerifierTimeng()
    end,
 })
 local Section = Menu:CreateSection("Research Center")
