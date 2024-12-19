@@ -15,6 +15,7 @@ _G.AutoMoney = false
 _G.LPsSpLmt = false
 _G.LPsRange = false
 _G.LpsOrbR = false
+_G.AutoCashUpg = false
 
 -- Funções
 local function AutoXP()
@@ -51,6 +52,15 @@ local function LPsUpgrades()
 		wait(0.33)
 	end
 end
+local function _G.AutoCashUpg()
+	while _G.AutoCashUpg == true do
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 1, 15, "xMoney", 2)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Add", 2, 50, "BaseMoney", 1)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 3, 200, "xMoney", 3)
+		game:GetService("ReplicatedStorage").HandleStats:FireServer("Multiply", 4, 450, "xMoney", 5)
+		wait(0.33)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Money", "dollar-sign")
@@ -61,6 +71,15 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoMoney = Value
    	AutoMoney()
+   end,
+})
+local Section = Menu:CreateSection("Upgrade")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Claim Time Rewards",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoCashUpg = Value
+   	AutoCashUpg()
    end,
 })
 local Section = Menu:CreateSection("Extra")
