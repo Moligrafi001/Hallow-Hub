@@ -79,7 +79,7 @@ local Toggle =  Menu:CreateToggle({
 })
 local Dropdown = Menu:CreateDropdown({
    Name = "Select the Auto Buy Speed",
-   Options = {"Slow", "Fast (Not Recommended)"},
+   Options = {"Slow", "Fast"},
    CurrentOption = {"Slow"},
    MultipleOptions = false,
    Callback = function(Options)
