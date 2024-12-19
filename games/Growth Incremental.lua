@@ -30,7 +30,7 @@ local function ClaimTime()
 end
 local function AutoMoney()
 	while _G.AutoMoney == true do
-		remote
+		game:GetService("ReplicatedStorage").HandleMoney:FireServer(0)
 		wait(0.01)
 	end
 end
@@ -53,6 +53,17 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.ClaimTime = Value
    	ClaimTime()
+   end,
+})
+-- LPs Tab
+local LPsTab = Window:CreateTab("LPs", "dollar-sign")
+local Section = LPsTab:CreateSection("Auto Farm")
+local Toggle =  LPsTab:CreateToggle({
+   Name = "Auto XP",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoXP = Value
+   	AutoXP()
    end,
 })
 
