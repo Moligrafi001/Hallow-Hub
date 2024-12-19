@@ -27,7 +27,7 @@ local function AutoUpPrestige()
 end
 local function AutoPrestige()
 	while _G.AutoPrestige do
-		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("prestige")
+		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("prestige", true)
 		wait(1)
 	end
 end
@@ -47,7 +47,7 @@ local function AutoUpgrade()
 end
 local function AutoConvert()
 	while _G.AutoConvert == true do
-		game:GetService("ReplicatedStorage").remotes.research_convert:FireServer()
+		game:GetService("ReplicatedStorage").remotes.research_convert:FireServer(true)
 		wait(1)
 	end
 end
