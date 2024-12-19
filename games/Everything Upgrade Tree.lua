@@ -40,11 +40,8 @@ local function AutoUpgrade()
 		if BuySpeed == "Slow" then
 			wait(0.5)
 		end
-		if BuySpeed == "Fast" then
+		if BuySpeed == "Fast (Not Recommended)" then
 			wait(0.2)
-		end
-		if BuySpeed == "Super Fast" then
-			wait(0.05)
 		end
 	end
 end
@@ -82,7 +79,7 @@ local Toggle =  Menu:CreateToggle({
 })
 local Dropdown = Menu:CreateDropdown({
    Name = "Select the Auto Buy Speed",
-   Options = {"Slow", "Fast", "Super Fast"},
+   Options = {"Slow", "Fast (Not Recommended)"},
    CurrentOption = {"Slow"},
    MultipleOptions = false,
    Callback = function(Options)
