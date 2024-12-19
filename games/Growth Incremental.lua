@@ -50,6 +50,7 @@ local function LPsUpgrades()
 		game:GetService("ReplicatedStorage").UpgradeEvent:FireServer(10, "LP", "Oupg", "OrbRange", 5, true, false, false, true, 3)
 		wait(0.33)
 	end
+	print("Atualizado!")
 end
 
 -- Menu
