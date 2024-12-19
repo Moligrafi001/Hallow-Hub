@@ -16,8 +16,15 @@ _G.LPsSpLmt = false
 _G.LPsRange = false
 _G.LpsOrbR = false
 _G.AutoCashUpg = false
+_G.AutoRB = false
 
 -- Funções
+local function AutoRB()
+	while _G.AutoRB == true do
+		print("rebirthado")
+		wait(0.33)
+	end
+end
 local function AutoXP()
 	while _G.AutoXP == true do
 		game:GetService("ReplicatedStorage").HandleXP:FireServer("XP", math.huge)
@@ -98,6 +105,7 @@ local Toggle =  Menu:CreateToggle({
    	ClaimTime()
    end,
 })
+
 -- LPs Tab
 local LPsTab = Window:CreateTab("LPs", "sparkles")
 local Section = LPsTab:CreateSection("Auto Farm")
@@ -132,6 +140,18 @@ local Toggle =  LPsTab:CreateToggle({
    Callback = function(Value)
    	_G.LpsOrbR = Value
    	LPsUpgrades()
+   end,
+})
+
+-- Rebirth Tab
+local RebirthTab = Window:CreateTab("Rebirth", "shield")
+local Section = RebirthTab:CreateSection("Auto Farm")
+local Toggle =  RebirthTab:CreateToggle({
+   Name = "Auto Rebirth",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoRB = Value
+   	AutoRB()
    end,
 })
 
