@@ -14,8 +14,23 @@ _G.AutoUpgrade = false
 _G.AutoConvert = false
 _G.AutoUpLab = false
 _G.AutoUpPrestige = false
+_G.VerifierTime = true
 
 -- Funções
+local function VerifierTime()
+	while _G.VerifierTime == true do
+		if BuySpeed == "Slow" then
+			BuySpeed = 0.5
+		end
+		if BuySpeed == "Fast" then
+			BuySpeed = 0.2
+		end
+		if BuySpeed == "Super Fast" then
+			BuySpeed = 0.05
+		end
+	wait(0.01)
+	end
+end
 local function AutoUpPrestige()
 	while _G.AutoUpPrestige == true do
 		for i = 2, 30 do
@@ -72,13 +87,14 @@ local Toggle =  Menu:CreateToggle({
    	AutoUpgrade()
    end,
 })
-local Input = Menu:CreateInput({
-   Name = "Buy Upgrade Speed",
-   CurrentValue = "",
-   PlaceholderText = "Default Buy Speed = 0.5 (In Seconds)",
-   RemoveTextAfterFocusLost = false,
-   Callback = function(Text)
-   	BuySpeed = Text
+local Dropdown = Menu:CreateDropdown({
+   Name = "Select the Auto Buy Speed",
+   Options = {"Slow", "Fast", "Super Fast"},
+   CurrentOption = {"Slow"},
+   MultipleOptions = false,
+   Callback = function(Options)
+   		BuySpeed = Options[1]
+   		VerifierTime()
    end,
 })
 local Section = Menu:CreateSection("Research Center")
