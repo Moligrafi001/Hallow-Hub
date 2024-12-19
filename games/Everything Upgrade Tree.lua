@@ -9,7 +9,7 @@ local Window = Rayfield:CreateWindow({
 })
 
 -- Valores
-local BuySpeed = 0.5
+local BuySpeed = "Slow"
 _G.AutoUpgrade = false
 _G.AutoConvert = false
 _G.AutoUpLab = false
