@@ -75,7 +75,7 @@ local Toggle =  Menu:CreateToggle({
 local Input = Menu:CreateInput({
    Name = "Buy Upgrade Speed",
    CurrentValue = "",
-   PlaceholderText = "Defaulf Buy Speed = 0.5 (In Seconds)",
+   PlaceholderText = "Default Buy Speed = 0.5 (In Seconds)",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
    	BuySpeed = Text
