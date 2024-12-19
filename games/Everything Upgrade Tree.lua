@@ -27,7 +27,8 @@ local function AutoUpPrestige()
 end
 local function AutoPrestige()
 	while _G.AutoPrestige do
-		game:GetService("ReplicatedStorage").remotes.upgrade:FireServer("prestige", true)
+		workspace.upgrades:FindFirstChild("0p").vote_request:FireServer(u
+	true)
 		wait(1)
 	end
 end
