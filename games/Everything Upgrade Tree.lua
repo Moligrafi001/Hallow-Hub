@@ -57,7 +57,7 @@ local function AutoUpLab()
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain3")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain4")
 		game:GetService("ReplicatedStorage").remotes.research_upgrade:FireServer("PointGain1b")
-		wait(0.33)
+		wait(BuySpeed)
 	end
 end
 
@@ -70,6 +70,15 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoUpgrade = Value
    	AutoUpgrade()
+   end,
+})
+local Input = Menu:CreateInput({
+   Name = "Buy Upgrade Speed",
+   CurrentValue = "",
+   PlaceholderText = "Defaulf Buy Speed = 0.5 (In Seconds)",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   	BuySpeed = Text
    end,
 })
 local Section = Menu:CreateSection("Research Center")
