@@ -37,14 +37,6 @@ end
 local Menu = Window:CreateTab("Main", "home")
 local Section = Menu:CreateSection("Auto Farm")
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto Snow",
-   CurrentValue = false,
-   Callback = function(Value)
-   	_G.AutoSnow = Value
-   	AutoSnow()
-   end,
-})
-local Toggle =  Menu:CreateToggle({
    Name = "Auto Rebirth",
    CurrentValue = false,
    Callback = function(Value)
