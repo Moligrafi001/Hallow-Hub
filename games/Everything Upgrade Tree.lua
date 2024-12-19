@@ -27,7 +27,7 @@ local function AutoUpPrestige()
 end
 local function AutoPrestige()
 	while _G.AutoPrestige do
-		workspace.upgrades:FindFirstChild("0p").vote_request:FireServer(u
+		workspace.upgrades:FindFirstChild("0p").vote_request:FireServer(
 	true)
 		wait(1)
 	end
