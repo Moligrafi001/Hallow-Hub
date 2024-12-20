@@ -9,7 +9,7 @@ local Window = Rayfield:CreateWindow({
 })
 
 -- Valores
-_G.AutoSkip == false
+_G.AutoSkip = false
 
 -- Funções
 local function SkipStage()
