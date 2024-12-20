@@ -29,6 +29,8 @@ elseif game.PlaceId == 112730892056697 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Spot%20The%20Button.lua",true))()
 elseif game.PlaceId == 112808176368279 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Growth%20Incremental.lua",true))()
+elseif game.PlaceId == 87643681021528 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Buttone.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
