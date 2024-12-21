@@ -33,6 +33,8 @@ elseif game.PlaceId == 87643681021528 or game.PlaceId == 75427975008245 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Buttone.lua",true))()
 elseif game.PlaceId == 138763709974342 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Snow%20Incremental%20Simulator.lua",true))()
+elseif game.PlaceId == 129503100059800 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Ultimate%20Upgrade%20Tree.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
