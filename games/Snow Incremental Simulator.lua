@@ -62,7 +62,7 @@ local Button = Menu:CreateButton({
    Callback = function()
 game:GetService("ReplicatedStorage").Events.Code:FireServer("Bruh")
 game:GetService("ReplicatedStorage").Events.Code:FireServer("Noob")
-game:GetService("ReplicatedStorage").Events.Code:FireServer("Expert")
+game:GetService("ReplicatedStorage").Events.Code:FireServer("Secret")
     end,
 })
 
