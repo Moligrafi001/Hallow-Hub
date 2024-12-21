@@ -28,7 +28,7 @@ local function Getsiys()
 		wait(0.01)
 	end
 	while _G.AutoBuy == true do
-		for numero 1, 30 do
+		for numero = 1, 30 do
 			local final = "n" .. numero
 			game:GetService("ReplicatedStorage").PurchaseEvent:FireServer(final)
 		end
