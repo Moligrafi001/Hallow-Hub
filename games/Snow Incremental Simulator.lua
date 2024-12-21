@@ -56,13 +56,6 @@ local Toggle =  Menu:CreateToggle({
    	AutoRebirth()
    end,
 })
-local Section = Menu:CreateSection("Blades")
-local Button = Menu:CreateButton({
-   Name = "Get All Blades",
-   Callback = function()
-   	BuyAll()
-    end,
-})
 local Section = Menu:CreateSection("Extra")
 local Button = Menu:CreateButton({
    Name = "Reedem Codes",
@@ -70,6 +63,22 @@ local Button = Menu:CreateButton({
 game:GetService("ReplicatedStorage").Events.Code:FireServer("Bruh")
 game:GetService("ReplicatedStorage").Events.Code:FireServer("Noob")
 game:GetService("ReplicatedStorage").Events.Code:FireServer("Expert")
+    end,
+})
+
+-- Blades
+local BladesTab = Window:CreateTab("Main", "home")
+local Section = BladesTab:CreateSection("Blades")
+local Button = BladesTab:CreateButton({
+   Name = "Get All Blades",
+   Callback = function()
+   	BuyAll()
+    end,
+})
+local Button = BladesTab:CreateButton({
+   Name = "Equip Magnet",
+   Callback = function()
+   	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Equip", "Magnet")
     end,
 })
 
