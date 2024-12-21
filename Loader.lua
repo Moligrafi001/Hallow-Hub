@@ -31,6 +31,8 @@ elseif game.PlaceId == 112808176368279 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Growth%20Incremental.lua",true))()
 elseif game.PlaceId == 87643681021528 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Buttone.lua",true))()
+elseif game.PlaceId == 138763709974342 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Snow%20Incremental%20Simulator.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
