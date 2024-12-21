@@ -1,24 +1,66 @@
-local player = game.Players.LocalPlayer
-local playerStage = player.leaderstats.Easy.Value
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Find%20The%20Button%20Eye.lua",true))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Hallow Hub | Find Chicken Nuggets! 🐔",
+   Icon = 17091459839,
+   LoadingTitle = "Hallow Hub",
+   LoadingSubtitle = "By Moligrafi",
+   Theme = "Amethyst"
+})
 
--- Função para verificar e clicar no botão correspondente ao nível do jogador
-local function clickMatchingButton()
-    -- Percorre todos os botões no workspace
-    for _, button in pairs(workspace.Game.Buttons:GetChildren()) do
-        -- Verifica se o botão tem o nível igual ao do jogador
-        if button:FindFirstChild("ButtonLevel") and button.ButtonLevel.Value == playerStage then
-            -- Tenta clicar no botão
-            local clickPart = button:FindFirstChild("ClickPart")
-            if clickPart and clickPart:FindFirstChild("ClickDetector") then
-                -- Simula um clique no botão
-                fireclickdetector(clickPart.ClickDetector)
-                print("Botão de nível " .. playerStage .. " clicado.")
-                return
-            end
-        end
-    end
-    print("Nenhum botão correspondente encontrado.")
+-- Valores
+_G.AutoSkip = false
+
+-- Funções
+local function SkipStage()
+	local PlayerStage = game.Players.LocalPlayer.leaderstats.Easy.Value
+  for _, button in pairs(workspace.Game.Buttons:GetChildren()) do
+  	if button:FindFirstChild("ButtonLevel") and button.ButtonLevel.Value == PlayerStage then
+  		local clickPart = button:FindFirstChild("ClickPart")
+  		if clickPart and clickPart:FindFirstChild("ClickDetector") then
+  				fireclickdetector(clickPart.ClickDetector)
+  			return
+				end
+			end
+		end
+end
+local function AutoSkip()
+	while _G.AutoSkip == true do
+		SkipStage()
+		wait(2)
+	end
 end
 
--- Chama a função para clicar no botão correspondente
-clickMatchingButton()
+-- Menu
+local Menu = Window:CreateTab("Main", "home")
+local Section = Menu:CreateSection("Stage")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Skip Stage",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoSkip = Value
+   	AutoSkip()
+   end,
+})
+local Button = Menu:CreateButton({
+   Name = "Skip Stage",
+   Callback = function()
+       SkipStage()
+    end,
+})
+
+-- Credits.
+local Credits = Window:CreateTab("Credits", "info")
+local Section = Credits:CreateSection("Creator")
+local Label = Credits:CreateLabel("Discord: moligrafi", "at-sign")
+local Section = Credits:CreateSection("Co-Dev")
+local Label = Credits:CreateLabel("Discord: world_star_hacker", "at-sign")
+local Section = Credits:CreateSection("Discord Server")
+local Label = Credits:CreateLabel("discord.gg/AESCuek87s")
+local Button = Credits:CreateButton({
+   Name = "Copy Server Link",
+   Callback = function()
+   	setclipboard("discord.gg/AESCuek87s")
+   	toclipboard("discord.gg/AESCuek87s")
+    end,
+})
