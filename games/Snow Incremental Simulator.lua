@@ -28,6 +28,12 @@ end
 local function BuyAll()
 	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Larger Shovel")
 	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Dual-Blade Plow")
+	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Heat Stick")
+	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Tri-Sword")
+	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Snow Rake")
+	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Larger Plow")
+	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Basic Plow")
+	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Magnet")
 end
 
 -- Menu
