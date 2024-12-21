@@ -67,7 +67,7 @@ game:GetService("ReplicatedStorage").Events.Code:FireServer("Expert")
 })
 
 -- Blades
-local BladesTab = Window:CreateTab("Main", "home")
+local BladesTab = Window:CreateTab("Blades", "sword")
 local Section = BladesTab:CreateSection("Blades")
 local Button = BladesTab:CreateButton({
    Name = "Get All Blades",
