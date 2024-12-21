@@ -11,6 +11,7 @@ local Window = Rayfield:CreateWindow({
 -- Valores
 _G.GetJump = false
 _G.GetMoney = false
+_G.AutoBuy = false
 
 -- Funções
 local function Getsiys()
@@ -54,15 +55,6 @@ local Toggle =  Menu:CreateToggle({
    	Getsiys()
    end,
 })
-local Section = Menu:CreateSection("Upgrade")
-local Toggle =  Menu:CreateToggle({
-   Name = "Auto Buy Upgrades",
-   CurrentValue = false,
-   Callback = function(Value)
-   	_G.AutoBuy = Value
-   	Getsiys()
-   end,
-})
 local Button = Menu:CreateButton({
    Name = "Inf Food",
    Callback = function()
@@ -76,4 +68,13 @@ local Button = Menu:CreateButton({
 
 		game:GetService("ReplicatedStorage").SpawnGiftEvent:FireServer(unpack(args))
     end,
+})
+local Section = Menu:CreateSection("Upgrade")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Buy Upgrades",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoBuy = Value
+   	Getsiys()
+   end,
 })
