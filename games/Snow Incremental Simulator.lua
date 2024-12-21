@@ -28,3 +28,15 @@ local function BuyAll()
 	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Larger Shovel")
 	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Dual-Blade Plow")
 end
+
+-- Menu
+local Menu = Window:CreateTab("Main", "home")
+local Section = Menu:CreateSection("Auto Farm")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Snow",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoSnow = Value
+   	AutoSnow()
+   end,
+})
