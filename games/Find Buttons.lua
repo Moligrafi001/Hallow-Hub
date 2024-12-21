@@ -27,7 +27,7 @@ end
 local function AutoSkip()
 	while _G.AutoSkip == true do
 		SkipStage()
-		wait(2)
+		wait(0.15)
 	end
 end
 
