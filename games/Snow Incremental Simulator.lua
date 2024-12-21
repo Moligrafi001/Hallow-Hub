@@ -34,6 +34,7 @@ local function BuyAll()
 	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Larger Plow")
 	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Basic Plow")
 	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Magnet")
+	game:GetService("ReplicatedStorage").Events.ShovelBuy:FireServer(0, "Buy", "Lightning Staff")
 end
 
 -- Menu
@@ -57,9 +58,18 @@ local Toggle =  Menu:CreateToggle({
 })
 local Section = Menu:CreateSection("Blades")
 local Button = Menu:CreateButton({
-   Name = "Get All Blade",
+   Name = "Get All Blades",
    Callback = function()
    	BuyAll()
+    end,
+})
+local Section = Menu:CreateSection("Extra")
+local Button = Menu:CreateButton({
+   Name = "Reedem Codes",
+   Callback = function()
+game:GetService("ReplicatedStorage").Events.Code:FireServer("Bruh")
+game:GetService("ReplicatedStorage").Events.Code:FireServer("Noob")
+game:GetService("ReplicatedStorage").Events.Code:FireServer("Expert")
     end,
 })
 
