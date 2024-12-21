@@ -1,3 +1,4 @@
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Snow%20Incremental%20Simulator.lua",true))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "Hallow Hub | ❄️Snow Incremental Simulator",
@@ -39,4 +40,19 @@ local Toggle =  Menu:CreateToggle({
    	_G.AutoSnow = Value
    	AutoSnow()
    end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Rebirth",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoRebirth = Value
+   	AutoRebirth()
+   end,
+})
+local Section = Menu:CreateSection("Blades")
+local Button = Menu:CreateButton({
+   Name = "Get All Blade",
+   Callback = function()
+   	BuyAll()
+    end,
 })
