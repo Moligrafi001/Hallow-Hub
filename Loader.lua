@@ -37,6 +37,8 @@ elseif game.PlaceId == 129503100059800 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Ultimate%20Upgrade%20Tree.lua",true))()
 elseif game.PlaceId == 98896743739347 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Jump%20Incremental.lua",true))()
+elseif game.PlaceId == 107400840408672 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Find%20Chicken%20Nuggets.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
