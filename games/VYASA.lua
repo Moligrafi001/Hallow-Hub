@@ -9,21 +9,38 @@ local Window = Rayfield:CreateWindow({
 })
 
 -- Valores
-game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer()
-game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer()
+_G.AutoE = false
+_G.AutoQ = false
 game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireServer(math.huge)
 
 -- Funções
-k
+local function Abilities()
+	while _G.AutoE == true do
+		game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer()
+		wait(WaitForE)
+	end
+	while _G.AutoQ == true do
+		game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer()
+		wait(WaitForQ)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
-local Section = Menu:CreateSection("Auto Farm")
+local Section = Menu:CreateSection("Ability")
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto Click",
+   Name = "Auto Use E",
    CurrentValue = false,
    Callback = function(Value)
-   	_G.AutoClick = Value
-   	AutoClick()
+   	_G.AutoE = Value
+   	Abilities()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Use Q",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoQ = Value
+   	Abilities()
    end,
 })
