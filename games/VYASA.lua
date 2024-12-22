@@ -1,4 +1,4 @@
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Clicking%20Quest.lua",true))()
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/VYASA.lua",true))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "Hallow Hub | Vyasa",
@@ -9,6 +9,8 @@ local Window = Rayfield:CreateWindow({
 })
 
 -- Valores
+local WaitForE = "Slow (5/s)"
+local WaitForQ = "Slow (5/s)"
 _G.AutoE = false
 _G.AutoQ = false
 game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireServer(math.huge)
@@ -17,11 +19,23 @@ game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireSer
 local function Abilities()
 	while _G.AutoE == true do
 		game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer()
-		wait(WaitForE)
+		if WaitForE == "Slow (5/s)" then
+			wait(0.2)
+		elseif WaitForE == "Normal (10/s)" then
+			wait(0.1)
+		elseif WaitForE == "Fast (20/s)" then
+			wait(0.05)
+		end
 	end
 	while _G.AutoQ == true do
 		game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer()
-		wait(WaitForQ)
+		if WaitForQ == "Slow (5/s)" then
+			wait(0.2)
+		elseif WaitForQ == "Normal (10/s)" then
+			wait(0.1)
+		elseif WaitForQ == "Fast (20/s)" then
+			wait(0.05)
+		end
 	end
 end
 
@@ -36,11 +50,29 @@ local Toggle =  Menu:CreateToggle({
    	Abilities()
    end,
 })
+local Dropdown = Menu:CreateDropdown({
+   Name = "Auto Use E Cooldown",
+   Options = {"Slow (5/s)", "Normal (10/s)", "Fast (20/s)"},
+   CurrentOption = {"Slow 5/s"},
+   MultipleOptions = false,
+   Callback = function(Options)
+   		WaitForE = Options[1]
+   end,
+})
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Use Q",
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoQ = Value
    	Abilities()
+   end,
+})
+local Dropdown = Menu:CreateDropdown({
+   Name = "Auto Use Q Cooldown",
+   Options = {"Slow (5/s)", "Normal (10/s)", "Fast (20/s)"},
+   CurrentOption = {"Slow 5/s"},
+   MultipleOptions = false,
+   Callback = function(Options)
+   		WaitForQ = Options[1]
    end,
 })
