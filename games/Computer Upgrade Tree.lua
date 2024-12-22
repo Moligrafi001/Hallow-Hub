@@ -10,6 +10,7 @@ local Window = Rayfield:CreateWindow({
 
 -- Valores
 _G.AutoBuy = false
+_G.Refresher = false
 
 -- Funções
 local function AutoBuy()
@@ -27,6 +28,12 @@ local function AutoBuy()
 		wait(1)
 	end
 end
+local function Refresher()
+	while _G.Refresher == true do
+		AutoBuy()
+		wait(0.5)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -37,5 +44,7 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoBuy = Value
    	AutoBuy()
+   	_G.Refresher = true
+   	Refresher()
    end,
 })
