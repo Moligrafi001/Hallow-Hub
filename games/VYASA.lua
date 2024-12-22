@@ -17,7 +17,11 @@ _G.AutoQ = false
 -- Funções
 local function Abilities()
 	while _G.AutoE == true do
-		game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer()
+		if game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Soul Absorb") then
+			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(1)
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Healing Blast") then
+			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer()
+		end
 		if WaitForE == "Slow (5/s)" then
 			wait(0.2)
 		elseif WaitForE == "Normal (10/s)" then
