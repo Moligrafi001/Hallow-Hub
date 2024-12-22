@@ -21,6 +21,8 @@ local function Abilities()
 			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(1)
 		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Healing Blast") then
 			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer()
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Fireball") then
+			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(2, Vector3.new(0, 0, 0), 0.5, 3, 0.1, nil)
 		end
 		if WaitForE == "Slow (5/s)" then
 			wait(0.2)
