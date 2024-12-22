@@ -21,6 +21,7 @@ local function AutoBuy()
 				end
 			end
 		end
+		fireclickdetector(workspace.Upgrades.P12.ClickDetector)
 		wait(1)
 	end
 end
