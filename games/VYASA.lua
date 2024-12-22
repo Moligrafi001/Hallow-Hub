@@ -77,6 +77,14 @@ local Dropdown = Menu:CreateDropdown({
 })
 local Section = Menu:CreateSection("Extra")
 local Button = Menu:CreateButton({
+   Name = "Get Spells",
+   Callback = function()
+       for _, itemName in ipairs({"Arcane Blast", "Barrage", "Cacti Boulder", "Enrage", "Fireball", "Ground Smash", "Heal", "Healing Blast", "Mushroom", "Rain", "Slime Splash", "Soul Absorb", "Stab", "Stomp", "Summon", "Sword Lunge", "The Twins Blast", "Tree Chop", "Whirlwind"}) do
+     	game:GetService("ReplicatedStorage").GameRemotes.BuyEvent:FireServer(game:GetService("ReplicatedStorage").GameItems:FindFirstChild(itemName), 0)
+				end
+    end,
+})
+local Button = Menu:CreateButton({
    Name = "Inf Money",
    Callback = function()
        game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireServer(99999999999999999999999999999999999)
