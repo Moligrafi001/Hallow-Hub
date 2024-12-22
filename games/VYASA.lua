@@ -16,7 +16,7 @@ _G.AutoQ = false
 _G.InfDamage = false
 
 -- Funções
-local function Abilities()
+local function AutoE()
 	while _G.AutoE == true do
 		if game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Soul Absorb") then
 			if _G.InfDamage == true then
@@ -32,6 +32,24 @@ local function Abilities()
 			else
 				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(2, Vector3.new(0, 0, 0), 0.5, 3, 0.1, nil)
 			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Slime Splash") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(1)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Arcane Blast") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(2)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Whirlwind") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(0.6)
+			end
 		end
 		if WaitForE == "Slow (5/s)" then
 			wait(0.2)
@@ -41,6 +59,8 @@ local function Abilities()
 			wait(0.05)
 		end
 	end
+end
+local function AutoQ()
 	while _G.AutoQ == true do
 		game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer()
 		if WaitForQ == "Slow (5/s)" then
@@ -61,7 +81,7 @@ local Toggle =  Menu:CreateToggle({
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoE = Value
-   	Abilities()
+   	AutoE()
    end,
 })
 local Dropdown = Menu:CreateDropdown({
@@ -78,7 +98,7 @@ local Toggle =  Menu:CreateToggle({
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoQ = Value
-   	Abilities()
+   	AutoQ()
    end,
 })
 local Dropdown = Menu:CreateDropdown({
