@@ -13,16 +13,25 @@ local WaitForE = "Slow (5/s)"
 local WaitForQ = "Slow (5/s)"
 _G.AutoE = false
 _G.AutoQ = false
+_G.InfDamage = false
 
 -- Funções
 local function Abilities()
 	while _G.AutoE == true do
 		if game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Soul Absorb") then
-			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(1)
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(1)
+			end
 		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Healing Blast") then
 			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer()
 		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Fireball") then
-			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(2, Vector3.new(0, 0, 0), 0.5, 3, 0.1, nil)
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(math.huge, Vector3.new(0, 0, 0), 0.5, 3, 0.1, nil)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(2, Vector3.new(0, 0, 0), 0.5, 3, 0.1, nil)
+			end
 		end
 		if WaitForE == "Slow (5/s)" then
 			wait(0.2)
@@ -79,6 +88,13 @@ local Dropdown = Menu:CreateDropdown({
    MultipleOptions = false,
    Callback = function(Options)
    		WaitForQ = Options[1]
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Inf Damage to Auto Ability",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.InfDamage = Value
    end,
 })
 local Section = Menu:CreateSection("Extra")
