@@ -8,6 +8,10 @@ local Window = Rayfield:CreateWindow({
    Theme = "Amethyst"
 })
 
+-- Valores
+_G.AutoBuy = false
+
+-- Funções
 local function AutoBuy()
 	while _G.AutoBuy == true do
 		for _, upgrade in pairs(workspace.Upgrades:GetChildren()) do
@@ -20,3 +24,15 @@ local function AutoBuy()
 		wait(1)
 	end
 end
+
+-- Menu
+local Menu = Window:CreateTab("Main", "home")
+local Section = Menu:CreateSection("Upgrade")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Buy Upgrades",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoBuy = Value
+   	AutoBuy()
+   end,
+})
