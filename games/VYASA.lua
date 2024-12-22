@@ -13,7 +13,6 @@ local WaitForE = "Slow (5/s)"
 local WaitForQ = "Slow (5/s)"
 _G.AutoE = false
 _G.AutoQ = false
-game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireServer(math.huge)
 
 -- Funções
 local function Abilities()
@@ -76,3 +75,11 @@ local Dropdown = Menu:CreateDropdown({
    		WaitForQ = Options[1]
    end,
 })
+local Section = Menu:CreateSection("Extra")
+local Button = Menu:CreateButton({
+   Name = "Inf Money",
+   Callback = function()
+       game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireServer(99999999999999999999999999999999999)
+    end,
+})
+local Label = Menu:CreateLabel("Open Sell Gui to Work", "triangle-alert")
