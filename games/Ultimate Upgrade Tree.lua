@@ -28,6 +28,13 @@ local function Unique()
 		wait(0.01)
 	end
 end
+local function Refresher()
+	while _G.AutoMoney == true or _G.BuyDiamon == true or _G.AddTime == true do
+		Unique()
+		print("Recarregado!")
+		wait(1)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -38,6 +45,7 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoMoney = Value
    	Unique()
+   	Refresher()
    end,
 })
 local Toggle =  Menu:CreateToggle({
@@ -46,6 +54,7 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.BuyDiamon = Value
    	Unique()
+   	Refresher()
    end,
 })
 local Toggle =  Menu:CreateToggle({
@@ -54,6 +63,7 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AddTime = Value
    	Unique()
+   	Refresher()
    end,
 })
 
