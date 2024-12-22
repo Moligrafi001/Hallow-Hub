@@ -2,3 +2,12 @@ game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChild
 game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer()
 game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireServer(math.huge)
 
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Clicking%20Quest.lua",true))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+   Name = "Hallow Hub | Vyasa",
+   Icon = 17091459839,
+   LoadingTitle = "Hallow Hub",
+   LoadingSubtitle = "By Moligrafi",
+   Theme = "Amethyst"
+})
