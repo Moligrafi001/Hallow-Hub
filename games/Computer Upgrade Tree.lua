@@ -10,7 +10,6 @@ local Window = Rayfield:CreateWindow({
 
 -- Valores
 _G.AutoBuy = false
-_G.Refresher = false
 
 -- Funções
 local function AutoBuy()
@@ -28,6 +27,9 @@ local function AutoBuy()
 		wait(1)
 	end
 end
+
+-- Refresher
+_G.Refresher = false
 local function Refresher()
 	while _G.Refresher == true do
 		AutoBuy()
