@@ -213,8 +213,11 @@ local Toggle =  Menu:CreateToggle({
    	_G.InfDamage = Value
    end,
 })
-local Section = Menu:CreateSection("Extra")
-local Button = Menu:CreateButton({
+
+-- Extra
+local ExtraTab = Window:CreateTab("Main", "home")
+local Section = ExtraTab:CreateSection("Items")
+local Button = ExtraTab:CreateButton({
    Name = "Get Spells",
    Callback = function()
        for _, itemName in ipairs({"Arcane Blast", "Barrage", "Cacti Boulder", "Enrage", "Fireball", "Ground Smash", "Heal", "Healing Blast", "Mushroom", "Rain", "Slime Splash", "Soul Absorb", "Stab", "Stomp", "Summon", "Sword Lunge", "The Twins Blast", "Tree Chop", "Whirlwind"}) do
@@ -222,10 +225,27 @@ local Button = Menu:CreateButton({
 				end
     end,
 })
-local Button = Menu:CreateButton({
+local Section = ExtraTab:CreateSection("Money")
+local Button = ExtraTab:CreateButton({
    Name = "Inf Money",
    Callback = function()
-       game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireServer(99999999999999999999999999999999999)
+       game:GetService("Players").LocalPlayer.PlayerGui.SwordGUI.Frame.GiveGold:FireServer(math.huge)
     end,
 })
-local Label = Menu:CreateLabel("Open Sell Gui to Work", "triangle-alert")
+local Label = ExtraTab:CreateLabel("Only Works if the Seller Gui is Open", "triangle-alert")
+
+-- Credits.
+local Credits = Window:CreateTab("Credits", "info")
+local Section = Credits:CreateSection("Creator")
+local Label = Credits:CreateLabel("Discord: moligrafi", "at-sign")
+local Section = Credits:CreateSection("Co-Dev")
+local Label = Credits:CreateLabel("Discord: world_star_hacker", "at-sign")
+local Section = Credits:CreateSection("Discord Server")
+local Label = Credits:CreateLabel("discord.gg/AESCuek87s")
+local Button = Credits:CreateButton({
+   Name = "Copy Server Link",
+   Callback = function()
+       setclipboard("discord.gg/AESCuek87s")
+       toclipboard("discord.gg/AESCuek87s")
+    end,
+})
