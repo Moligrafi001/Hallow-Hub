@@ -50,6 +50,38 @@ local function AutoE()
 			else
 				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer(0.6)
 			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Ground Smash") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Ground Smash").RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Ground Smash").RemoteEvent:FireServer(2)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("The Twins Blast") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("The Twins Blast").RemoteEvent:FireServer(math.huge, Vector3.new(0, 0, 0))
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("The Twins Blast").RemoteEvent:FireServer(4.5, Vector3.new(0, 0, 0))
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Barrage") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E.Barrage.RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E.Barrage.RemoteEvent:FireServer(0.16666666666666666)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Stomp") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E.Stomp.RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E.Stomp.RemoteEvent:FireServer(3)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Cacti Boulder") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Cacti Boulder").RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:FindFirstChild("Cacti Boulder").RemoteEvent:FireServer(4.5)
+			end
+		else
+			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.E:GetChildren()[4].RemoteEvent:FireServer()
 		end
 		if WaitForE == "Slow (5/s)" then
 			wait(0.2)
@@ -62,7 +94,71 @@ local function AutoE()
 end
 local function AutoQ()
 	while _G.AutoQ == true do
-		game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer()
+		if game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Soul Absorb") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(1)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Healing Blast") then
+			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer()
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Fireball") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(math.huge, Vector3.new(0, 0, 0), 0.5, 3, 0.1, nil)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(2, Vector3.new(0, 0, 0), 0.5, 3, 0.1, nil)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Slime Splash") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(1)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Arcane Blast") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(2)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Whirlwind") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer(0.6)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Ground Smash") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Ground Smash").RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Ground Smash").RemoteEvent:FireServer(2)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("The Twins Blast") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("The Twins Blast").RemoteEvent:FireServer(math.huge, Vector3.new(0, 0, 0))
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("The Twins Blast").RemoteEvent:FireServer(4.5, Vector3.new(0, 0, 0))
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Barrage") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q.Barrage.RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q.Barrage.RemoteEvent:FireServer(0.16666666666666666)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Stomp") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q.Stomp.RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q.Stomp.RemoteEvent:FireServer(3)
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Cacti Boulder") then
+			if _G.InfDamage == true then
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Cacti Boulder").RemoteEvent:FireServer(math.huge)
+			else
+				game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:FindFirstChild("Cacti Boulder").RemoteEvent:FireServer(4.5)
+			end
+		else
+			game:GetService("Players").LocalPlayer.PlayerGui.PlayerMain.Abilities.Q:GetChildren()[4].RemoteEvent:FireServer()
+		end
 		if WaitForQ == "Slow (5/s)" then
 			wait(0.2)
 		elseif WaitForQ == "Normal (10/s)" then
