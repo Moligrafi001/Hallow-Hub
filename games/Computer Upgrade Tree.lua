@@ -88,7 +88,7 @@ local Toggle =  Menu:CreateToggle({
    	Refresher()
    end,
 })
-local Section = Menu:CreateSection("Part Incremental")
+local Section = Menu:CreateSection("Part Increment")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Collect Parts",
    CurrentValue = false,
