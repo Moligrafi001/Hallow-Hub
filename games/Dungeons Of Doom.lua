@@ -23,7 +23,6 @@ local function AutoMobLoot()
 					local distance = (playerPosition - blockPosition).Magnitude
 					if distance <= 9 then
 						fireproximityprompt(bag.MonsterLootbag.ProximityPrompt)
-						print("Apertei!")
 					end
 				end
 			end
@@ -41,7 +40,6 @@ local function AutoCrateLoot()
 					local distance = (playerPosition - blockPosition).Magnitude
 					if distance <= 9 then
 						fireproximityprompt(bag.CrateLootbag.ProximityPrompt)
-						print("Apertei!")
 					end
 				end
 			end
