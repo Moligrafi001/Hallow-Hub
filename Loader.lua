@@ -43,6 +43,8 @@ elseif game.PlaceId == 104584676217962 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Find%20Buttons.lua",true))()
 elseif game.PlaceId == 12398408187 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/VYASA.lua",true))()
+elseif game.PlaceId == 18242944461 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Computer%20Upgrade%20Tree.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
