@@ -125,3 +125,20 @@ local Toggle =  Menu:CreateToggle({
    	TimeUpg()
    end,
 })
+local Section = Menu:CreateSection("Rein")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Reincarnate",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.Reincarnate = Value
+   	Reincarnate()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Upgrade Rein",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.ReinUpg = Value
+   	ReinUpg()
+   end,
+})
