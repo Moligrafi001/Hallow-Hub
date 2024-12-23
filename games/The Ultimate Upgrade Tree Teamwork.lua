@@ -7,9 +7,32 @@ local Window = Rayfield:CreateWindow({
    LoadingSubtitle = "By Moligrafi",
    Theme = "Amethyst"
 })
+-- Valores
+_G.AutoBuy = false
 
-for _, button in pairs(workspace.Buttons.PointUpgrades:GetChildren()) do
-	if button.Bought.Value == false then
-		fireclickdetector(button.ClickDetector)
+-- Funções
+local function AutoBuy()
+	print("Função chamada!")
+	while _G.AutoBuy == true do
+		print("Looo iniciado!")
+		for _, button in pairs(workspace.Buttons.PointUpgrades:GetChildren()) do
+			if button.Bought.Value == false then
+				fireclickdetector(button.ClickDetector)
+				print("Apertei o " .. button.name)
+			end
+		end
+		wait(1)
 	end
 end
+
+-- Menu
+local Menu = Window:CreateTab("Main", "home")
+local Section = Menu:CreateSection("Upgrade")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Buy Upgrades",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoBuy = Value
+   	AutoBuy()
+   end,
+})
