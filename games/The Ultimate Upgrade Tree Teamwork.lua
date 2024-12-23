@@ -39,6 +39,22 @@ local function AutoPrest()
 		wait(0.1)
 	end
 end
+local function TimeUpg()
+	while _G.TimeUpg == true do
+		for _, button in pairs(workspace.Buttons.TimeUpgrades:GetChildren()) do
+			if button.Bought.Value == false and button.Transparency == 0 then
+				fireclickdetector(button.ClickDetector)
+			end
+		end
+		wait(0.1)
+	end
+end
+local function TimeWarp()
+	while _G.TimeWarp == true do
+		fireclickdetector(workspace.Buttons.TimeUpgrades.TimeWarp.ClickDetector)
+		wait(0.1)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -66,5 +82,22 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.PrestUpg = Value
    	PrestUpg()
+   end,
+})
+local Section = Menu:CreateSection("Time")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Time Warp",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.TimeWarp = Value
+   	TimeWarp()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Upgrade Time",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.TimeUpg = Value
+   	TimeUpg()
    end,
 })
