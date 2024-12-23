@@ -11,6 +11,7 @@ local Window = Rayfield:CreateWindow({
 -- Valores
 _G.AutoMobLoot = false
 _G.AutoCrateLoot = false
+_G.AutoChestLoot = false
 
 -- Funções
 local function AutoMobLoot()
