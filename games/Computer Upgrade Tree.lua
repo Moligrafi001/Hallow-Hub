@@ -56,8 +56,6 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoBuy = Value
    	AutoBuy()
-   	_G.Refresher = true
-   	Refresher()
    end,
 })
 local Section = Menu:CreateSection("More")
@@ -67,7 +65,5 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.ClickBox = Value
    	ClickBox()
-   	_G.Refresher = true
-   	Refresher()
    end,
 })
