@@ -10,6 +10,7 @@ local Window = Rayfield:CreateWindow({
 
 -- Valores
 _G.AutoOrbs = false
+_G.AutoLuB = false
 
 -- Funções
 local function AutoOrbs()
@@ -28,15 +29,31 @@ local function AutoOrbs()
 		wait(0.01)
 	end
 end
+local function AutoLuB()
+	while _G.AutoLuB == true do
+		for _, block in pairs(workspace.LuckyBlocks:GetChildren()) do
+			fireproximityprompt(block.ProximityPrompt)
+		end
+		wait(0.5)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
 local Section = Menu:CreateSection("Auto Farm")
 local Toggle =  Menu:CreateToggle({
-.   Name = "Auto Orbs",
+   Name = "Auto Orbs",
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoOrbs = Value
    	AutoOrbs()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Lucky Blocks",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoLuB = Value
+   	AutoLuB()
    end,
 })
