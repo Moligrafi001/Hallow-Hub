@@ -9,6 +9,8 @@ local Window = Rayfield:CreateWindow({
 })
 -- Valores
 _G.AutoBuy = false
+_G.PrestUpg = false
+_G.AutoPrest = false
 
 -- Funções
 local function AutoBuy()
