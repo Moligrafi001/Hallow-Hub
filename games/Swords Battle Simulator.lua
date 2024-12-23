@@ -11,6 +11,8 @@ local Window = Rayfield:CreateWindow({
 -- Valores
 _G.AutoOrbs = false
 _G.AutoLuB = false
+_G.SetWalkSpeed = false
+local WalkSpeedText = 16
 
 -- Funções
 local function AutoOrbs()
@@ -31,15 +33,32 @@ local function AutoOrbs()
 end
 local function AutoLuB()
 	while _G.AutoLuB == true do
+		local player = game.Players.LocalPlayer
+		local character = player.Character or player.CharacterAdded:Wait()
+		local playerPosition = character.PrimaryPart.Position
+		
 		for _, block in pairs(workspace.LuckyBlocks:GetChildren()) do
 			if block.Name == "LuckyBlock" then
 				if block:FindFirstChild("ProximityPrompt") then
-					fireproximityprompt(block.ProximityPrompt)
-				break
+					local blockPosition = block.Position
+					local distance = (playerPosition - blockPosition).Magnitude
+					
+					if distance <= 15 then
+						fireproximityprompt(block.ProximityPrompt)
+						break
+					end
 				end
 			end
 		end
 		wait(0.01)
+	end
+end
+local function SetWalkSpeed()
+	while _G.SetWalkSpeed == true do
+		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed ~= WalkSpeedText then
+			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = WalkSpeedText
+		end
+		wait(0.1)
 	end
 end
 
@@ -60,5 +79,23 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoLuB = Value
    	AutoLuB()
+   end,
+})
+local Section = Menu:CreateSection("Movement")
+local Input = Menu:CreateInput({
+   Name = "WalkSpeed",
+   CurrentValue = "",
+   PlaceholderText = "Default WalkSpeed = 16",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   	WalkSpeedText = Text
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Lucky Blocks",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.SetWalkSpeed = Value
+   	SetWalkSpeed()
    end,
 })
