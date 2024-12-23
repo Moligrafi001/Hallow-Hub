@@ -35,7 +35,7 @@ local function PrestUpg()
 end
 local function AutoPrest()
 	while _G.AutoPrest == true do
-		workspace.Buttons.PrestigeUpgrades.Prestige.ClickDetector
+		fireclickdetector(workspace.Buttons.PrestigeUpgrades.Prestige.ClickDetector)
 		wait(0.33)
 	end
 end
