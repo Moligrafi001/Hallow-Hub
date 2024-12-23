@@ -60,6 +60,9 @@ local function SetWalkSpeed()
 		end
 		wait(0.1)
 	end
+	if _G.SetWalkSpeed == false then
+		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 21
+	end
 end
 
 -- Menu
