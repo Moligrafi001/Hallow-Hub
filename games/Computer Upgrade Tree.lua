@@ -45,10 +45,10 @@ local function AutoTouch()
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, coleta, 0)
 				wait(0.1)
         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, coleta, 1)
-    	end
+    		end
 			end
-	end
-		wait(0.11)
+		end
+		wait(0.33)
 	end
 end
 
