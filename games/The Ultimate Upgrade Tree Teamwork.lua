@@ -44,8 +44,10 @@ end
 local function TimeUpg()
 	while _G.TimeUpg == true do
 		for _, button in pairs(workspace.Buttons.TimeUpgrades:GetChildren()) do
-			if button.Bought.Value == false and button.Transparency == 0 then
-				fireclickdetector(button.ClickDetector)
+			if button:FindFirstChild("Bought") then
+				if button.Bought.Value == false and button.Transparency == 0 then
+					fireclickdetector(button.ClickDetector)
+				end
 			end
 		end
 		wait(0.1)
