@@ -13,6 +13,8 @@ _G.PrestUpg = false
 _G.AutoPrest = false
 _G.TimeUpg = false
 _G.TimeWarp = false
+_G.ReinUpg = false
+_G.Reincarnate = false
 
 -- Funções
 local function AutoBuy()
@@ -56,6 +58,24 @@ end
 local function TimeWarp()
 	while _G.TimeWarp == true do
 		fireclickdetector(workspace.Buttons.TimeUpgrades.TimeWarp.ClickDetector)
+		wait(0.1)
+	end
+end
+local function ReinUpg()
+	while _G.ReinUpg == true do
+		for _, button in pairs(workspace.Buttons.ReinUpgrades:GetChildren()) do
+			if button.Name ~= "Reincarnate" then
+				if button.Bought.Value == false and button.Transparency == 0 then
+					fireclickdetector(button.ClickDetector)
+				end
+			end
+		end
+		wait(0.1)
+	end
+end
+local function Reincarnate()
+	while _G.Reincarnate == true do
+		fireclickdetector(workspace.Buttons.ReinUpgrades.Reincarnate.ClickDetector)
 		wait(0.1)
 	end
 end
