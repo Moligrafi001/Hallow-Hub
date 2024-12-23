@@ -53,7 +53,7 @@ local function AutoChestLoot()
 		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
-				if bag.Top:GetChildren()[15]:FindFirstChild("ProximityPrompt") then
+				if bag:GetChildren()[15]:FindFirstChild("ProximityPrompt") then
 					local blockPosition = bag.Top:GetChildren()[15].Position
 					local distance = (playerPosition - blockPosition).Magnitude
 					if distance <= 9 then
