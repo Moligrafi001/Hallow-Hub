@@ -45,7 +45,7 @@ local function AutoTouch()
         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, coleta, 1)
     	end
 		end
-		wait(3)
+		wait(0.11)
 	end
 end
 
