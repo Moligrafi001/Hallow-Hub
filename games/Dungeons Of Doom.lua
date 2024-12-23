@@ -47,6 +47,23 @@ local function AutoCrateLoot()
 		wait(0.1)
 	end
 end
+local function AutoChestLoot()
+	while _G.AutoChestLoot == true do
+		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
+				if bag:FindFirstChild("Top") then
+					local blockPosition = bag.Top:GetChildren()[15].Position
+					local distance = (playerPosition - blockPosition).Magnitude
+					if distance <= 9 then
+						fireproximityprompt(bag.Top:GetChildren()[15].ProximityPrompt)
+					end
+				end
+			end
+		end
+		wait(0.1)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -65,5 +82,13 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoCrateLoot = Value
    	AutoCrateLoot()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Collect Chest Loot",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoChestLoot = Value
+   	AutoChestLoot()
    end,
 })
