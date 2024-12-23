@@ -16,7 +16,7 @@ local function AutoBuy()
 	while _G.AutoBuy == true do
 		print("Looo iniciado!")
 		for _, button in pairs(workspace.Buttons.PointUpgrades:GetChildren()) do
-			if button.Bought.Value == false then
+			if button.Bought.Value == false and button.Transparency == 0 then
 				fireclickdetector(button.ClickDetector)
 				print("Apertei o " .. button.name)
 			end
