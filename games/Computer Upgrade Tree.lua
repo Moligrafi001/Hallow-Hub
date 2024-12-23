@@ -36,13 +36,26 @@ local function ClickBox()
 		wait(0.01)
 	end
 end
+local function AutoTouch()
+	while _G.AutoTouch == true do
+		for _, coleta in pairs(workspace.PartIncrement.PartPad:GetChildren()) do
+			if coleta:IsA("BasePart") then
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, coleta, 0)
+				wait(0.1)
+        firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, coleta, 1)
+    	end
+		end
+		wait(3)
+	end
+end
 
 -- Refresher
 _G.Refresher = false
 local function Refresher()
 	while _G.Refresher == true do
-		ClickBox()
 		AutoBuy()
+		ClickBox()
+		AutoTouch()
 		wait(0.5)
 	end
 end
@@ -61,13 +74,25 @@ local Toggle =  Menu:CreateToggle({
    	Refresher()
    end,
 })
-local Section = Menu:CreateSection("More")
+local Section = Menu:CreateSection("Box")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Box Clicker",
    CurrentValue = false,
    Callback = function(Value)
    	_G.ClickBox = Value
    	ClickBox()
+   	-- Refresher
+   	_G.Refresher = true
+   	Refresher()
+   end,
+})
+local Section = Menu:CreateSection("Part Incremental")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Collect Parts",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoTouch = Value
+   	AutoTouch()
    	-- Refresher
    	_G.Refresher = true
    	Refresher()
