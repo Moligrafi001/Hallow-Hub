@@ -12,27 +12,57 @@ _G.AutoBuy = false
 
 -- Funções
 local function AutoBuy()
-	print("Função chamada!")
 	while _G.AutoBuy == true do
-		print("Looo iniciado!")
 		for _, button in pairs(workspace.Buttons.PointUpgrades:GetChildren()) do
 			if button.Bought.Value == false and button.Transparency == 0 then
 				fireclickdetector(button.ClickDetector)
-				print("Apertei o " .. button.name)
 			end
 		end
 		wait(1)
 	end
 end
+local function PrestUpg()
+	while _G.PrestUpg == true do
+		for _, button in pairs(workspace.Buttons.PrestigeUpgrades:GetChildren()) do
+			if button.Bought.Value == false and button.Transparency == 0 then
+				fireclickdetector(button.ClickDetector)
+			end
+		end
+		wait(1)
+	end
+end
+local function AutoPrest()
+	while _G.AutoPrest == true do
+		workspace.Buttons.PrestigeUpgrades.Prestige.ClickDetector
+		wait(0.33)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
-local Section = Menu:CreateSection("Upgrade")
+local Section = Menu:CreateSection("Points")
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto Buy Upgrades",
+   Name = "Auto Upgrade Points",
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoBuy = Value
    	AutoBuy()
+   end,
+})
+local Section = Menu:CreateSection("Prestige")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Prestige",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoPrest = Value
+   	AutoPrest()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Upgrade Prestige",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.PrestUpg = Value
+   	PrestUpg()
    end,
 })
