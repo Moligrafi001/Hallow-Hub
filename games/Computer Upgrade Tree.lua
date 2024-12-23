@@ -25,7 +25,7 @@ local function AutoBuy()
 		if workspace.Upgrades.P12.Visible.Value == true then
 			fireclickdetector(workspace.Upgrades.P12.ClickDetector)
 		end
-		wait(1)
+		wait(0.33)
 	end
 end
 local function ClickBox()
