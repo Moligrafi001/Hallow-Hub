@@ -86,7 +86,7 @@ local Toggle =  Menu:CreateToggle({
 })
 local Section = Menu:CreateSection("Movement")
 local Input = Menu:CreateInput({
-   Name = "WalkSpeed",
+   Name = "Player WalkSpeed",
    CurrentValue = "",
    PlaceholderText = "Default WalkSpeed = 16",
    RemoveTextAfterFocusLost = false,
@@ -95,7 +95,7 @@ local Input = Menu:CreateInput({
    end,
 })
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto Lucky Blocks",
+   Name = "Toggle WalkSpeed",
    CurrentValue = false,
    Callback = function(Value)
    	_G.SetWalkSpeed = Value
