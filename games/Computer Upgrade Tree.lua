@@ -11,6 +11,7 @@ local Window = Rayfield:CreateWindow({
 -- Valores
 _G.AutoBuy = false
 _G.ClickBox = false
+_G.AutoTouch = false
 
 -- Funções
 local function AutoBuy()
