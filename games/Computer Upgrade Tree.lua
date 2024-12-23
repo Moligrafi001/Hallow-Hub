@@ -51,11 +51,12 @@ end
 local Menu = Window:CreateTab("Main", "home")
 local Section = Menu:CreateSection("Upgrade")
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto Buy Upgrades",
+   Name = "Auto Buy All Upgrades",
    CurrentValue = false,
    Callback = function(Value)
    	_G.AutoBuy = Value
    	AutoBuy()
+   	-- Refresher
    	_G.Refresher = true
    	Refresher()
    end,
