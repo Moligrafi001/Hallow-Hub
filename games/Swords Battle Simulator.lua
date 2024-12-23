@@ -39,7 +39,7 @@ local function AutoLuB()
 				end
 			end
 		end
-		wait(0.5)
+		wait(0.01)
 	end
 end
 
