@@ -20,7 +20,7 @@ local function AutoBuy()
 				fireclickdetector(button.ClickDetector)
 			end
 		end
-		wait(1)
+		wait(0.1)
 	end
 end
 local function PrestUpg()
@@ -30,13 +30,13 @@ local function PrestUpg()
 				fireclickdetector(button.ClickDetector)
 			end
 		end
-		wait(1)
+		wait(0.1)
 	end
 end
 local function AutoPrest()
 	while _G.AutoPrest == true do
 		fireclickdetector(workspace.Buttons.PrestigeUpgrades.Prestige.ClickDetector)
-		wait(0.33)
+		wait(0.1)
 	end
 end
 
