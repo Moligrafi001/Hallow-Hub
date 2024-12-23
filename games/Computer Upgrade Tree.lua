@@ -43,12 +43,11 @@ local function AutoTouch()
 			if workspace.PartIncrement.PartPad:FindFirstChild("newpart") then
 				if coleta:IsA("BasePart") then
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, coleta, 0)
-				wait(0.1)
         firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, coleta, 1)
     		end
 			end
 		end
-		wait(0.33)
+		wait(0.5)
 	end
 end
 
