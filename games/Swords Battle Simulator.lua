@@ -32,7 +32,9 @@ end
 local function AutoLuB()
 	while _G.AutoLuB == true do
 		for _, block in pairs(workspace.LuckyBlocks:GetChildren()) do
-			fireproximityprompt(block.ProximityPrompt)
+			if block.Name == "LuckyBlock" then
+				fireproximityprompt(block.ProximityPrompt)
+			end
 		end
 		wait(0.5)
 	end
