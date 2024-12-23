@@ -170,7 +170,7 @@ local function AutoQ()
 end
 
 -- Menu
-local Menu = Window:CreateTab("Main", "home")
+local Menu = Window:CreateTab("Abilities", "sparkles")
 local Section = Menu:CreateSection("Ability")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Use E",
@@ -215,7 +215,7 @@ local Toggle =  Menu:CreateToggle({
 })
 
 -- Extra
-local ExtraTab = Window:CreateTab("Main", "home")
+local ExtraTab = Window:CreateTab("Extra", "plus")
 local Section = ExtraTab:CreateSection("Items")
 local Button = ExtraTab:CreateButton({
    Name = "Get Spells",
