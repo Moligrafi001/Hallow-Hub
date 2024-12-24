@@ -22,7 +22,7 @@ local function MobsESP()
 	while _G.MobsESP == true do
 		for _, Room in pairs(workspace.DungeonRooms:GetChildren()) do
 			for _, Mobs in pairs(Room.Assets:GetChildren()) do
-				game.Mobs.Highlight.Enabled = 
+				game.Mobs.Highlight.Enabled = true
 			end
 		end
 		wait(1)
