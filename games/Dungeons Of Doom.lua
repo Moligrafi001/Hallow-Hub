@@ -95,7 +95,7 @@ local function AutoCrateLoot()
 						if bag.Name == "T1Chest" then
 							blockPosition = bag.Top.Top.Close.CFrame.Position
 						else
-							bag.Top.Close.CFrame.Position
+							blockPosition = bag.Top.Close.CFrame.Position
 						end
 						local distance = (playerPosition - blockPosition).Magnitude
 						if distance <= 9 then
