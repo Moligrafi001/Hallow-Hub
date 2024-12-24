@@ -15,18 +15,32 @@ _G.AutoCrateLoot = false
 _G.AutoChestLoot = false
 local WalkSpeedText = 16
 _G.SetWalkSpeed = false
+_G.MobsESP = false
+_G.LoopFB = false
 
 -- Funções
+local function LoopFB()
+	while _G.LoopFB == true do
+		game:GetService("Lighting").Brightness = 2
+		game:GetService("Lighting").ClockTime = 14
+		game:GetService("Lighting").FogEnd = 100000
+		game:GetService("Lighting").GlobalShadows = false
+		game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+		wait(0.01)
+	end
+end
 local function MobsESP()
 	while _G.MobsESP == true do
 		for _, Room in pairs(workspace.DungeonRooms:GetChildren()) do
 			for _, Luz in pairs(Room.Assets:GetDescendants()) do
 				if Luz:IsA("Highlight") then
-					Luz.Enabled = true
+					if Luz.Enabled == false then
+						Luz.Enabled = true
+					end
 				end
 			end
 		end
-		wait(1)
+		wait(0.01)
 	end
 	if _G.MobsESP == false then
 		for _, Room in pairs(workspace.DungeonRooms:GetChildren()) do
@@ -122,15 +136,6 @@ end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
-local Section = Menu:CreateSection("ESP")
-local Toggle =  Menu:CreateToggle({
-   Name = "ESP Monsters",
-   CurrentValue = false,
-   Callback = function(Value)
-   	_G.MobsESP = Value
-   	MobsESP()
-   end,
-})
 local Section = Menu:CreateSection("Loot")
 local Toggle =  Menu:CreateToggle({
    Name = "Collect Mob Loot",
@@ -154,6 +159,27 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoChestLoot = Value
    	AutoChestLoot()
+   end,
+})
+
+-- Visual
+local VisualTab = Window:CreateTab("Main", "home")
+local Section = VisualTab:CreateSection("ESP")
+local Toggle =  VisualTab:CreateToggle({
+   Name = "ESP Monsters",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.MobsESP = Value
+   	MobsESP()
+   end,
+})
+local Section = VisualTab:CreateSection("More")
+local Toggle =  VisualTab:CreateToggle({
+   Name = "Fullbright",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.LoopFB = Value
+   	LoopFB()
    end,
 })
 
