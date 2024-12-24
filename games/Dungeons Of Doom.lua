@@ -28,6 +28,17 @@ local function AutoMobLoot()
 				end
 			end
 		end
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "BossLootbag" then
+				if bag:FindFirstChild("BossLootbag") then
+					local blockPosition = bag.BossLootbag.Position
+					local distance = (playerPosition - blockPosition).Magnitude
+					if distance <= 9 then
+						fireproximityprompt(bag.BossLootbag.ProximityPrompt)
+					end
+				end
+			end
+		end
 		wait(0.1)
 	end
 end
