@@ -17,6 +17,8 @@ local WalkSpeedText = 16
 _G.SetWalkSpeed = false
 _G.MobsESP = false
 _G.LoopFB = false
+local JumpPowerText = 50
+_G.SetJumpPower = false
 
 -- Funções
 local function LoopFB()
@@ -133,6 +135,17 @@ local function SetWalkSpeed()
 		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 16
 	end
 end
+local function SetJumpPower()
+	while _G.SetJumpPower == true do
+		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower ~= JumpPowerText then
+			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = JumpPowerText
+		end
+		if _G.SetJumpPower == false then
+			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = 50
+		end
+		wait(0.01)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -195,20 +208,20 @@ local Toggle =  VisualTab:CreateToggle({
 local MoveTab = Window:CreateTab("Movement", "chevrons-up")
 local Section = MoveTab:CreateSection("Jump")
 local Input = MoveTab:CreateInput({
-   Name = "Player WalkSpeed",
+   Name = "Player JumpPower",
    CurrentValue = "",
-   PlaceholderText = "Default WalkSpeed = 16",
+   PlaceholderText = "Default JumpPower = 50",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
-   	WalkSpeedText = Text
+   	JumpPowerText = Text
    end,
 })
 local Toggle = MoveTab:CreateToggle({
    Name = "Toggle WalkSpeed",
    CurrentValue = false,
    Callback = function(Value)
-   	_G.SetWalkSpeed = Value
-   	SetWalkSpeed()
+   	_G.SetJumpPower = Value
+   	SetJumpPower()
    end,
 })
 local Section = MoveTab:CreateSection("Walk")
