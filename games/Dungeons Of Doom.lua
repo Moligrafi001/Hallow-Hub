@@ -173,9 +173,34 @@ local function SetJumpPower()
 end
 local function PlayerESP()
 	while _G.PlayerESP == true do
-		
+		for _, player in pairs(workspace.GetChildren()) do
+			if player:FindFirstChild("Humanoid") then
+				if player:FindFirstChild("Highlight") then
+					if player.Highlight.Enabled == false then
+						player.Highlight.Enabled = true
+					end
+				else
+					local highlight = Instance.new("Highlight")
+					highlight.FillColor = Color3.fromRGB(255, 255, 255)
+					highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+					highlight.FillTransparency = 0
+					highlight.Adornee = player
+					highlight.Parent = player
+				end
+			end
+		end
+		wait(0.01)
 	end
 	if _G.PlayerESP == false then
+		for _, player in pairs(workspace.GetChildren()) do
+			if player:FindFirstChild("Humanoid") then
+				if player:FindFirstChild("Highlight") then
+					if player.Highlight.Enabled == true then
+						player.Highlight.Enabled = false
+					end
+				end
+			end
+		end
 	end
 end
 local function NoClip()
@@ -305,7 +330,6 @@ local function LootESp()
 		end
 	end
 	wait(0.01)
-end
 end
 
 -- Menu
