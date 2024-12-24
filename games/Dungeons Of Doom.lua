@@ -21,6 +21,7 @@ local JumpPowerText = 50
 _G.SetJumpPower = false
 _G.NoClip = false
 _G.PlayerESP = false
+_G.InfJump = false
 
 -- Funções
 local function LoopFB()
@@ -168,6 +169,11 @@ local function NoClip()
 		wait(0.1)
 	end
 end
+local function InfJump()
+	while _G.InfJump == true do
+		-- se o jogador solicitae pulo then pulo
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -262,6 +268,14 @@ local Toggle = MoveTab:CreateToggle({
    Callback = function(Value)
    	_G.SetJumpPower = Value
    	SetJumpPower()
+   end,
+})
+local Toggle = MoveTab:CreateToggle({
+   Name = "Inf Jump",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.InfJump = Value
+   	InfJump()
    end,
 })
 local Section = MoveTab:CreateSection("More")
