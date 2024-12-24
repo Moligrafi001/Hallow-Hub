@@ -12,6 +12,8 @@ local Window = Rayfield:CreateWindow({
 _G.AutoMobLoot = false
 _G.AutoCrateLoot = false
 _G.AutoChestLoot = false
+local WalkSpeedText = 16
+_G.SetWalkSpeed = false
 
 -- Funções
 local function AutoMobLoot()
@@ -76,6 +78,17 @@ local function AutoChestLoot()
 		wait(0.1)
 	end
 end
+local function SetWalkSpeed()
+	while _G.SetWalkSpeed == true do
+		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed ~= WalkSpeedText then
+			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = WalkSpeedText
+		end
+		wait(0.1)
+	end
+	if _G.SetWalkSpeed == false then
+		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 16
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -102,5 +115,26 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoChestLoot = Value
    	AutoChestLoot()
+   end,
+})
+
+-- Movement
+local MoveTab = Window:CreateTab("Movement", "chevrons-up")
+local Section = MoveTab:CreateSection("WalkSpeed")
+local Input = MoveTab:CreateInput({
+   Name = "Player WalkSpeed",
+   CurrentValue = "",
+   PlaceholderText = "Default WalkSpeed = 16",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   	WalkSpeedText = Text
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Toggle WalkSpeed",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.SetWalkSpeed = Value
+   	SetWalkSpeed()
    end,
 })
