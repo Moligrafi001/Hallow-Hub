@@ -19,6 +19,8 @@ _G.MobsESP = false
 _G.LoopFB = false
 local JumpPowerText = 50
 _G.SetJumpPower = false
+_G.NoClip = false
+_G.PlayerESP = false
 
 -- Funções
 local function LoopFB()
@@ -146,6 +148,26 @@ local function SetJumpPower()
 		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = 50
 	end
 end
+local function PlayerESP()
+	while _G.PlayerESP == true do
+	end
+	if _G.PlayerESP == false then
+	end
+end
+local function NoClip()
+	while _G.NoClip == true do
+		for _, part in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+			if part:IsA("BasePart") then
+				if _G.NoClip then
+					part.CanCollide = false
+				else
+					part.CanCollide = true
+				end
+			end
+		end
+		wait(0.1)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -206,6 +228,24 @@ local Toggle =  VisualTab:CreateToggle({
 
 -- Movement
 local MoveTab = Window:CreateTab("Movement", "chevrons-up")
+local Section = MoveTab:CreateSection("Walk")
+local Input = MoveTab:CreateInput({
+   Name = "Player WalkSpeed",
+   CurrentValue = "",
+   PlaceholderText = "Default WalkSpeed = 16",
+   RemoveTextAfterFocusLost = false,
+   Callback = function(Text)
+   	WalkSpeedText = Text
+   end,
+})
+local Toggle = MoveTab:CreateToggle({
+   Name = "Toggle WalkSpeed",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.SetWalkSpeed = Value
+   	SetWalkSpeed()
+   end,
+})
 local Section = MoveTab:CreateSection("Jump")
 local Input = MoveTab:CreateInput({
    Name = "Player JumpPower",
@@ -224,21 +264,12 @@ local Toggle = MoveTab:CreateToggle({
    	SetJumpPower()
    end,
 })
-local Section = MoveTab:CreateSection("Walk")
-local Input = MoveTab:CreateInput({
-   Name = "Player WalkSpeed",
-   CurrentValue = "",
-   PlaceholderText = "Default WalkSpeed = 16",
-   RemoveTextAfterFocusLost = false,
-   Callback = function(Text)
-   	WalkSpeedText = Text
-   end,
-})
+local Section = MoveTab:CreateSection("More")
 local Toggle = MoveTab:CreateToggle({
-   Name = "Toggle WalkSpeed",
+   Name = "No Clip",
    CurrentValue = false,
    Callback = function(Value)
-   	_G.SetWalkSpeed = Value
-   	SetWalkSpeed()
+   	_G.NoClip = Value
+   	NoClip()
    end,
 })
