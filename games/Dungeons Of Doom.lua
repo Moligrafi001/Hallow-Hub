@@ -296,7 +296,7 @@ local function LootESp()
 		end
 		wait(0.01)
 	end
-	while _G.LootESp == false do
+	if _G.LootESp == false then
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "MonsterLootbag" then
 				if bag:FindFirstChild("MonsterLootbag") then
@@ -330,7 +330,38 @@ local function LootESp()
 				end
 			end
 		end
-	wait(0.01)
+	end
+end
+local function ChestESp()
+	while _G.ChestESp == true do
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
+				if bag:FindFirstChild("Highlight") then
+					if bag.Highlight.Enabled == false then
+						bag.Highlight.Enabled = true
+					end
+				else
+					local highlight = Instance.new("Highlight")
+					highlight.FillColor = Color3.fromRGB(94, 73, 44)
+					highlight.OutlineColor = Color3.fromRGB(94, 73, 44)
+					highlight.FillTransparency = 0
+					highlight.Adornee = player
+					highlight.Parent = player
+				end
+			end
+		end
+		wait(0.01)
+	end
+	if _G.ChestESp == false then
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
+				if bag:FindFirstChild("Highlight") then
+					if bag.Highlight.Enabled == true then
+						bag.Highlight.Enabled = false
+					end
+				end
+			end
+		end
 	end
 end
 
@@ -379,6 +410,14 @@ local Toggle =  VisualTab:CreateToggle({
    Callback = function(Value)
    	_G.LootESp = Value
    	LootESp()
+   end,
+})
+local Toggle =  VisualTab:CreateToggle({
+   Name = "ESP Chests",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.ChestESp = Value
+   	ChestESp()
    end,
 })
 local Toggle =  VisualTab:CreateToggle({
