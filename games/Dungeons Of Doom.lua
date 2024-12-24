@@ -140,10 +140,10 @@ local function SetJumpPower()
 		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower ~= JumpPowerText then
 			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = JumpPowerText
 		end
-		if _G.SetJumpPower == false then
-			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = 50
-		end
 		wait(0.01)
+		end
+	if _G.SetJumpPower == false then
+		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = 50
 	end
 end
 
