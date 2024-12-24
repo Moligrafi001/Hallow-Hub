@@ -1,5 +1,7 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Dungeons%20Of%20Doom.lua",true))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+-- game.workspace.DungeonRooms.CaveRoom.Assets.Zombie.Highlight.Enabled = false
+-- workspace.UTLootbag.UTLootbag
 local Window = Rayfield:CreateWindow({
    Name = "Hallow Hub | Dungeons Of Doom",
    Icon = 17091459839,
@@ -21,22 +23,26 @@ local function AutoMobLoot()
 		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "MonsterLootbag" then
-				if bag:FindFirstChild("MonsterLootbag") then
-					local blockPosition = bag.MonsterLootbag.Position
-					local distance = (playerPosition - blockPosition).Magnitude
-					if distance <= 9 then
-						fireproximityprompt(bag.MonsterLootbag.ProximityPrompt)
+				for _, v in pairs(bag:GetDescendants()) do
+					if v:IsA("ProximityPrompt") then
+						local blockPosition = bag.MonsterLootbag.Position
+						local distance = (playerPosition - blockPosition).Magnitude
+						if distance <= 9 then
+							fireproximityprompt(v)
+						end
 					end
 				end
 			end
 		end
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "BossLootbag" then
-				if bag:FindFirstChild("BossLootbag") then
-					local blockPosition = bag.BossLootbag.Position
-					local distance = (playerPosition - blockPosition).Magnitude
-					if distance <= 9 then
-						fireproximityprompt(bag.BossLootbag.ProximityPrompt)
+				for _, v in pairs(bag:GetDescendants()) do
+					if v:IsA("ProximityPrompt") then
+						local blockPosition = bag.BossLootbag.Position
+						local distance = (playerPosition - blockPosition).Magnitude
+						if distance <= 9 then
+							fireproximityprompt(v)
+						end
 					end
 				end
 			end
@@ -49,11 +55,13 @@ local function AutoCrateLoot()
 		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "CrateLootbag" then
-				if bag:FindFirstChild("CrateLootbag") then
-					local blockPosition = bag.CrateLootbag.Position
-					local distance = (playerPosition - blockPosition).Magnitude
-					if distance <= 9 then
-						fireproximityprompt(bag.CrateLootbag.ProximityPrompt)
+				for _, v in pairs(bag:GetDescendants()) do
+					if v:IsA("ProximityPrompt") then
+						local blockPosition = bag.CrateLootbag.Position
+						local distance = (playerPosition - blockPosition).Magnitude
+						if distance <= 9 then
+							fireproximityprompt(v)
+						end
 					end
 				end
 			end
@@ -66,7 +74,7 @@ local function AutoChestLoot()
 		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
-				local blockPosition = bag.Top:GetChildren()[15].Position
+				local blockPosition = bag.Top.Position
 				local distance = (playerPosition - blockPosition).Magnitude
 				for _, v in ipairs(bag:GetDescendants()) do
 					if v:IsA("ProximityPrompt") then
