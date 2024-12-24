@@ -54,7 +54,7 @@ local function MobsESP()
 end
 local function AutoMobLoot()
 	while _G.AutoMobLoot == true do
-		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
+		local playerPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "MonsterLootbag" then
 				for _, v in pairs(bag:GetDescendants()) do
@@ -86,7 +86,7 @@ local function AutoMobLoot()
 end
 local function AutoCrateLoot()
 	while _G.AutoCrateLoot == true do
-		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
+		local playerPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "CrateLootbag" then
 				for _, v in pairs(bag:GetDescendants()) do
@@ -105,7 +105,7 @@ local function AutoCrateLoot()
 end
 local function AutoChestLoot()
 	while _G.AutoChestLoot == true do
-		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
+		local playerPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
 				local blockPosition = bag.Top.Position
@@ -163,7 +163,7 @@ local Toggle =  Menu:CreateToggle({
 })
 
 -- Visual
-local VisualTab = Window:CreateTab("Main", "home")
+local VisualTab = Window:CreateTab("Visual", "eye")
 local Section = VisualTab:CreateSection("ESP")
 local Toggle =  VisualTab:CreateToggle({
    Name = "ESP Monsters",
