@@ -166,6 +166,14 @@ local Toggle =  Menu:CreateToggle({
 local VisualTab = Window:CreateTab("Visual", "eye")
 local Section = VisualTab:CreateSection("ESP")
 local Toggle =  VisualTab:CreateToggle({
+   Name = "ESP Players",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.PlayerESP = Value
+   	PlayerESP()
+   end,
+})
+local Toggle =  VisualTab:CreateToggle({
    Name = "ESP Monsters",
    CurrentValue = false,
    Callback = function(Value)
