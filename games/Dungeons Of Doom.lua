@@ -17,15 +17,25 @@ local WalkSpeedText = 16
 _G.SetWalkSpeed = false
 
 -- Funções
--- 	game.workspace.DungeonRooms.CaveRoom.Assets.Zombie.Highlight.Enabled = false
 local function MobsESP()
 	while _G.MobsESP == true do
 		for _, Room in pairs(workspace.DungeonRooms:GetChildren()) do
-			for _, Mobs in pairs(Room.Assets:GetChildren()) do
-				game.Mobs.Highlight.Enabled = true
+			for _, Luz in pairs(Room.Assets:GetDescendants()) do
+				if Luz:IsA("Highlight") then
+					Luz.Enabled = true
+				end
 			end
 		end
 		wait(1)
+	end
+	if _G.MobsESP == false then
+		for _, Room in pairs(workspace.DungeonRooms:GetChildren()) do
+			for _, Luz in pairs(Room.Assets:GetDescendants()) do
+				if Luz:IsA("Highlight") then
+					Luz.Enabled = false
+				end
+			end
+		end
 	end
 end
 local function AutoMobLoot()
@@ -112,6 +122,15 @@ end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
+local Section = Menu:CreateSection("ESP")
+local Toggle =  Menu:CreateToggle({
+   Name = "ESP Monsters",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.MobsESP = Value
+   	MobsESP()
+   end,
+})
 local Section = Menu:CreateSection("Loot")
 local Toggle =  Menu:CreateToggle({
    Name = "Collect Mob Loot",
