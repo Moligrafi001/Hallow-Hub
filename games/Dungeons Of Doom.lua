@@ -22,6 +22,7 @@ _G.SetJumpPower = false
 _G.NoClip = false
 _G.PlayerESP = false
 _G.InfJump = false
+_G.LootESp = false
 
 -- Funções
 local function LoopFB()
@@ -188,6 +189,62 @@ local function InfJump()
 		wait(0.1)
 	end
 end
+local function LootESp()
+	while _G.LootESp == true do
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "MonsterLootbag" then
+				if bag.MonsterLootbag:FindFirstChild("ProximityPrompt") and not bag:FindFirstChild("Highlight") then
+					local highlight = Instance.new("Highlight")
+					highlight.FillColor = Color3.fromRGB(0, 255, 0)
+					highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
+					highlight.FillTransparency = 0
+					highlight.Adornee = bag
+					highlight.Parent = bag
+				elseif bag:FindFirstChild("Highlight") and not bag.MonsterLootbag:FindFirstChild("ProximityPrompt") then
+					bag.Highlight.Enabled = false
+				end
+				if bag:FindFirstChild("Highlight") then
+					bag.Highlight.Enabled = true
+				end
+			end
+		end
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "BossLootbag" then
+				if bag.BossLootbag:FindFirstChild("ProximityPrompt") and not bag:FindFirstChild("Highlight") then
+					local highlight = Instance.new("Highlight")
+					highlight.FillColor = Color3.fromRGB(0, 255, 0)
+					highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
+					highlight.FillTransparency = 0
+					highlight.Adornee = bag
+					highlight.Parent = bag
+				elseif bag:FindFirstChild("Highlight") and not bag.BossLootbag:FindFirstChild("ProximityPrompt") then
+					bag.Highlight.Enabled = false
+				end
+				if bag:FindFirstChild("Highlight") then
+					bag.Highlight.Enabled = true
+				end
+			end
+		end
+		wait(0.01)
+	end
+	while _G.LootESp == false do
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "MonsterLootbag" then
+				if bag:FindFirstChild("Highlight") then
+				bag.Highlight.Enabled = false
+			end
+		end
+	end
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "BossLootbag" then
+				if bag:FindFirstChild("Highlight") then
+				bag.Highlight.Enabled = false
+			end
+		end
+	end
+	wait(0.01)
+end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -226,6 +283,14 @@ local Toggle =  VisualTab:CreateToggle({
    Callback = function(Value)
    	_G.PlayerESP = Value
    	PlayerESP()
+   end,
+})
+local Toggle =  VisualTab:CreateToggle({
+   Name = "ESP Loot",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.LootESp = Value
+   	LootESp()
    end,
 })
 local Toggle =  VisualTab:CreateToggle({
