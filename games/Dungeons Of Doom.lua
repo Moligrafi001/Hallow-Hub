@@ -328,8 +328,8 @@ local function LootESp()
 				end
 			end
 		end
-	end
 	wait(0.01)
+	end
 end
 
 -- Menu
