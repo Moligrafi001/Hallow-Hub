@@ -113,8 +113,18 @@ local function AutoChestLoot()
 		local playerPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
-				if bag.Name == "T1Chest" then
-					local blockPosition = bag.Top.Top.Close.Position
+				local blockPosition = nil
+
+				-- Encontrar o objeto "Baseplate" com filhos
+				for _, obj in pairs(bag:GetDescendants()) do
+					if obj.Name == "Baseplate" and #obj:GetChildren() > 0 then
+						blockPosition = obj.Position
+						break
+					end
+				end
+
+				-- Se blockPosition foi atribuído, calcular a distância e verificar os prompts
+				if blockPosition then
 					local distance = (playerPosition - blockPosition).Magnitude
 					for _, v in ipairs(bag:GetDescendants()) do
 						if v:IsA("ProximityPrompt") then
@@ -124,7 +134,7 @@ local function AutoChestLoot()
 						end
 					end
 				else
-					print("oi")
+					print("Baseplate não encontrado ou não possui filhos.")
 				end
 			end
 		end
