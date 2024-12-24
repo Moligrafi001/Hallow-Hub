@@ -171,7 +171,12 @@ local function NoClip()
 end
 local function InfJump()
 	while _G.InfJump == true do
-		-- se o jogador solicitae pulo then pulo
+		game:GetService("UserInputService").JumpRequest:connect(function()
+			if _G.InfJump == true then
+				game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+			end
+		end)
+		wait(0.1) -- Adicionado para evitar o loop infinito sem pausa
 	end
 end
 
