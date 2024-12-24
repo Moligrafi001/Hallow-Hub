@@ -91,7 +91,12 @@ local function AutoCrateLoot()
 			if bag.Name == "CrateLootbag" then
 				for _, v in pairs(bag:GetDescendants()) do
 					if v:IsA("ProximityPrompt") then
-						local blockPosition = bag.CrateLootbag.Position
+						local blockPosition = bag.Top.Top.Close.CFrame.Position
+						if bag.Name == "T1Chest" then
+							blockPosition = bag.Top.Top.Close.CFrame.Position
+						else
+							bag.Top.Close.CFrame.Position
+						end
 						local distance = (playerPosition - blockPosition).Magnitude
 						if distance <= 9 then
 							fireproximityprompt(v)
