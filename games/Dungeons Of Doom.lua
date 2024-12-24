@@ -249,16 +249,16 @@ local Toggle =  VisualTab:CreateToggle({
 local MoveTab = Window:CreateTab("Movement", "chevrons-up")
 local Section = MoveTab:CreateSection("Walk")
 local Input = MoveTab:CreateInput({
-   Name = "Player WalkSpeed",
+   Name = "Player Walk Speed",
    CurrentValue = "",
-   PlaceholderText = "Default WalkSpeed = 16",
+   PlaceholderText = "Default Walk Speed = 16",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
    	WalkSpeedText = Text
    end,
 })
 local Toggle = MoveTab:CreateToggle({
-   Name = "Toggle WalkSpeed",
+   Name = "Toggle Walk Speed",
    CurrentValue = false,
    Callback = function(Value)
    	_G.SetWalkSpeed = Value
@@ -267,16 +267,16 @@ local Toggle = MoveTab:CreateToggle({
 })
 local Section = MoveTab:CreateSection("Jump")
 local Input = MoveTab:CreateInput({
-   Name = "Player JumpPower",
+   Name = "Player Jump Power",
    CurrentValue = "",
-   PlaceholderText = "Default JumpPower = 50",
+   PlaceholderText = "Default Jump Power = 50",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
    	JumpPowerText = Text
    end,
 })
 local Toggle = MoveTab:CreateToggle({
-   Name = "Toggle WalkSpeed",
+   Name = "Toggle Jump Power",
    CurrentValue = false,
    Callback = function(Value)
    	_G.SetJumpPower = Value
