@@ -108,7 +108,10 @@ local function AutoChestLoot()
 		local playerPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
-				local blockPosition = bag.Top.Position
+				local blockPosition = nil
+				if bag.Name == "T1Chest" then
+					local blockPosition = bag.Top.Position
+				end
 				local distance = (playerPosition - blockPosition).Magnitude
 				for _, v in ipairs(bag:GetDescendants()) do
 					if v:IsA("ProximityPrompt") then
