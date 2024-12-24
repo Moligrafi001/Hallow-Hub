@@ -87,6 +87,19 @@ local function AutoMobLoot()
 				end
 			end
 		end
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "UTLootbag" then
+				for _, v in pairs(bag:GetDescendants()) do
+					if v:IsA("ProximityPrompt") then
+						local blockPosition = bag.UTLootbag.Position
+						local distance = (playerPosition - blockPosition).Magnitude
+						if distance <= 9 then
+							fireproximityprompt(v)
+						end
+					end
+				end
+			end
+		end
 		wait(0.1)
 	end
 end
@@ -193,35 +206,64 @@ local function LootESp()
 	while _G.LootESp == true do
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "MonsterLootbag" then
-				if bag.MonsterLootbag:FindFirstChild("ProximityPrompt") and not bag:FindFirstChild("Highlight") then
-					local highlight = Instance.new("Highlight")
-					highlight.FillColor = Color3.fromRGB(0, 255, 0)
-					highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
-					highlight.FillTransparency = 0
-					highlight.Adornee = bag
-					highlight.Parent = bag
-				elseif bag:FindFirstChild("Highlight") and not bag.MonsterLootbag:FindFirstChild("ProximityPrompt") then
-					bag.Highlight.Enabled = false
-				end
-				if bag:FindFirstChild("Highlight") then
-					bag.Highlight.Enabled = true
+				if bag:FindFirstChild("MonsterLootbag") then
+					if bag.MonsterLootbag:FindFirstChild("ProximityPrompt") and not bag:FindFirstChild("Highlight") then
+						local highlight = Instance.new("Highlight")
+						highlight.FillColor = Color3.fromRGB(0, 255, 0)
+						highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
+						highlight.FillTransparency = 0
+						highlight.Adornee = bag
+						highlight.Parent = bag
+					elseif bag:FindFirstChild("Highlight") and not bag.MonsterLootbag:FindFirstChild("ProximityPrompt") then
+						bag.Highlight.Enabled = false
+					end
+					if bag:FindFirstChild("Highlight") then
+						if bag.Highlight.Enabled == false then
+							bag.Highlight.Enabled = true
+						end
+					end
 				end
 			end
 		end
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "BossLootbag" then
-				if bag.BossLootbag:FindFirstChild("ProximityPrompt") and not bag:FindFirstChild("Highlight") then
-					local highlight = Instance.new("Highlight")
-					highlight.FillColor = Color3.fromRGB(0, 255, 0)
-					highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
-					highlight.FillTransparency = 0
-					highlight.Adornee = bag
-					highlight.Parent = bag
-				elseif bag:FindFirstChild("Highlight") and not bag.BossLootbag:FindFirstChild("ProximityPrompt") then
-					bag.Highlight.Enabled = false
+				if bag:FindFirstChild("BossLootbag") then
+					if bag.BossLootbag:FindFirstChild("ProximityPrompt") and not bag:FindFirstChild("Highlight") then
+						local highlight = Instance.new("Highlight")
+						highlight.FillColor = Color3.fromRGB(0, 255, 0)
+						highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
+						highlight.FillTransparency = 0
+						highlight.Adornee = bag
+						highlight.Parent = bag
+					elseif bag:FindFirstChild("Highlight") and not bag.BossLootbag:FindFirstChild("ProximityPrompt") then
+						bag.Highlight.Enabled = false
+					end
+					if bag:FindFirstChild("Highlight") then
+						if bag.Highlight.Enabled == false then
+							bag.Highlight.Enabled = true
+						end
+					end
 				end
-				if bag:FindFirstChild("Highlight") then
-					bag.Highlight.Enabled = true
+			end
+		end
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "UTLootbag" then
+				if bag:FindFirstChild("UTLootbag") then
+					if bag.UTLootbag:FindFirstChild("ProximityPrompt") and not bag:FindFirstChild("Highlight") then
+						local highlight = Instance.new("Highlight")
+						highlight.FillColor = Color3.fromRGB(0, 255, 0)
+						highlight.OutlineColor = Color3.fromRGB(0, 255, 0)
+						highlight.FillTransparency = 0
+						highlight.Adornee = bag
+						highlight.Parent = bag
+					elseif bag:FindFirstChild("Highlight") and not bag.UTLootbag:FindFirstChild("ProximityPrompt") then
+						bag.Highlight.Enabled = false
+					end
+					if bag:FindFirstChild("Highlight") then
+						if bag.Highlight.Enabled == false then
+							bag.Highlight.Enabled = true
+						end
+					end
 				end
 			end
 		end
@@ -230,15 +272,35 @@ local function LootESp()
 	while _G.LootESp == false do
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "MonsterLootbag" then
-				if bag:FindFirstChild("Highlight") then
-				bag.Highlight.Enabled = false
+				if bag:FindFirstChild("MonsterLootbag") then
+					if bag:FindFirstChild("Highlight") then
+						if bag.Highlight.Enabled == true then
+						bag.Highlight.Enabled = false
+						end
+					end
+				end
 			end
 		end
-	end
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "BossLootbag" then
-				if bag:FindFirstChild("Highlight") then
-				bag.Highlight.Enabled = false
+				if bag:FindFirstChild("BossLootbag") then
+					if bag:FindFirstChild("Highlight") then
+						if bag.Highlight.Enabled == true then
+						bag.Highlight.Enabled = false
+						end
+					end
+				end
+			end
+		end
+		for _, bag in pairs(workspace:GetChildren()) do
+			if bag.Name == "UTLootbag" then
+				if bag:FindFirstChild("UTLootbag") then
+					if bag:FindFirstChild("Highlight") then
+						if bag.Highlight.Enabled == true then
+						bag.Highlight.Enabled = false
+						end
+					end
+				end
 			end
 		end
 	end
