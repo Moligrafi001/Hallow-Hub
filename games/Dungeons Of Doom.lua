@@ -1,6 +1,5 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Dungeons%20Of%20Doom.lua",true))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
--- game.workspace.DungeonRooms.CaveRoom.Assets.Zombie.Highlight.Enabled = false
 -- workspace.UTLootbag.UTLootbag
 local Window = Rayfield:CreateWindow({
    Name = "Hallow Hub | Dungeons Of Doom",
@@ -18,6 +17,17 @@ local WalkSpeedText = 16
 _G.SetWalkSpeed = false
 
 -- Funções
+-- 	game.workspace.DungeonRooms.CaveRoom.Assets.Zombie.Highlight.Enabled = false
+local function MobsESP()
+	while _G.MobsESP == true do
+		for _, Room in pairs(workspace.DungeonRooms:GetChildren()) do
+			for _, Mobs in pairs(Room.Assets:GetChildren()) do
+				game.Mobs.Highlight.Enabled = 
+			end
+		end
+		wait(1)
+	end
+end
 local function AutoMobLoot()
 	while _G.AutoMobLoot == true do
 		local playerPosition = workspace.Moligrafi.HumanoidRootPart.Position
