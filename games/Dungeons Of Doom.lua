@@ -113,18 +113,22 @@ local function AutoChestLoot()
 		local playerPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
 		for _, bag in pairs(workspace:GetChildren()) do
 			if bag.Name == "T1Chest" or bag.Name == "T2Chest" or bag.Name == "T3Chest" or bag.Name == "T4Chest" then
-				local blockPosition = bag.CFrame.Position
-				local distance = (playerPosition - blockPosition).Magnitude
-				for _, v in ipairs(bag:GetDescendants()) do
-					if v:IsA("ProximityPrompt") then
-						if distance <= 9 then
-							fireproximityprompt(v)
+				if bag.Name == "T1Chest" then
+					local blockPosition = bag.Top.Top.Close.Position
+					local distance = (playerPosition - blockPosition).Magnitude
+					for _, v in ipairs(bag:GetDescendants()) do
+						if v:IsA("ProximityPrompt") then
+							if distance <= 9 then
+								fireproximityprompt(v)
+							end
 						end
 					end
+				else
+					print("oi")
 				end
 			end
-			wait(0.1)
 		end
+		wait(0.1)
 	end
 end
 local function SetWalkSpeed()
@@ -176,7 +180,7 @@ local function InfJump()
 				game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
 			end
 		end)
-		wait(0.1) -- Adicionado para evitar o loop infinito sem pausa
+		wait(0.1)
 	end
 end
 
