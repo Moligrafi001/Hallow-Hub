@@ -130,7 +130,7 @@ local Input = MoveTab:CreateInput({
    	WalkSpeedText = Text
    end,
 })
-local Toggle =  Menu:CreateToggle({
+local Toggle = MoveTab:CreateToggle({
    Name = "Toggle WalkSpeed",
    CurrentValue = false,
    Callback = function(Value)
