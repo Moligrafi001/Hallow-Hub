@@ -159,6 +159,7 @@ local function SetJumpPower()
 end
 local function PlayerESP()
 	while _G.PlayerESP == true do
+		
 	end
 	if _G.PlayerESP == false then
 	end
