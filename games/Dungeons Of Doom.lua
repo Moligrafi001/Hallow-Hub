@@ -345,8 +345,8 @@ local function ChestESp()
 					highlight.FillColor = Color3.fromRGB(94, 73, 44)
 					highlight.OutlineColor = Color3.fromRGB(94, 73, 44)
 					highlight.FillTransparency = 0
-					highlight.Adornee = player
-					highlight.Parent = player
+					highlight.Adornee = bag
+					highlight.Parent = bag
 				end
 			end
 		end
