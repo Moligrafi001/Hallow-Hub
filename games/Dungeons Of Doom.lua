@@ -10,8 +10,8 @@ local Window = Rayfield:CreateWindow({
    
    ConfigurationSaving = {
    Enabled = true,
-   FolderName = "Dungeons of Doom",
-   FileName = "🎃 Hallow Hub"
+   FolderName = "🎃 Hallow Hub",
+   FileName = "Dungeons of Doom"
    }
 })
 
