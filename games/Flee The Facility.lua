@@ -112,12 +112,13 @@ local function PlayerESP()
 end
 
 -- Movement
+local WalkSpeedText = 16
+local JumpPowerText = 50
 _G.SetWalkSpeed = false
 _G.SetJumpPower = false
 _G.InfJump = false
 _G.NoClip = false
 _G.NoSlow = false
-
 local function SetWalkSpeed()
 	while _G.SetWalkSpeed == true do
 		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed ~= WalkSpeedText then
@@ -216,20 +217,20 @@ local Toggle = MoveTab:CreateToggle({
    end,
 })
 local Toggle = MoveTab:CreateToggle({
+   Name = "Anti Slow",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.NoSlow = Value
+   	NoSlow()
+   end,
+})
+local Toggle = MoveTab:CreateToggle({
    Name = "No Clip",
    CurrentValue = false,
    Flag = "NoClipToggle",
    Callback = function(Value)
    	_G.NoClip = Value
    	NoClip()
-   end,
-})
-local Toggle = MoveTab:CreateToggle({
-   Name = "Anti Slow",
-   CurrentValue = false,
-   Callback = function(Value)
-   	_G.NoSlow = Value
-   	NoSlow()
    end,
 })
 local Section = MoveTab:CreateSection("Jump")
