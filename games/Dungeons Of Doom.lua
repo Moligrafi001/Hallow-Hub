@@ -159,24 +159,24 @@ local function AutoChestLoot()
 end
 local function SetWalkSpeed()
 	while _G.SetWalkSpeed == true do
-		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed ~= WalkSpeedText then
-			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = WalkSpeedText
+		if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed ~= WalkSpeedText then
+			game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = WalkSpeedText
 		end
 		wait(0.1)
 	end
 	if _G.SetWalkSpeed == false then
-		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 16
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 16
 	end
 end
 local function SetJumpPower()
 	while _G.SetJumpPower == true do
-		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower ~= JumpPowerText then
-			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = JumpPowerText
+		if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower ~= JumpPowerText then
+			game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = JumpPowerText
 		end
 		wait(0.01)
 		end
 	if _G.SetJumpPower == false then
-		game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").JumpPower = 50
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = 50
 	end
 end
 local function PlayerESP()
