@@ -8,9 +8,11 @@ local Window = Rayfield:CreateWindow({
    Theme = "Amethyst"
 })
 
--- Valores
+-- ESP
 _G.ComputerESP = false
 _G.PlayerESP = false
+local CorInocente = Color3.fromRGB(255, 125, 0)
+local CorBesta = Color3.fromRGB(255, 0, 0)
 
 -- Funções
 local function ComputerESP()
@@ -59,28 +61,28 @@ local function PlayerESP()
 				if player.Name ~= game.Players.LocalPlayer.Name then
 					if player:FindFirstChild("BeastPowers") then
 						if player:FindFirstChild("Highlight") then
-							if player.Highlight.FillColor or player.Highlight.OutlineColor ~= Color3.fromRGB(255, 0, 0) then
-								player.Highlight.FillColor = Color3.fromRGB(255, 0, 0)
-								player.Highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
+							if player.Highlight.FillColor or player.Highlight.OutlineColor ~= CorBesta then
+								player.Highlight.FillColor = CorBesta
+								player.Highlight.OutlineColor = CorBesta
 							end
 						else
 							local highlight = Instance.new("Highlight")
-							highlight.FillColor = Color3.fromRGB(255, 0, 0)
-							highlight.OutlineColor = Color3.fromRGB(255, 0, 0)
+							highlight.FillColor = CorBesta
+							highlight.OutlineColor = CorBesta
 							highlight.FillTransparency = 0.6
 							highlight.Adornee = player
 							highlight.Parent = player
 						end
 					else
 						if player:FindFirstChild("Highlight") then
-							if player.Highlight.FillColor or player.Highlight.OutlineColor ~= Color3.fromRGB(255, 125, 0) then
-								player.Highlight.FillColor = Color3.fromRGB(255, 125, 0)
-								player.Highlight.OutlineColor = Color3.fromRGB(255, 125, 0)
+							if player.Highlight.FillColor or player.Highlight.OutlineColor ~= CorInocente then
+								player.Highlight.FillColor = CorInocente
+								player.Highlight.OutlineColor = CorInocente
 							end
 						else
 							local highlight = Instance.new("Highlight")
-							highlight.FillColor = Color3.fromRGB(255, 125, 0)
-							highlight.OutlineColor = Color3.fromRGB(255, 125, 0)
+							highlight.FillColor = CorInocente
+							highlight.OutlineColor = CorInocente
 							highlight.FillTransparency = 0.6
 							highlight.Adornee = player
 							highlight.Parent = player
@@ -192,6 +194,22 @@ local Toggle =  VisualTab:CreateToggle({
    	_G.PlayerESP = Value
    	PlayerESP()
    end,
+})
+local ColorPicker = VisualTab:CreateColorPicker({
+    Name = "Cor Inocente",
+    Color = CorInocente,
+    Flag = "ColorPicker1",
+    Callback = function(Value)
+    	CorInocente = Value
+    end
+})
+local ColorPicker = VisualTab:CreateColorPicker({
+    Name = "Cor Besta",
+    Color = CorBesta,
+    Flag = "ColorPicker1",
+    Callback = function(Value)
+    	CorBesta = Value
+    end
 })
 
 -- Movement
