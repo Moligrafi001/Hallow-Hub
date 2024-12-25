@@ -28,88 +28,58 @@ local function AutoHarvest()
       }
       workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("harvest crop"):FireServer(unpack(args))
     end
-    wait(1)
+    wait(0.33)
   end
 end
 local function SpeedB()
-    while _G.SpeedB do
-        local boosts = {}
-        for _, part in ipairs(workspace:GetDescendants()) do
-            if part:IsA("Part") and part.Name == "Speed Boost" then
-                table.insert(boosts, part)
-            end
-        end
-        
-        for _, boost in ipairs(boosts) do
-            local args = {
-                [1] = {
-                    [1] = boost
-                }
-            }
-            workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("use boost"):InvokeServer(unpack(args))
-        end
-        wait(1)
-    end
+	while _G.SpeedB do
+		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
+			if part.Name == "Speed Boost" then
+				if part:FindFirstChild("TouchInterest") then
+					firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part.TouchInterest, 0)
+					firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part.TouchInterest, 1)
+					break
+				end
+			end
+		end
+		wait(0.33)
+	end
 end
 local function GoldB()
-    while _G.GoldB do
-        local boosts = {}
-        for _, part in ipairs(workspace:GetDescendants()) do
-            if part:IsA("Part") and part.Name == "Gold Boost" then
-                table.insert(boosts, part)
-            end
-        end
-        
-        for _, boost in ipairs(boosts) do
-            local args = {
-                [1] = {
-                    [1] = boost
-                }
-            }
-            workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("use boost"):InvokeServer(unpack(args))
-        end
-        wait(1)
-    end
+	while _G.SpeedB do
+		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
+			if part.Name == "Gold Boost" then
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 1)
+				break
+			end
+		end
+		wait(0.33)
+	end
 end
 local function GrowB()
-    while _G.GrowB do
-        local boosts = {}
-        for _, part in ipairs(workspace:GetDescendants()) do
-            if part:IsA("Part") and part.Name == "Grow Boost" then
-                table.insert(boosts, part)
-            end
-        end
-        
-        for _, boost in ipairs(boosts) do
-            local args = {
-                [1] = {
-                    [1] = boost
-                }
-            }
-            workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("use boost"):InvokeServer(unpack(args))
-        end
-        wait(1)
-    end
+	while _G.SpeedB do
+		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
+			if part.Name == "Grow Boost" then
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 1)
+				break
+			end
+		end
+		wait(0.33)
+	end
 end
 local function MoneyB()
-    while _G.MoneyB do
-        local boosts = {}
-        for _, part in ipairs(workspace:GetDescendants()) do
-            if part:IsA("Part") and part.Name == "Money Boost" then
-                table.insert(boosts, part)
-            end
-        end
-        
-        for _, boost in ipairs(boosts) do
-            local args = {
-                [1] = {
-                    [1] = boost
-                }
-            }
-            workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("use boost"):InvokeServer(unpack(args))
-        end
-        wait(1)
-    end
+	while _G.SpeedB do
+		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
+			if part.Name == "Money Boost" then
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 1)
+				break
+			end
+		end
+		wait(0.33)
+	end
 end
 local function AutoRB()
   while _G.AutoRB do
@@ -141,8 +111,11 @@ local Toggle =  Menu:CreateToggle({
    	AutoRB()
    end,
 })
-local Section = Menu:CreateSection("Auto.Collect Boosts")
-local Toggle =  Menu:CreateToggle({
+
+-- Boosts
+local BoostTab = Window:CreateTab("Boosts", "sparkles")
+local Section = BoostTab:CreateSection("Auto Collect Boosts")
+local Toggle =  BoostTab:CreateToggle({
    Name = "Speed Boost",
    CurrentValue = false,
    Callback = function(Value)
@@ -150,7 +123,7 @@ local Toggle =  Menu:CreateToggle({
    	AutoRB()
    end,
 })
-local Toggle =  Menu:CreateToggle({
+local Toggle =  BoostTab:CreateToggle({
    Name = "Gold Boost",
    CurrentValue = false,
    Callback = function(Value)
@@ -158,7 +131,7 @@ local Toggle =  Menu:CreateToggle({
    	GoldB()
    end,
 })
-local Toggle =  Menu:CreateToggle({
+local Toggle =  BoostTab:CreateToggle({
    Name = "Grow Boost",
    CurrentValue = false,
    Callback = function(Value)
@@ -166,7 +139,7 @@ local Toggle =  Menu:CreateToggle({
    	GrowB()
    end,
 })
-local Toggle =  Menu:CreateToggle({
+local Toggle =  BoostTab:CreateToggle({
    Name = "Money Boost",
    CurrentValue = false,
    Callback = function(Value)
