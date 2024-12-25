@@ -8,14 +8,13 @@ local Window = Rayfield:CreateWindow({
    Theme = "Amethyst"
 })
 
+-- Valores
+_G.Fullbright = false
+_G.AntiPcError = false
+
 -- ESP
 _G.ComputerESP = false
 _G.PlayerESP = false
-_G.Fullbright = false
-local CorInocente = Color3.fromRGB(255, 125, 0)
-local CorBesta = Color3.fromRGB(255, 0, 0)
-
--- Funções
 local function ComputerESP()
 	while _G.ComputerESP == true do
 		for _, map in pairs(workspace:GetChildren()) do
@@ -113,6 +112,10 @@ local function PlayerESP()
 		end
 	end
 end
+local CorInocente = Color3.fromRGB(255, 125, 0)
+local CorBesta = Color3.fromRGB(255, 0, 0)
+
+-- Funções
 local function Fullbright()
     while _G.Fullbright == true do
         game:GetService("Lighting").Brightness = 2
@@ -127,6 +130,12 @@ local function Fullbright()
     game:GetService("Lighting").FogEnd = 10000000
     game:GetService("Lighting").GlobalShadows = true
     game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(200, 200, 200)
+end
+local function AntiPcError()
+	while _G.AntiPcError == true do
+		game:GetService("ReplicatedStorage").RemoteEvent:FireServer("SetPlayerMinigameResult", true)
+		wait(0.01)
+	end
 end
 
 -- Movement
@@ -191,6 +200,18 @@ local function NoSlow()
 		wait(0.01)
 	end
 end
+
+-- Menu
+local Menu = Window:CreateTab("Main", "home")
+local Section = Menu:CreateSection("Helpful")
+local Toggle =  Menu:CreateToggle({
+   Name = "Anti PC Error",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AntiPcError = Value
+   	AntiPcError()
+   end,
+})
 
 -- Visual
 local VisualTab = Window:CreateTab("Visual", "eye")
