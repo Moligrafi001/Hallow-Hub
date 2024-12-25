@@ -169,8 +169,8 @@ local function NoClip()
 end
 local function NoSlow()
 	while _G.NoSlow == true do
-		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed <= 16 then
-			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 16
+		if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed <= 16 then
+			game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 16
 		end
 		wait(0.01)
 	end
