@@ -15,6 +15,8 @@ _G.AntiPcError = false
 -- ESP
 _G.ComputerESP = false
 _G.PlayerESP = false
+local CorInocente = Color3.fromRGB(255, 125, 0)
+local CorBesta = Color3.fromRGB(255, 0, 0)
 local function ComputerESP()
 	while _G.ComputerESP == true do
 		for _, map in pairs(workspace:GetChildren()) do
@@ -112,8 +114,6 @@ local function PlayerESP()
 		end
 	end
 end
-local CorInocente = Color3.fromRGB(255, 125, 0)
-local CorBesta = Color3.fromRGB(255, 0, 0)
 
 -- Funções
 local function Fullbright()
