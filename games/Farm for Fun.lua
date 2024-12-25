@@ -62,12 +62,12 @@ local function GoldB()
 				break
 			end
 		end
-		workspace.__THINGS.__REMOTES:FindFirstChild("use boost"):InvokeServer(workspace.__THINGS.Boosts:FindFirstChild("Grow Boost"))
+		workspace.__THINGS.__REMOTES:FindFirstChild("use boost"):InvokeServer(workspace.__THINGS.Boosts:FindFirstChild("Gold Boost"))
 		wait(0.33)
 	end
 end
 local function GrowB()
-	while _G.SpeedB do
+	while _G.GrowB do
 		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
 			if part.Name == "Grow Boost" then
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
@@ -75,11 +75,12 @@ local function GrowB()
 				break
 			end
 		end
+		workspace.__THINGS.__REMOTES:FindFirstChild("use boost"):InvokeServer(workspace.__THINGS.Boosts:FindFirstChild("Grow Boost"))
 		wait(0.33)
 	end
 end
 local function MoneyB()
-	while _G.SpeedB do
+	while _G.MoneyB do
 		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
 			if part.Name == "Money Boost" then
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
@@ -87,6 +88,7 @@ local function MoneyB()
 				break
 			end
 		end
+		workspace.__THINGS.__REMOTES:FindFirstChild("use boost"):InvokeServer(workspace.__THINGS.Boosts:FindFirstChild("Money Boost"))
 		wait(0.33)
 	end
 end
