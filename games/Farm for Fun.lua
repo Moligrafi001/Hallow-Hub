@@ -53,7 +53,7 @@ local function SpeedB()
 	end
 end
 local function GoldB()
-	while _G.SpeedB do
+	while _G.GoldB do
 		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
 			if part.Name == "Gold Boost" then
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
@@ -65,7 +65,7 @@ local function GoldB()
 	end
 end
 local function GrowB()
-	while _G.SpeedB do
+	while _G.GrowB do
 		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
 			if part.Name == "Grow Boost" then
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
@@ -77,7 +77,7 @@ local function GrowB()
 	end
 end
 local function MoneyB()
-	while _G.SpeedB do
+	while _G.MoneyB do
 		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
 			if part.Name == "Money Boost" then
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
