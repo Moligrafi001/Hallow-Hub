@@ -29,7 +29,7 @@ local function ComputerESP()
 						local highlight = Instance.new("Highlight")
 						highlight.FillColor = computer.Screen.Color
 						highlight.OutlineColor = computer.Screen.Color
-						highlight.FillTransparency = 0
+						highlight.FillTransparency = 1
 						highlight.Adornee = computer
 						highlight.Parent = computer
 					end
