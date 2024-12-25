@@ -15,7 +15,11 @@ _G.AutoSkip = false
 local function SkipStage()
 	local PlayerStage = game.Players.LocalPlayer.Stage.Value
 	local SkipTo = PlayerStage + 1
-	fireclickdetector(workspace.Clickable[SkipTo].ClickDetector)
+	if game.Players.LocalPlayer.Mode.Value == "Easy" then
+		if workspace.Clickable:FindFirstChild(SkipTo) then
+			fireclickdetector(workspace.Clickable[SkipTo].ClickDetector)
+		end
+	end
 end
 local function AutoSkip()
 	while _G.AutoSkip == true do
