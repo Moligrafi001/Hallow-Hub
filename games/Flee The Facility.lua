@@ -115,7 +115,9 @@ end
 _G.SetWalkSpeed = false
 _G.SetJumpPower = false
 _G.InfJump = false
-_G.InfJump = false
+_G.NoClip = false
+_G.NoSlow = false
+
 local function SetWalkSpeed()
 	while _G.SetWalkSpeed == true do
 		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed ~= WalkSpeedText then
@@ -162,6 +164,14 @@ local function NoClip()
 		wait(0.1)
 	end
 end
+local function NoSlow()
+	while _G.NoSlow == true do
+		if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed <= 16 then
+			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 16
+		end
+		wait(0.01)
+	end
+end
 
 -- Visual
 local VisualTab = Window:CreateTab("Visual", "eye")
@@ -199,10 +209,27 @@ local Input = MoveTab:CreateInput({
 local Toggle = MoveTab:CreateToggle({
    Name = "Toggle Walk Speed",
    CurrentValue = false,
-   Flag = "WalkSpeedToggle",
+   Flag = "WalkSpeedToggle", 
    Callback = function(Value)
    	_G.SetWalkSpeed = Value
    	SetWalkSpeed()
+   end,
+})
+local Toggle = MoveTab:CreateToggle({
+   Name = "No Clip",
+   CurrentValue = false,
+   Flag = "NoClipToggle",
+   Callback = function(Value)
+   	_G.NoClip = Value
+   	NoClip()
+   end,
+})
+local Toggle = MoveTab:CreateToggle({
+   Name = "Anti Slow",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.NoSlow = Value
+   	NoSlow()
    end,
 })
 local Section = MoveTab:CreateSection("Jump")
@@ -232,16 +259,6 @@ local Toggle = MoveTab:CreateToggle({
    Callback = function(Value)
    	_G.InfJump = Value
    	InfJump()
-   end,
-})
-local Section = MoveTab:CreateSection("More")
-local Toggle = MoveTab:CreateToggle({
-   Name = "No Clip",
-   CurrentValue = false,
-   Flag = "NoClipToggle",
-   Callback = function(Value)
-   	_G.NoClip = Value
-   	NoClip()
    end,
 })
 
