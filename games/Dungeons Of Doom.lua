@@ -2,11 +2,17 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 -- workspace.UTLootbag.UTLootbag
 local Window = Rayfield:CreateWindow({
-   Name = "Hallow Hub | Dungeons Of Doom",
+   Name = "Hallow Hub | Dungeons of Doom",
    Icon = 17091459839,
    LoadingTitle = "Hallow Hub",
    LoadingSubtitle = "By Moligrafi",
-   Theme = "Amethyst"
+   Theme = "Amethyst",
+   
+   ConfigurationSaving = {
+   Enabled = true,
+   FolderName = "Dungeons of Doom",
+   FileName = "🎃 Hallow Hub"
+   }
 })
 
 -- Valores
@@ -184,7 +190,7 @@ local function PlayerESP()
 						local highlight = Instance.new("Highlight")
 						highlight.FillColor = Color3.fromRGB(255, 255, 255)
 						highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
-						highlight.FillTransparency = 0
+						highlight.FillTransparency = 0.5
 						highlight.Adornee = player
 						highlight.Parent = player
 					end
@@ -371,6 +377,7 @@ local Section = Menu:CreateSection("Loot")
 local Toggle =  Menu:CreateToggle({
    Name = "Collect Mob Loot",
    CurrentValue = false,
+   Flag = "LootToggle",
    Callback = function(Value)
    	_G.AutoMobLoot = Value
    	AutoMobLoot()
@@ -379,6 +386,7 @@ local Toggle =  Menu:CreateToggle({
 local Toggle =  Menu:CreateToggle({
    Name = "Collect Crate Loot",
    CurrentValue = false,
+   Flag = "CrateToggle",
    Callback = function(Value)
    	_G.AutoCrateLoot = Value
    	AutoCrateLoot()
@@ -387,6 +395,7 @@ local Toggle =  Menu:CreateToggle({
 local Toggle =  Menu:CreateToggle({
    Name = "Collect Chest Loot",
    CurrentValue = false,
+   Flag = "ChestToggle",
    Callback = function(Value)
    	_G.AutoChestLoot = Value
    	AutoChestLoot()
@@ -399,6 +408,7 @@ local Section = VisualTab:CreateSection("ESP")
 local Toggle =  VisualTab:CreateToggle({
    Name = "ESP Players",
    CurrentValue = false,
+   Flag = "PlayersToggle",
    Callback = function(Value)
    	_G.PlayerESP = Value
    	PlayerESP()
@@ -407,6 +417,7 @@ local Toggle =  VisualTab:CreateToggle({
 local Toggle =  VisualTab:CreateToggle({
    Name = "ESP Loot",
    CurrentValue = false,
+   Flag = "LootToggle",
    Callback = function(Value)
    	_G.LootESp = Value
    	LootESp()
@@ -415,6 +426,7 @@ local Toggle =  VisualTab:CreateToggle({
 local Toggle =  VisualTab:CreateToggle({
    Name = "ESP Chests",
    CurrentValue = false,
+   Flag = "ChestsToggle",
    Callback = function(Value)
    	_G.ChestESp = Value
    	ChestESp()
@@ -423,6 +435,7 @@ local Toggle =  VisualTab:CreateToggle({
 local Toggle =  VisualTab:CreateToggle({
    Name = "ESP Monsters",
    CurrentValue = false,
+   Flag = "MobsToggle",
    Callback = function(Value)
    	_G.MobsESP = Value
    	MobsESP()
@@ -432,6 +445,7 @@ local Section = VisualTab:CreateSection("More")
 local Toggle =  VisualTab:CreateToggle({
    Name = "Fullbright",
    CurrentValue = false,
+   Flag = "FullbrightToggle",
    Callback = function(Value)
    	_G.LoopFB = Value
    	LoopFB()
@@ -444,6 +458,7 @@ local Section = MoveTab:CreateSection("Walk")
 local Input = MoveTab:CreateInput({
    Name = "Player Walk Speed",
    CurrentValue = "",
+   Flag = "WalkSpeedInput",
    PlaceholderText = "Default Walk Speed = 16",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
@@ -453,6 +468,7 @@ local Input = MoveTab:CreateInput({
 local Toggle = MoveTab:CreateToggle({
    Name = "Toggle Walk Speed",
    CurrentValue = false,
+   Flag = "WalkSpeedToggle",
    Callback = function(Value)
    	_G.SetWalkSpeed = Value
    	SetWalkSpeed()
@@ -462,6 +478,7 @@ local Section = MoveTab:CreateSection("Jump")
 local Input = MoveTab:CreateInput({
    Name = "Player Jump Power",
    CurrentValue = "",
+   Flag = "JumpPowerInput",
    PlaceholderText = "Default Jump Power = 50",
    RemoveTextAfterFocusLost = false,
    Callback = function(Text)
@@ -471,6 +488,7 @@ local Input = MoveTab:CreateInput({
 local Toggle = MoveTab:CreateToggle({
    Name = "Toggle Jump Power",
    CurrentValue = false,
+   Flag = "JumpPowerToggle",
    Callback = function(Value)
    	_G.SetJumpPower = Value
    	SetJumpPower()
@@ -479,6 +497,7 @@ local Toggle = MoveTab:CreateToggle({
 local Toggle = MoveTab:CreateToggle({
    Name = "Inf Jump",
    CurrentValue = false,
+   Flag = "InfJumpToggle",
    Callback = function(Value)
    	_G.InfJump = Value
    	InfJump()
@@ -488,6 +507,7 @@ local Section = MoveTab:CreateSection("More")
 local Toggle = MoveTab:CreateToggle({
    Name = "No Clip",
    CurrentValue = false,
+   Flag = "NoClipToggle",
    Callback = function(Value)
    	_G.NoClip = Value
    	NoClip()
