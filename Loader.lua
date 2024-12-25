@@ -49,7 +49,7 @@ elseif game.PlaceId == 105628647191901 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Swords%20Battle%20Simulator.lua",true))()
 elseif game.PlaceId == 11402943018 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/The%20Ultimate%20Upgrade%20Tree%20Teamwork.lua",true))()
-elseif game.PlaceId == 77293138169730 or game.PlaceId == 110862004123956 then
+elseif game.PlaceId == 77293138169730 or game.PlaceId == 110862004123956 or game.PlaceId == 138419073284550 or game.PlaceId == 122232219652085 or game.PlaceId == 109513417836584 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Dungeons%20Of%20Doom.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
