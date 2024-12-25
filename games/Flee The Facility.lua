@@ -196,7 +196,7 @@ local Toggle =  VisualTab:CreateToggle({
    end,
 })
 local ColorPicker = VisualTab:CreateColorPicker({
-    Name = "Cor Inocente",
+    Name = "Innocent Color",
     Color = CorInocente,
     Flag = "ColorPicker1",
     Callback = function(Value)
@@ -204,7 +204,7 @@ local ColorPicker = VisualTab:CreateColorPicker({
     end
 })
 local ColorPicker = VisualTab:CreateColorPicker({
-    Name = "Cor Besta",
+    Name = "Beast Color",
     Color = CorBesta,
     Flag = "ColorPicker1",
     Callback = function(Value)
