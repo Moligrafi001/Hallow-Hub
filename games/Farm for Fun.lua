@@ -42,10 +42,10 @@ local function SpeedB()
 	while _G.SpeedB do
 		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
 			if part.Name == "Speed Boost" then
+				workspace.__THINGS.__REMOTES:FindFirstChild("use boost"):InvokeServer(workspace.__THINGS.Boosts:FindFirstChild("Speed Boost"))
 				if part:FindFirstChild("TouchInterest") then
 					firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part.TouchInterest, 0)
 					firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part.TouchInterest, 1)
-					workspace.__THINGS.__REMOTES:FindFirstChild("use boost"):InvokeServer(workspace.__THINGS.Boosts:FindFirstChild("Speed Boost"))
 					break
 				end
 			end
