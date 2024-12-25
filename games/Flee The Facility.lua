@@ -344,3 +344,13 @@ local Button = Credits:CreateButton({
    	toclipboard("discord.gg/AESCuek87s")
     end,
 })
+
+while true do
+	if game.Players.LocalPlayer:FindFirstChild("PlayerGui") then
+		if game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenusTabFrame.Visible == false or game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenusTabFrame.Active == false then
+			game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenusTabFrame.Visible = true
+			game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui.MenusTabFrame.Active = true
+		end
+	end
+	wait(1)
+end
