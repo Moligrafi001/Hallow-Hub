@@ -49,11 +49,12 @@ local function SpeedB()
 				end
 			end
 		end
+		workspace.__THINGS.__REMOTES:FindFirstChild("use boost"):InvokeServer(workspace.__THINGS.Boosts:FindFirstChild("Speed Boost"))
 		wait(0.33)
 	end
 end
 local function GoldB()
-	while _G.SpeedB do
+	while _G.GoldB do
 		for _, part in pairs(workspace.__THINGS.Boosts:GetChildren()) do
 			if part.Name == "Gold Boost" then
 				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, part, 0)
@@ -61,6 +62,7 @@ local function GoldB()
 				break
 			end
 		end
+		workspace.__THINGS.__REMOTES:FindFirstChild("use boost"):InvokeServer(workspace.__THINGS.Boosts:FindFirstChild("Grow Boost"))
 		wait(0.33)
 	end
 end
