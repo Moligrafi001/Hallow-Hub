@@ -22,20 +22,22 @@ local function ComputerESP()
 		for _, map in pairs(workspace:GetChildren()) do
 			for _, computer in pairs(map:GetChildren()) do
 				if computer.Name == "ComputerTable" then
-					if computer:FindFirstChild("Highlight") then
-						if computer.Highlight.FillColor ~= computer.Screen.Color or computer.Highlight.OutlineColor ~= computer.Screen.Color then
-							computer.Highlight.FillColor = computer.Screen.Color
-							computer.Highlight.OutlineColor = computer.Screen.Color
-						elseif computer.Highlight.Enabled == false then
-							computer.Highlight.Enabled = true
+					if computer:FindFirstChild("Screen") then
+						if computer:FindFirstChild("Highlight") then
+							if computer.Highlight.FillColor ~= computer.Screen.Color or computer.Highlight.OutlineColor ~= computer.Screen.Color then
+								computer.Highlight.FillColor = computer.Screen.Color
+								computer.Highlight.OutlineColor = computer.Screen.Color
+							elseif computer.Highlight.Enabled == false then
+								computer.Highlight.Enabled = true
+							end
+						else
+							local highlight = Instance.new("Highlight")
+							highlight.FillColor = computer.Screen.Color
+							highlight.OutlineColor = computer.Screen.Color
+							highlight.FillTransparency = 1
+							highlight.Adornee = computer
+							highlight.Parent = computer
 						end
-					else
-						local highlight = Instance.new("Highlight")
-						highlight.FillColor = computer.Screen.Color
-						highlight.OutlineColor = computer.Screen.Color
-						highlight.FillTransparency = 1
-						highlight.Adornee = computer
-						highlight.Parent = computer
 					end
 				end
 			end
