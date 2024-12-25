@@ -11,6 +11,7 @@ local Window = Rayfield:CreateWindow({
 -- ESP
 _G.ComputerESP = false
 _G.PlayerESP = false
+_G.Fullbright = false
 local CorInocente = Color3.fromRGB(255, 125, 0)
 local CorBesta = Color3.fromRGB(255, 0, 0)
 
@@ -112,6 +113,21 @@ local function PlayerESP()
 		end
 	end
 end
+local function Fullbright()
+    while _G.Fullbright == true do
+        game:GetService("Lighting").Brightness = 2
+        game:GetService("Lighting").ClockTime = 14
+        game:GetService("Lighting").FogEnd = 100000
+        game:GetService("Lighting").GlobalShadows = false
+        game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(128, 128, 128)
+        wait(0.01)
+    end
+    game:GetService("Lighting").Brightness = 1
+    game:GetService("Lighting").ClockTime = 14
+    game:GetService("Lighting").FogEnd = 10000000
+    game:GetService("Lighting").GlobalShadows = true
+    game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(200, 200, 200)
+end
 
 -- Movement
 local WalkSpeedText = 16
@@ -178,6 +194,15 @@ end
 
 -- Visual
 local VisualTab = Window:CreateTab("Visual", "eye")
+local Section = VisualTab:CreateSection("Misc")
+local Toggle =  VisualTab:CreateToggle({
+   Name = "Fullbright",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.Fullbright = Value
+   	Fullbright()
+   end,
+})
 local Section = VisualTab:CreateSection("ESP")
 local Toggle =  VisualTab:CreateToggle({
    Name = "Computer ESP",
