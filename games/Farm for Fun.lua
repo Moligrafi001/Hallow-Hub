@@ -15,6 +15,7 @@ _G.GoldB = false
 _G.GrowB = false
 _G.MoneyB = false
 _G.AutoRB = false
+local HarvestCold = 0
 
 -- Funcoes
 local function AutoHarvest()
@@ -28,7 +29,13 @@ local function AutoHarvest()
       }
       workspace:WaitForChild("__THINGS"):WaitForChild("__REMOTES"):WaitForChild("harvest crop"):FireServer(unpack(args))
     end
-    wait(0.33)
+    if HarvestCold == "No Waves" then
+    	wait(0.33)
+    elseif HarvestCold == "1 sec" then
+    	wait(1)
+    elseif HarvestCold == "3 sec" then
+    	wait(3)
+    end
   end
 end
 local function SpeedB()
@@ -101,6 +108,15 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoHarvest = Value
    	AutoHarvest()
+   end,
+})
+local Dropdown = Menu:CreateDropdown({
+   Name = "Harvest Cooldown",
+   Options = {"No Waves", "1 sec", "3 sec"},
+   CurrentOption = {"If you want to do Harvest Waves select the Speed"},
+   MultipleOptions = false,
+   Callback = function(Options)
+   		HarvestCold = Options[1]
    end,
 })
 local Toggle =  Menu:CreateToggle({
