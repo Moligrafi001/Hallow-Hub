@@ -51,3 +51,15 @@ local function ComputerESP()
 		end
 	end
 end
+
+-- Visual
+local VisualTab = Window:CreateTab("Visual", "eye")
+local Section = VisualTab:CreateSection("ESP")
+local Toggle =  VisualTab:CreateToggle({
+   Name = "Computer ESP",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.ComputerESP = Value
+   	ComputerESP()
+   end,
+})
