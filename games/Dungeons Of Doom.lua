@@ -15,6 +15,8 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
+Rayfield:LoadConfiguration()
+
 -- Valores
 _G.AutoMobLoot = false
 _G.AutoCrateLoot = false
