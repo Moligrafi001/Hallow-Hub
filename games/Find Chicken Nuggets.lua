@@ -82,7 +82,7 @@ local Button = Menu:CreateButton({
 })
 local Section = Menu:CreateSection("ESP")
 local Toggle =  Menu:CreateToggle({
-   Name = "ESP Nuggets",
+   Name = "ESP Nuggets (Until 30)",
    CurrentValue = false,
    Callback = function(Value)
    	_G.ButtonESP = Value
