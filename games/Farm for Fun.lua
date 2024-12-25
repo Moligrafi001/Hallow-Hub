@@ -15,7 +15,7 @@ _G.GoldB = false
 _G.GrowB = false
 _G.MoneyB = false
 _G.AutoRB = false
-local HarvestCold = 0
+local HarvestCold = "No Waves"
 
 -- Funcoes
 local function AutoHarvest()
