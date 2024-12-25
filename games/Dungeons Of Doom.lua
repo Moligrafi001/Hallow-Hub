@@ -190,8 +190,8 @@ local function PlayerESP()
 						end
 					else
 						local highlight = Instance.new("Highlight")
-						highlight.FillColor = Color3.fromRGB(255, 255, 255)
-						highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+						highlight.FillColor = Color3.fromRGB(255, 125, 0)
+						highlight.OutlineColor = Color3.fromRGB(255, 125, 0)
 						highlight.FillTransparency = 0.6
 						highlight.Adornee = player
 						highlight.Parent = player
