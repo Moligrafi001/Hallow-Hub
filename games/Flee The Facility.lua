@@ -245,6 +245,22 @@ local function CallSpy()
 		})
 	end
 end
+local function InvadeMatch()
+	local character = game.Players.LocalPlayer.character
+	if character then
+		local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+		humanoidRootPart.CFrame = CFrame.new(124.5, 25.99999857, 138.5)
+		game.Workspace.CurrentCamera.CFrame = CFrame.new(124.5, 4.99999857, 138.5, -0.351053178, 0, 0.936355531, 0, 1, 0, -0.936355531, 0, -0.351053178)
+	end
+end
+local function InvadeMatch()
+	local character = game.Players.LocalPlayer.character
+	if character then
+		local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+		humanoidRootPart.CFrame = CFrame.new(124.5, 25.99999857, 138.5)
+		game.Workspace.CurrentCamera.CFrame = CFrame.new(124.5, 4.99999857, 138.5, -0.351053178, 0, 0.936355531, 0, 1, 0, -0.936355531, 0, -0.351053178)
+	end
+end
 
 -- Movement
 local WalkSpeedText = 16
@@ -321,6 +337,12 @@ local Toggle =  Menu:CreateToggle({
    end,
 })
 local Section = Menu:CreateSection("Misc")
+local Button = Menu:CreateButton({
+   Name = "TP to MAP",
+   Callback = function()
+       InvadeMatch()
+    end,
+})
 local Button = Menu:CreateButton({
    Name = "Spy Priv Chats",
    Callback = function()
