@@ -218,6 +218,9 @@ local function Fullbright()
     game:GetService("Lighting").GlobalShadows = true
     game:GetService("Lighting").OutdoorAmbient = Color3.fromRGB(200, 200, 200)
 end
+local function NoFog()
+	game.Lighting.FogStart = 0
+end
 local function AntiPcError()
 	while _G.AntiPcError == true do
 		game:GetService("ReplicatedStorage").RemoteEvent:FireServer("SetPlayerMinigameResult", true)
@@ -337,6 +340,12 @@ local Toggle =  VisualTab:CreateToggle({
    	_G.Fullbright = Value
    	Fullbright()
    end,
+})
+local Button = VisualTab:CreateButton({
+   Name = "No Fog",
+   Callback = function()
+       NoFog()
+    end,
 })
 local Section = VisualTab:CreateSection("Player ESP")
 local Toggle =  VisualTab:CreateToggle({
