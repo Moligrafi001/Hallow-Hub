@@ -233,7 +233,7 @@ local function CallSpy()
 		Rayfield:Notify({
 	   Title = "Chat Spy executed!",
 	   Content = "The messages will appear in orange on the chat.",
-	   Duration = 4,
+	   Duration = 5,
 	   Image = 17091459839,
 		})
 	else
@@ -246,11 +246,20 @@ local function CallSpy()
 	end
 end
 local function InvadeMatch()
-	local character = game.Players.LocalPlayer.character
-	if character then
-		local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-		humanoidRootPart.CFrame = CFrame.new(124.5, 25.99999857, 138.5)
-		game.Workspace.CurrentCamera.CFrame = CFrame.new(124.5, 4.99999857, 138.5, -0.351053178, 0, 0.936355531, 0, 1, 0, -0.936355531, 0, -0.351053178)
+	if game:GetService("ReplicatedStorage").IsGameActive.Value == true then
+		local character = game.Players.LocalPlayer.character
+		if character then
+			local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+			humanoidRootPart.CFrame = CFrame.new(124.5, 25.99999857, 138.5)
+			game.Workspace.CurrentCamera.CFrame = CFrame.new(124.5, 4.99999857, 138.5, -0.351053178, 0, 0.936355531, 0, 1, 0, -0.936355531, 0, -0.351053178)
+		end
+	else
+		Rayfield:Notify({
+	   Title = "It's not ready!",
+	   Content = "The match didn't started yet.",
+	   Duration = 3,
+	   Image = 17091459839,
+		})
 	end
 end
 
