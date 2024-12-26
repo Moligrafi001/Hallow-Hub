@@ -253,14 +253,6 @@ local function InvadeMatch()
 		game.Workspace.CurrentCamera.CFrame = CFrame.new(124.5, 4.99999857, 138.5, -0.351053178, 0, 0.936355531, 0, 1, 0, -0.936355531, 0, -0.351053178)
 	end
 end
-local function InvadeMatch()
-	local character = game.Players.LocalPlayer.character
-	if character then
-		local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-		humanoidRootPart.CFrame = CFrame.new(124.5, 25.99999857, 138.5)
-		game.Workspace.CurrentCamera.CFrame = CFrame.new(124.5, 4.99999857, 138.5, -0.351053178, 0, 0.936355531, 0, 1, 0, -0.936355531, 0, -0.351053178)
-	end
-end
 
 -- Movement
 local WalkSpeedText = 16
