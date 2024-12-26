@@ -139,6 +139,25 @@ local function AntiPcError()
 		wait(0.01)
 	end
 end
+local SpyExectd = false
+local function CallSpy()
+	if SpyExectd == false then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/extra/ChatSpy.lua",true))()
+		Rayfield:Notify({
+	   Title = "Chat Spy executed!",
+	   Content = "The messages will appear in orange on the chat.",
+	   Duration = 4,
+	   Image = 17091459839,
+		})
+	else
+		Rayfield:Notify({
+	   Title = "Only once!",
+	   Content = "You already executed the Chat Spy!",
+	   Duration = 4,
+	   Image = 17091459839,
+		})
+	end
+end
 
 -- Movement
 local WalkSpeedText = 16
@@ -213,6 +232,14 @@ local Toggle =  Menu:CreateToggle({
    	_G.AntiPcError = Value
    	AntiPcError()
    end,
+})
+local Section = Menu:CreateSection("Misc")
+local Button = Menu:CreateButton({
+   Name = "Spy Priv Chats",
+   Callback = function()
+       CallSpy()
+       SpyExectd = true
+    end,
 })
 
 -- Visual
