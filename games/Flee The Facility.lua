@@ -13,51 +13,9 @@ _G.Fullbright = false
 _G.AntiPcError = false
 
 -- ESP
-_G.ComputerESP = false
 _G.PlayerESP = false
 local CorInocente = Color3.fromRGB(255, 125, 0)
 local CorBesta = Color3.fromRGB(255, 0, 0)
-local function ComputerESP()
-	while _G.ComputerESP == true do
-		for _, map in pairs(workspace:GetChildren()) do
-			for _, computer in pairs(map:GetChildren()) do
-				if computer.Name == "ComputerTable" then
-					if computer:FindFirstChild("Screen") then
-						if computer:FindFirstChild("Highlight") then
-							if computer.Highlight.FillColor ~= computer.Screen.Color or computer.Highlight.OutlineColor ~= computer.Screen.Color then
-								computer.Highlight.FillColor = computer.Screen.Color
-								computer.Highlight.OutlineColor = computer.Screen.Color
-							elseif computer.Highlight.Enabled == false then
-								computer.Highlight.Enabled = true
-							end
-						else
-							local highlight = Instance.new("Highlight")
-							highlight.FillColor = computer.Screen.Color
-							highlight.OutlineColor = computer.Screen.Color
-							highlight.FillTransparency = 1
-							highlight.Adornee = computer
-							highlight.Parent = computer
-						end
-					end
-				end
-			end
-		end
-		wait(0.33)
-	end
-	if _G.ComputerESP == false then
-		for _, map in pairs(workspace:GetChildren()) do
-			for _, computer in pairs(map:GetChildren()) do
-				if computer.Name == "ComputerTable" then
-					if computer:FindFirstChild("Highlight") then
-						if computer.Highlight.Enabled == true then
-							computer.Highlight.Enabled = false
-						end
-					end
-				end
-			end
-		end
-	end
-end
 local function PlayerESP()
 	while _G.PlayerESP == true do
 		for _, player in pairs(workspace:GetChildren()) do
@@ -109,6 +67,133 @@ local function PlayerESP()
 					if player:FindFirstChild("Highlight") then
 						if player.Highlight.Enabled == true then
 							player.Highlight.Enabled = false
+						end
+					end
+				end
+			end
+		end
+	end
+end
+--
+_G.ComputerESP = false
+local function ComputerESP()
+	while _G.ComputerESP == true do
+		for _, map in pairs(workspace:GetChildren()) do
+			for _, computer in pairs(map:GetChildren()) do
+				if computer.Name == "ComputerTable" then
+					if computer:FindFirstChild("Screen") then
+						if computer:FindFirstChild("Highlight") then
+							if computer.Highlight.FillColor ~= computer.Screen.Color or computer.Highlight.OutlineColor ~= computer.Screen.Color then
+								computer.Highlight.FillColor = computer.Screen.Color
+								computer.Highlight.OutlineColor = computer.Screen.Color
+							elseif computer.Highlight.Enabled == false then
+								computer.Highlight.Enabled = true
+							end
+						else
+							local highlight = Instance.new("Highlight")
+							highlight.FillColor = computer.Screen.Color
+							highlight.OutlineColor = computer.Screen.Color
+							highlight.FillTransparency = 1
+							highlight.Adornee = computer
+							highlight.Parent = computer
+						end
+					end
+				end
+			end
+		end
+		wait(0.33)
+	end
+	if _G.ComputerESP == false then
+		for _, map in pairs(workspace:GetChildren()) do
+			for _, computer in pairs(map:GetChildren()) do
+				if computer.Name == "ComputerTable" then
+					if computer:FindFirstChild("Highlight") then
+						if computer.Highlight.Enabled == true then
+							computer.Highlight.Enabled = false
+						end
+					end
+				end
+			end
+		end
+	end
+end
+--
+_G.FreezeESP = false
+local CorCapsula = Color3.fromRGB(85, 178, 224)
+local function FreezeESP()
+	while _G.FreezeESP == true do
+		for _, map in pairs(workspace:GetChildren()) do
+			for _, pod in pairs(map:GetChildren()) do
+				if pod.Name == "FreezePod" then
+					if pod:FindFirstChild("Highlight") then
+						if pod.Highlight.FillColor ~= CorCapsula or pod.Highlight.OutlineColor ~= CorCapsula then
+							pod.Highlight.FillColor = CorCapsula
+							pod.Highlight.OutlineColor = CorCapsula
+						elseif pod.Highlight.Enabled == false then
+							pod.Highlight.Enabled = true
+						end
+					else
+						local highlight = Instance.new("Highlight")
+						highlight.FillColor = CorCapsula
+						highlight.OutlineColor = CorCapsula
+						highlight.FillTransparency = 0.6
+						highlight.Adornee = pod
+						highlight.Parent = pod
+					end
+				end
+			end
+		end
+		wait(0.33)
+	end
+	if _G.FreezeESP == false then
+		for _, map in pairs(workspace:GetChildren()) do
+			for _, pod in pairs(map:GetChildren()) do
+				if pod.Name == "FreezePod" then
+					if pod:FindFirstChild("Highlight") then
+						if pod.Highlight.Enabled == true then
+							pod.Highlight.Enabled = false
+						end
+					end
+				end
+			end
+		end
+	end
+end
+--
+_G.ExitESP = false
+local CorSaida = Color3.fromRGB(208, 255, 69)
+local function ExitESP()
+	while _G.ExitESP == true do
+		for _, map in pairs(workspace:GetChildren()) do
+			for _, pod in pairs(map:GetChildren()) do
+				if pod.Name == "ExitDoor" then
+					if pod:FindFirstChild("Highlight") then
+						if pod.Highlight.FillColor ~= CorSaida or pod.Highlight.OutlineColor ~= CorSaida then
+							pod.Highlight.FillColor = CorSaida
+							pod.Highlight.OutlineColor = CorSaida
+						elseif pod.Highlight.Enabled == false then
+							pod.Highlight.Enabled = true
+						end
+					else
+						local highlight = Instance.new("Highlight")
+						highlight.FillColor = CorSaida
+						highlight.OutlineColor = CorSaida
+						highlight.FillTransparency = 0.6
+						highlight.Adornee = pod
+						highlight.Parent = pod
+					end
+				end
+			end
+		end
+		wait(0.33)
+	end
+	if _G.ExitESP == false then
+		for _, map in pairs(workspace:GetChildren()) do
+			for _, pod in pairs(map:GetChildren()) do
+				if pod.Name == "ExitDoor" then
+					if pod:FindFirstChild("Highlight") then
+						if pod.Highlight.Enabled == true then
+							pod.Highlight.Enabled = false
 						end
 					end
 				end
@@ -253,15 +338,7 @@ local Toggle =  VisualTab:CreateToggle({
    	Fullbright()
    end,
 })
-local Section = VisualTab:CreateSection("ESP")
-local Toggle =  VisualTab:CreateToggle({
-   Name = "Computer ESP",
-   CurrentValue = false,
-   Callback = function(Value)
-   	_G.ComputerESP = Value
-   	ComputerESP()
-   end,
-})
+local Section = VisualTab:CreateSection("Player ESP")
 local Toggle =  VisualTab:CreateToggle({
    Name = "Player ESP",
    CurrentValue = false,
@@ -284,6 +361,49 @@ local ColorPicker = VisualTab:CreateColorPicker({
     Flag = "ColorPicker1",
     Callback = function(Value)
     	CorBesta = Value
+    end
+})
+local Section = VisualTab:CreateSection("Computer ESP")
+local Toggle =  VisualTab:CreateToggle({
+   Name = "Computer ESP",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.ComputerESP = Value
+   	ComputerESP()
+   end,
+})
+local Section = VisualTab:CreateSection("Capsule ESP")
+local Toggle =  VisualTab:CreateToggle({
+   Name = "Capsule ESP",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.FreezeESP = Value
+   	FreezeESP()
+   end,
+})
+local ColorPicker = VisualTab:CreateColorPicker({
+    Name = "Capsule Color",
+    Color = CorCapsula,
+    Flag = "ColorPicker1",
+    Callback = function(Value)
+    	CorCapsula = Value
+    end
+})
+local Section = VisualTab:CreateSection("Exit ESP")
+local Toggle =  VisualTab:CreateToggle({
+   Name = "Exit ESP",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.ExitESP = Value
+   	ExitESP()
+   end,
+})
+local ColorPicker = VisualTab:CreateColorPicker({
+    Name = "Exit Color",
+    Color = CorSaida,
+    Flag = "ColorPicker1",
+    Callback = function(Value)
+    	CorSaida = Value
     end
 })
 
