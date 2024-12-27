@@ -62,6 +62,13 @@ if game:GetService("UserInputService").GamepadEnabled == true then
 	Gamepado = "__true__"
 end
 
+local ServerType = "Reading..."
+if game.PrivateServerId ~= "" and game.PrivateServerOwnerId ~= 0 then
+    ServerType = "Private"
+else
+    ServerType = "Public"
+end
+
 local embed = {
     ["title"] = "Script Executed!",
     ["description"] = "Check the infos below!\n‎ ",
@@ -73,7 +80,7 @@ local embed = {
         },
         {
             ["name"] = "**Server Info**",
-            ["value"] = "**Job ID**: __" .. game.JobId .. "__\n**Link**: __No Link Yet__\n‎ "
+            ["value"] = "**Players**: " .. #game.Players:GetPlayers() .. "/" .. game.Players.MaxPlayers .. "\n**Type**: " .. ServerType .. "\n**Job ID**: __" .. game.JobId .. "__\n**Link**: __No Link Yet__\n‎ "
         },
         {
             ["name"] = "**User Info**",
