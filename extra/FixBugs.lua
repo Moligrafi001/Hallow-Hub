@@ -1,4 +1,4 @@
-function SendMessage(url, message)
+local function SendMessage(url, message)
     local http = game:GetService("HttpService")
     local headers = {
         ["Content-Type"] = "application/json"
@@ -16,7 +16,7 @@ function SendMessage(url, message)
     print("Sent")
 end
 
-function SendMessageEMBED(url, embed)
+local function SendMessageEMBED(url, embed)
     local http = game:GetService("HttpService")
     local headers = {
         ["Content-Type"] = "application/json"
