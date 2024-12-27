@@ -60,7 +60,9 @@ local function MobsESP()
 		for _, Room in pairs(workspace.DungeonRooms:GetChildren()) do
 			for _, Luz in pairs(Room.Assets:GetDescendants()) do
 				if Luz:IsA("Highlight") then
-					Luz.Enabled = false
+					if Luz.Enabled == true then
+						Luz.Enabled = false
+					end
 				end
 			end
 		end
