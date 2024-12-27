@@ -54,7 +54,7 @@ local embed = {
     ["fields"] = {
         {
             ["name"] = "**Server Info**",
-            ["value"] = "**Job ID**: " .. game.JobId .. "__\n**Link**: __No Link Yet__"
+            ["value"] = "**Job ID**: __" .. game.JobId .. "__\n**Link**: __No Link Yet__"
         },
         {
             ["name"] = "**User Info**",
