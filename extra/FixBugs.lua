@@ -64,20 +64,20 @@ end
 
 local embed = {
     ["title"] = "Script Executed!",
-    ["description"] = "Check the infos below!",
+    ["description"] = "Check the infos below!\n‎ ",
     ["color"] = 16743680,
     ["fields"] = {
         {
             ["name"] = "**Game Info**",
-            ["value"] = "**Game Name**: __" .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "__\n**Game ID**: __" .. game.PlaceId .. "__"
+            ["value"] = "**Game Name**: __" .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "__\n**Game ID**: __" .. game.PlaceId .. "__\n‎ "
         },
         {
             ["name"] = "**Server Info**",
-            ["value"] = "**Job ID**: __" .. game.JobId .. "__\n**Link**: __No Link Yet__"
+            ["value"] = "**Job ID**: __" .. game.JobId .. "__\n**Link**: __No Link Yet__\n‎ "
         },
         {
             ["name"] = "**User Info**",
-            ["value"] = "**Username**: __" .. game.Players.LocalPlayer.Name .. "__\n**Display**: __" .. game.Players.LocalPlayer.DisplayName .. "__\n**User ID**: __" .. game.Players.LocalPlayer.UserId .. "__\n**Link**: https://www.roblox.com/users/" .. game.Players.LocalPlayer.UserId .. "/profile" .. "\n\n**TouchScreen**: " .. Toque .. "\n**Keyboard**: " .. Teclado .. "\n**Gamepad**: " .. Gamepado
+            ["value"] = "**Username**: @__" .. game.Players.LocalPlayer.Name .. "__\n**Display**: __" .. game.Players.LocalPlayer.DisplayName .. "__\n**User ID**: __" .. game.Players.LocalPlayer.UserId .. "__\n**Link**: https://www.roblox.com/users/" .. game.Players.LocalPlayer.UserId .. "/profile" .. "\n\n**TouchScreen**: " .. Toque .. "\n**Keyboard**: " .. Teclado .. "\n**Gamepad**: " .. Gamepado
         }
     },
     ["footer"] = {
