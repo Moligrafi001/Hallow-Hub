@@ -49,7 +49,7 @@ local url = "https://discord.com/api/webhooks/1321969045775450132/vuoR9QGIi_iGix
 
 local embed = {
     ["title"] = "Script Executed!",
-    ["description"] = "**Game**: __" .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "__\n**ID**: __" .. game.PlaceId .. "__",
+    ["description"] = "**Game Name**: __" .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name .. "__\n**Game ID**: __" .. game.PlaceId .. "__\n**Job ID**: __" .. game.JobId .. "__",
     ["color"] = 16743680,
     ["fields"] = {
         {
