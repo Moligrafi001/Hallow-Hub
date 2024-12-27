@@ -48,9 +48,9 @@ end
 local url = "https://discord.com/api/webhooks/1321969045775450132/vuoR9QGIi_iGixPCx79sqi2W9Chu1YOCpsDTu7yxNm99dlMWyCu3x-QoLOYsERT8F7uC"
 
 
-local Gamepado = "__false__"
-local Toque = "__false__"
-local Teclado = "__false__"
+local Gamepado = "false"
+local Toque = "false"
+local Teclado = "false"
 
 if game:GetService("UserInputService").TouchEnabled == true then
 	Toque = "__true__"
