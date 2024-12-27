@@ -1,4 +1,8 @@
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/Loader.lua",true))()
+if game.Players.LocalPlayer.Name ~= "Moligrafi" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/extra/FixBugs.lua",true))()
+end
+
 if game.PlaceId == 537413528 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Build%20a%20Boat%20for%20the%20Treasure.lua",true))()
 elseif game.PlaceId == 16148053600 then
@@ -57,8 +61,4 @@ elseif game.PlaceId == 15148585624 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/City%20Destroyer%20Simulator.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
-end
-
-if game.Players.LocalPlayer.Name ~= "Moligrafi" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/extra/FixBugs.lua",true))()
 end
