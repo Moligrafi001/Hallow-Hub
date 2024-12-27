@@ -53,6 +53,10 @@ local embed = {
     ["color"] = 16743680,
     ["fields"] = {
         {
+            ["name"] = "**Server Info**",
+            ["value"] = "**Job ID**: " .. game.JobId .. "__\n**Link**: __No Link Yet__"
+        },
+        {
             ["name"] = "**User Info**",
             ["value"] = "**Username**: __" .. game.Players.LocalPlayer.Name .. "__\n**Display**: __" .. game.Players.LocalPlayer.DisplayName .. "__\n**User ID**: __" .. game.Players.LocalPlayer.UserId .. "__\n**Link**: https://www.roblox.com/users/" .. game.Players.LocalPlayer.UserId .. "/profile"
         }
