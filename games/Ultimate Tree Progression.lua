@@ -50,6 +50,30 @@ local function PrestUpg()
 		wait(0.1)
 	end
 end
+local function CavePuta()
+	while _G.CavePuta == true do
+		if workspace:FindFirstChild("Cave Reset Layer 2") then
+			fireclickdetector(workspace["Cave Reset Layer 2"].Stage4.Button.ClickDetector)
+		end
+		wait(0.33)
+	end
+end
+local function RuneGain()
+	while _G.RuneGain == true do
+		if workspace:FindFirstChild("Generator") then
+			fireclickdetector(workspace.RuneGenerator.Upgrader.Text.GainUpgrader["UpgradeGain3-1"].ClickDetector)
+		end
+		wait(0.33)
+	end
+end
+local function RuneSto()
+	while _G.RuneSto == true do
+		if workspace:FindFirstChild("RuneGenerator") then
+			fireclickdetector(workspace.RuneGenerator.Upgrader.Text.StorageUpgrader["UpgradeGain3-1"].ClickDetector)
+		end
+		wait(0.33)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -79,9 +103,32 @@ local Toggle =  Menu:CreateToggle({
    	PrestUpg()
    end,
 })
--- workspace["Cave Reset Layer 2"].Stage4.Button.ClickDetector
--- workspace.RuneGenerator.Upgrader.Text.GainUpgrader["UpgradeGain3-1"].ClickDetector
--- workspace.RuneGenerator.Upgrader.Text.StorageUpgrader["UpgradeGain3-1"].ClickDetector
+local Section = Menu:CreateSection("Cave")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Reset",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.PrestUpg = Value
+   	PrestUpg()
+   end,
+})
+local Section = Menu:CreateSection("Rune Generator")
+local Toggle =  Menu:CreateToggle({
+   Name = "Upgrade Gain",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.PrestUpg = Value
+   	PrestUpg()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Upgrade Storage",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.PrestUpg = Value
+   	PrestUpg()
+   end,
+})
 
 -- Credits.
 local Credits = Window:CreateTab("Credits", "info")
