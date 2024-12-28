@@ -79,6 +79,15 @@ local Dropdown = Games:CreateDropdown({
 local Button = Games:CreateButton({
    Name = "Teleport to selected game",
    Callback = function()
+   			setclipboard("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/Loader.lua\",true))() -- https://discord.gg/AESCuek87s")
+   			toclipboard("loadstring(game:HttpGet(\"https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/Loader.lua\",true))() -- https://discord.gg/AESCuek87s")
+   			Rayfield:Notify({
+			  Title = "Teleleporting...",
+			   Content = "The loadstring has copied, teleporting to selected game...",
+			   Duration = 3,
+			   Image = 17091459839,
+				})
+   			wait(3.5)
         local placeId = gamePlaceIds[selectedGame]
         if placeId then
             TeleportToGame(placeId)
