@@ -10,6 +10,7 @@ local Window = Rayfield:CreateWindow({
 
 -- Valores
 _G.AutoIce = false
+_G.AutoMine = false
 
 -- Funções
 local function AutoIce()
@@ -22,6 +23,20 @@ local function AutoIce()
 	wait(0.05)
 	end
 end
+local function AutoMine()
+	while _G.AutoMine == true do
+		for _, tycoon in pairs(workspace.Tycoons:GetChildren()) do
+			if tycoon.Owner.Value == game.Players.LocalPlayer then
+				for _, ice in pairs(tycoon.Essentials.Freezer:GetChildren()) do
+					if ice.Name == "Ice" and ice:FindFirstChild("Worth") and ice:FindFirstChild("ProximityPrompt") then
+						fireproximityprompt(ice.ProximityPrompt)
+					end
+				end
+			end
+		end
+		wait(0.05)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Cash", "dollar-sign")
@@ -32,6 +47,14 @@ local Toggle =  Menu:CreateToggle({
    Callback = function(Value)
    	_G.AutoIce = Value
    	AutoIce()
+   end,
+})
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Mine Ice",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoMine = Value
+   	AutoMine()
    end,
 })
 
