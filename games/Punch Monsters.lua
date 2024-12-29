@@ -79,6 +79,11 @@ local Toggle =  Menu:CreateToggle({
    Name = "Auto Rebirth",
    CurrentValue = false,
    Callback = function(Value)
+   	if game.Players.LocalPlayer:FindFirstChild("PlayerGui") then
+   		if game.Players.LocalPlayer.PlayerGui.Shop:FindFirstChild("Frame") then
+   			game:GetService("Players").LocalPlayer.PlayerGui.Shop.Frame:Destroy()
+   		end
+   	end
    	_G.AutoRebirth = Value
    	AutoRebirth()
    end,
