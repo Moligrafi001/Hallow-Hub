@@ -28,8 +28,11 @@ local function AutoMine()
 		for _, tycoon in pairs(workspace.Tycoons:GetChildren()) do
 			if tycoon.Owner.Value == game.Players.LocalPlayer then
 				for _, ice in pairs(tycoon.Essentials.Freezer:GetChildren()) do
-					if ice.Name == "Ice" and ice:FindFirstChild("Worth") and ice:FindFirstChild("ProximityPrompt") then
-						fireproximityprompt(ice.ProximityPrompt)
+					if ice.Name == "Ice" and ice:FindFirstChild("Worth") and ice:FindFirstChild("ProximityPrompt") and ice:FindFirstChild("Shard") then
+						if ice:GetAttribute("Activated") then
+							fireproximityprompt(ice.ProximityPrompt)
+							ice:SetAttribute("Activated", true)
+						end
 					end
 				end
 			end
