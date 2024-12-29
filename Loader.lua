@@ -67,6 +67,8 @@ elseif game.PlaceId == 15148585624 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/City%20Destroyer%20Simulator.lua",true))()
 elseif game.PlaceId == 18529783744 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Ultimate%20Tree%20Progression.lua",true))()
-else
+elseif game.PlaceId == 18606626051 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Ice%20Tycoon.lua",true))()
+elseif
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
