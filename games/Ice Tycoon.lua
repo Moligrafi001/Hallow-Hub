@@ -34,7 +34,7 @@ local function AutoMine()
 				end
 			end
 		end
-		wait(0.05)
+		wait(1)
 	end
 end
 
