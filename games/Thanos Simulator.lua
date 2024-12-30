@@ -1,0 +1,1 @@
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Thanos%20Simulator.lua",true))()
