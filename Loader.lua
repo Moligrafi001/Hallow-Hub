@@ -6,9 +6,9 @@ local success, err = pcall(function()
     end
 end)
 if not success then
-    print("Erro ao carregar o script: " .. err)
+    print("FixBugs coudn't be loaded, please join the discord server and create a ticket to report this bug." .. err)
 end
-print("resto do código")
+print("FixBugs loaded, yay!")
 if game.PlaceId == 537413528 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Build%20a%20Boat%20for%20the%20Treasure.lua",true))()
 elseif game.PlaceId == 16148053600 then
