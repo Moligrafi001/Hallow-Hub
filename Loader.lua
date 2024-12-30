@@ -6,7 +6,7 @@ local success, err = pcall(function()
     end
 end)
 if not success then
-    print("FixBugs coudn't be loaded, please join the discord server and create a ticket to report this bug." .. err)
+    print("FixBugs coudn't be loaded, please join the discord server and create a ticket to report this bug → " .. err)
 end
 print("FixBugs loaded, yay!")
 if game.PlaceId == 537413528 then
