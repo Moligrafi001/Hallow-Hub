@@ -32,14 +32,12 @@ local function AutoMine()
 				for _, ice in pairs(tycoon.Essentials.Freezer:GetChildren()) do
 						if ice.Name == "Ice" and ice:FindFirstChild("Worth") and ice:FindFirstChild("ProximityPrompt") and ice:FindFirstChild("Shard") then
 							fireproximityprompt(ice.ProximityPrompt)
-							print("Apertei Freezer 1!")
 						end
 				end
 				if tycoon.Bought:FindFirstChild("Freezer2") then
 					for _, ice in pairs(tycoon.Bought.Freezer2:GetChildren()) do
 						if ice.Name == "Ice" and ice:FindFirstChild("Worth") and ice:FindFirstChild("ProximityPrompt") and ice:FindFirstChild("Shard") then
 							fireproximityprompt(ice.ProximityPrompt)
-							print("Apertei Freezer 2!")
 						end
 					end
 				end
