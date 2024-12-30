@@ -104,8 +104,6 @@ local Button = Menu:CreateButton({
 local Credits = Window:CreateTab("Credits", "info")
 local Section = Credits:CreateSection("Creator")
 local Label = Credits:CreateLabel("Discord: moligrafi", "at-sign")
-local Section = Credits:CreateSection("Co-Dev")
-local Label = Credits:CreateLabel("Discord: world_star_hacker", "at-sign")
 local Section = Credits:CreateSection("Discord Server")
 local Label = Credits:CreateLabel("discord.gg/AESCuek87s")
 local Button = Credits:CreateButton({
@@ -115,3 +113,5 @@ local Button = Credits:CreateButton({
    	toclipboard("discord.gg/AESCuek87s")
     end,
 })
+local Section = Credits:CreateSection("Note")
+local Label = Credits:CreateLabel("🇧🇷 - Se encontrar algum bug ou algo fora do comum, sinta-se livre para entrar no servidor acima e reportar o ocorrido via ticket. Caso tenha alguma sugestão ou queira requerir algo, há um canal apropriado para isto no servidor mencionado.")
