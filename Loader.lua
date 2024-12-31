@@ -71,6 +71,8 @@ elseif game.PlaceId == 18606626051 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Ice%20Tycoon.lua",true))()
 elseif game.PlaceId == 3261957210 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Thanos%20Simulator.lua",true))()
+elseif game.PlaceId == 18972679050 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Tech%20Support%20Tycoon.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
