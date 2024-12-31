@@ -8,6 +8,60 @@ local Window = Rayfield:CreateWindow({
    Theme = "Amethyst"
 })
 
+-- Movement
+local WalkSpeedText = 16
+local JumpPowerText = 50
+_G.SetWalkSpeed = false
+_G.SetJumpPower = false
+_G.InfJump = false
+_G.NoClip = false
+local function SetWalkSpeed()
+	while _G.SetWalkSpeed == true do
+		if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed ~= WalkSpeedText then
+			game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = WalkSpeedText
+		end
+		wait(0.01)
+	end
+	if _G.SetWalkSpeed == false then
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 16
+	end
+end
+local function SetJumpPower()
+	while _G.SetJumpPower == true do
+		if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower ~= JumpPowerText then
+			game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = JumpPowerText
+		end
+		wait(0.01)
+		end
+	if _G.SetJumpPower == false then
+		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = 50
+	end
+end
+local function InfJump()
+	while _G.InfJump == true do
+		game:GetService("UserInputService").JumpRequest:connect(function()
+			if _G.InfJump == true then
+				game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+			end
+		end)
+		wait(0.1)
+	end
+end
+local function NoClip()
+	while _G.NoClip == true do
+		for _, part in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+			if part:IsA("BasePart") then
+				if _G.NoClip then
+					part.CanCollide = false
+				else
+					part.CanCollide = true
+				end
+			end
+		end
+		wait(0.1)
+	end
+end
+
 -- Valores
 _G.AutoIce = false
 _G.AutoMine = false
@@ -46,61 +100,71 @@ local function AutoMine()
 		wait(1)
 	end
 end
+local function EquipItems()
+	for _, itens in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+		if itens:IsA("Tool") and itens.Name ~= "Sit" and itens.Name ~= "Find Button" then
+			itens.Parent = game.Players.LocalPlayer.Character
+		end
+	end
+end
 local function CompleteQuests()
 	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 0
 	Rayfield:Notify({
 		   Title = "Started the Auto Quest.",
 		   Content = "Wait until it's done.",
-		   Duration = 14,
+		   Duration = 4.5,
 		   Image = 17091459839,
        })
-	local PlayerPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+  local Antes = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 	wait(1)
-	workspace.Map.PlantGiver.Part.Position = PlayerPos
-	for _, itens in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-		if itens:IsA("Tool") and itens.Name ~= "Sit" and itens.Name ~= "Find Button" then
-			itens.Parent = game.Players.LocalPlayer.Character
-		end
+	if workspace.Map:FindFirstChild("PlantGiver") then
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.PlantGiver.Part, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.PlantGiver.Part, 1)
+		EquipItems()
+		wait(0.1)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.PlantReceiver, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.PlantReceiver, 1)
+		wait(0.9)
 	end
-	wait(1)
-	workspace.Map.PlantReceiver.Position = PlayerPos
-	wait(2)
-	workspace.Map.BrewGiver.Part.Position = PlayerPos
-	for _, itens in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-		if itens:IsA("Tool") and itens.Name ~= "Sit" and itens.Name ~= "Find Button" then
-			itens.Parent = game.Players.LocalPlayer.Character
-		end
+	if workspace.Map:FindFirstChild("BrewGiver") then
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrewGiver.Part, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrewGiver.Part, 1)
+		EquipItems()
+		wait(0.1)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrewReceiver, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrewReceiver, 1)
+		wait(0.9)
 	end
-	wait(1)
-	workspace.Map.BrewReceiver.Position = PlayerPos
-	wait(2)
-	workspace.Map.CookieGiver.Part.Position = PlayerPos
-	for _, itens in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-		if itens:IsA("Tool") and itens.Name ~= "Sit" and itens.Name ~= "Find Button" then
-			itens.Parent = game.Players.LocalPlayer.Character
-		end
+	if workspace.Map:FindFirstChild("CookieGiver") then
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.CookieGiver.Part, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.CookieGiver.Part, 1)
+		EquipItems()
+		wait(0.1)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.CookieReceiver, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.CookieReceiver, 1)
+		wait(0.9)
 	end
-	wait(1)
-	workspace.Map.CookieReceiver.Position = PlayerPos
-	wait(2)
-	workspace.Map.BrushGiver.Part.Position = PlayerPos
-	for _, itens in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-		if itens:IsA("Tool") and itens.Name ~= "Sit" and itens.Name ~= "Find Button" then
-			itens.Parent = game.Players.LocalPlayer.Character
-		end
+	if workspace.Map:FindFirstChild("BrushGiver") then
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrushGiver.Part, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrushGiver.Part, 1)
+		EquipItems()
+		wait(0.1)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrushReceiver, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrushReceiver, 1)
+		wait(0.9)
 	end
-	wait(1)
-	workspace.Map.BrushReceiver.Position = PlayerPos
-	wait(2)
-	workspace.Map.GetForgotten.Position = PlayerPos
-	wait(2)
+	if workspace.Map:FindFirstChild("GetForgotten") then
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.GetForgotten, 0)
+		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.GetForgotten, 1)
+	end
 	Rayfield:Notify({
 		   Title = "It's done! Yay!",
 		   Content = "Have fun with your money boost!",
-		   Duration = 3,
+		   Duration = 2,
 		   Image = 17091459839,
        })
-	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 16
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Antes
+	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = WalkSpeedText
 end
 local function ColetaSeed()
 	while _G.ColetaSeed == true do
@@ -160,61 +224,6 @@ local function BuyData()
 	end
 end
 
--- Movement
-local WalkSpeedText = 16
-local JumpPowerText = 50
-_G.SetWalkSpeed = false
-_G.SetJumpPower = false
-_G.InfJump = false
-_G.NoClip = false
-local function SetWalkSpeed()
-	while _G.SetWalkSpeed == true do
-		if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed ~= WalkSpeedText then
-			game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = WalkSpeedText
-		end
-		wait(0.01)
-	end
-	if _G.SetWalkSpeed == false then
-		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 16
-	end
-end
-local function SetJumpPower()
-	while _G.SetJumpPower == true do
-		if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower ~= JumpPowerText then
-			game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = JumpPowerText
-		end
-		wait(0.01)
-		end
-	if _G.SetJumpPower == false then
-		game.Players.LocalPlayer.Character:WaitForChild("Humanoid").JumpPower = 50
-	end
-end
-local function InfJump()
-	while _G.InfJump == true do
-		game:GetService("UserInputService").JumpRequest:connect(function()
-			if _G.InfJump == true then
-				game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
-			end
-		end)
-		wait(0.1)
-	end
-end
-local function NoClip()
-	while _G.NoClip == true do
-		for _, part in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-			if part:IsA("BasePart") then
-				if _G.NoClip then
-					part.CanCollide = false
-				else
-					part.CanCollide = true
-				end
-			end
-		end
-		wait(0.1)
-	end
-end
-
-
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
 local Section = Menu:CreateSection("Auto Farm")
@@ -258,8 +267,11 @@ local Toggle =  Menu:CreateToggle({
    	BuyData()
    end,
 })
-local Section = Menu:CreateSection("More")
-local Button =  Menu:CreateButton({
+
+-- Boosts
+local BoostTab = Window:CreateTab("Boosts", "sparkles")
+local Section = BoostTab:CreateSection("Quests")
+local Button =  BoostTab:CreateButton({
    Name = "Complete Quests",
    CurrentValue = false,
    Callback = function(Value)
