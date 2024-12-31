@@ -67,6 +67,8 @@ _G.AutoIce = false
 _G.AutoMine = false
 _G.ColetaSeed = false
 _G.AutoOres = false
+_G.Win1 = false
+_G.Win2 = false
 
 -- Funções
 local function AutoIce()
@@ -115,7 +117,6 @@ local function CompleteQuests()
 		   Duration = 4.5,
 		   Image = 17091459839,
        })
-  local Antes = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 	wait(1)
 	if workspace.Map:FindFirstChild("PlantGiver") then
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.PlantGiver.Part, 0)
@@ -163,7 +164,6 @@ local function CompleteQuests()
 		   Duration = 2,
 		   Image = 17091459839,
        })
-  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Antes
 	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = WalkSpeedText
 end
 local function ColetaSeed()
@@ -223,6 +223,24 @@ local function BuyData()
 		wait(0.5)
 	end
 end
+local function Win1()
+	while _G.Win1 == true do
+		if workspace.Map.Obby.Obby1.Panel.Part.SurfaceGui.Cooldown.Visible == false then
+			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Map.Obby.Obby1.End.Part, 0)
+			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Map.Obby.Obby1.End.Part, 1)
+		end
+		wait(0.01)
+	end
+end
+local function Win2()
+	while _G.Win2 == true do
+		if workspace.Map.Obby.Obby2.Panel.Part.SurfaceGui.Cooldown.Visible == false then
+			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Map.Obby.Obby2.End.Part, 0)
+			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Map.Obby.Obby2.End.Part, 1)
+		end
+		wait(0.01)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -276,6 +294,23 @@ local Button =  BoostTab:CreateButton({
    CurrentValue = false,
    Callback = function(Value)
    	CompleteQuests()
+   end,
+})
+local Section = BoostTab:CreateSection("Obby")
+local Toggle =  BoostTab:CreateToggle({
+   Name = "Auto Easy Obby",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.Win1 = Value
+   	Win1()
+   end,
+})
+local Toggle =  BoostTab:CreateToggle({
+   Name = "Auto Medium Obby",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.Win2 = Value
+   	Win2()
    end,
 })
 
