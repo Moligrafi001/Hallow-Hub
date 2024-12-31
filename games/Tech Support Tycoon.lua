@@ -14,6 +14,12 @@ _G.UpgWork = false
 _G.UpgSup = false
 
 -- Funções
+local function Work()
+	game:GetService("ReplicatedStorage").DataFolder.Edits.RequestUpgrade:InvokeServer("Worker Speed")
+end
+local function Sup()
+	game:GetService("ReplicatedStorage").DataFolder.Edits.RequestUpgrade:InvokeServer("Support Experience")
+end
 local function AutoBuy()
 	while _G.AutoBuy == true do
 		for _, plot in pairs(workspace.Plots:GetChildren()) do
@@ -33,13 +39,13 @@ local function AutoBuy()
 end
 local function UpgWork()
 	while _G.UpgWork == true do
-		game:GetService("ReplicatedStorage").DataFolder.Edits.RequestUpgrade:InvokeServer("Worker Speed")
+		Work()
 		wait(0.1)
 	end
 end
 local function UpgSup()
 	while _G.UpgSup == true do
-		game:GetService("ReplicatedStorage").DataFolder.Edits.RequestUpgrade:InvokeServer("Support Experience")
+		Sup()
 		wait(0.1)
 	end
 end
