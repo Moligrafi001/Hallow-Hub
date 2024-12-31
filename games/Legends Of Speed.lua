@@ -67,6 +67,7 @@ local function AutoHoop()
 	end
 end
 
+-- Menu
 local Menu = Window:CreateTab("Main", "home")
 local Section = Menu:CreateSection("Auto Farm")
 local Toggle =  Menu:CreateToggle({
@@ -110,6 +111,10 @@ local Toggle =  Menu:CreateToggle({
        AutoRebirth()
    end,
 })
+
+-- Animal
+local AnimalTab = Window:CreateTab("Pets", "paw-print")
+local Section = AnimalTab:CreateSection("Coming soon... :D")
 
 -- Credits.
 local Credits = Window:CreateTab("Credits", "info")
