@@ -59,8 +59,8 @@ local function AutoHoop()
 	while _G.AutoHoop == true do
 		for _, aro in pairs(workspace.Hoops:GetChildren()) do
 			if not aro:FindFirstChild("beingUsed") then
-				firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Humanoid"), aro, 0)
-				firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("Humanoid"), aro, 1)
+				firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), aro, 0)
+				firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), aro, 1)
 			end
 		end
 		wait(0.01)
