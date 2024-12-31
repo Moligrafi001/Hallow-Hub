@@ -244,6 +244,25 @@ local function Win2()
 		wait(0.01)
 	end
 end
+local function AutoBuy()
+	while _G.AutoBuy == true do
+		for _, tycoon in pairs(workspace.Tycoons:GetChildren()) do
+			if tycoon.Owner.Value == game.Players.LocalPlayer then
+				for _, botao in pairs(tycoon.Buttons:GetChildren()) do
+					if botao.Touch.Transparency == 0 then
+						if botao:FindFirstChild("Price") then
+							if botao.Price.Value <= game.Players.LocalPlayer.leaderstats.Cash.Value then
+								firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), botao.Touch, 0)
+								firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), botao.Touch, 1)
+							end
+						end
+					end
+				end
+			end
+		end
+		wait(0.1)
+	end
+end
 
 -- Menu
 local Menu = Window:CreateTab("Main", "home")
@@ -264,6 +283,16 @@ local Toggle =  Menu:CreateToggle({
    	AutoMine()
    end,
 })
+local Section = Menu:CreateSection("Upgrade")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Buy Upgrades",
+   CurrentValue = false,
+   Callback = function(Value)
+   	_G.AutoBuy = Value
+   	AutoBuy()
+   end,
+})
+local Section = Menu:CreateSection("More")
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Collect Seeds",
    CurrentValue = false,
