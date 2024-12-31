@@ -8,8 +8,14 @@ local Window = Rayfield:CreateWindow({
    Theme = "Amethyst"
 })
 
--- Auto XP
+-- Valores
 _G.AutoXP = false
+_G.FarmS = false
+_G.FarmG = false
+_G.AutoRebirth = false
+_G.AutoHoop = true
+
+-- Funções
 local function AutoXP()
 		while _G.AutoXP == true do
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
@@ -21,9 +27,6 @@ local function AutoXP()
 			wait(0.0001)
 		end
 end
-
--- Farm Steps
-_G.FarmS = false
 local function FarmS()
 		while _G.FarmS == true do
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
@@ -35,9 +38,6 @@ local function FarmS()
 			wait(0.0001)
 		end
 end
-
--- Farm Gems
-_G.FarmG = false
 local function FarmG()
 		while _G.FarmG == true do
 			game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
@@ -49,14 +49,22 @@ local function FarmG()
 			wait(0.0001)
 		end
 end
-
--- Auto Rebirth
-_G.AutoRebirth = false
 local function AutoRebirth()
 		while _G.AutoRebirth == true do
 			game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer("rebirthRequest")
 			wait(1)
 		end
+end
+local function AutoHoop()
+	while _G.AutoHoop == true do
+		for _, aro in pairs(workspace.Hoops:GetChildren()) do
+			if not aro:FindFirstChild("beingUsed") then
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, aro, 0)
+				firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, aro, 1)
+			end
+		end
+		wait(0.01)
+	end
 end
 
 local Menu = Window:CreateTab("Main", "home")
@@ -86,6 +94,14 @@ local Toggle =  Menu:CreateToggle({
    end,
 })
 local Section = Menu:CreateSection("Others")
+local Toggle =  Menu:CreateToggle({
+   Name = "Auto Hoop",
+   CurrentValue = false,
+   Callback = function(Value)
+       _G.AutoHoop = Value
+       AutoHoop()
+   end,
+})
 local Toggle =  Menu:CreateToggle({
    Name = "Auto Rebirth",
    CurrentValue = false,
