@@ -111,10 +111,11 @@ local function EquipItems()
 end
 local function CompleteQuests()
 	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 0
+	game.Players.LocalPlayer.Character.HumanoidRootPart:SetAttribute("QuestPosition", game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
 	Rayfield:Notify({
 		   Title = "Started the Auto Quest.",
-		   Content = "Wait until it's done.",
-		   Duration = 4.5,
+		   Content = "Wait until it's done and don't move.",
+		   Duration = 2.6,
 		   Image = 17091459839,
        })
 	wait(1)
@@ -125,7 +126,7 @@ local function CompleteQuests()
 		wait(0.1)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.PlantReceiver, 0)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.PlantReceiver, 1)
-		wait(0.9)
+		wait(0.4)
 	end
 	if workspace.Map:FindFirstChild("BrewGiver") then
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrewGiver.Part, 0)
@@ -134,7 +135,7 @@ local function CompleteQuests()
 		wait(0.1)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrewReceiver, 0)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrewReceiver, 1)
-		wait(0.9)
+		wait(0.4)
 	end
 	if workspace.Map:FindFirstChild("CookieGiver") then
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.CookieGiver.Part, 0)
@@ -143,7 +144,7 @@ local function CompleteQuests()
 		wait(0.1)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.CookieReceiver, 0)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.CookieReceiver, 1)
-		wait(0.9)
+		wait(0.4)
 	end
 	if workspace.Map:FindFirstChild("BrushGiver") then
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrushGiver.Part, 0)
@@ -152,19 +153,21 @@ local function CompleteQuests()
 		wait(0.1)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrushReceiver, 0)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.BrushReceiver, 1)
-		wait(0.9)
+		wait(0.4)
 	end
 	if workspace.Map:FindFirstChild("GetForgotten") then
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.GetForgotten, 0)
 		firetouchinterest(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), workspace.Map.GetForgotten, 1)
 	end
+	wait(1)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart:GetAttribute("QuestPosition")
+	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = WalkSpeedText
 	Rayfield:Notify({
 		   Title = "It's done! Yay!",
 		   Content = "Have fun with your money boost!",
 		   Duration = 2,
 		   Image = 17091459839,
        })
-	game.Players.LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = WalkSpeedText
 end
 local function ColetaSeed()
 	while _G.ColetaSeed == true do
