@@ -227,21 +227,39 @@ local function BuyData()
 	end
 end
 local function Win1()
+	local Busy = false
 	while _G.Win1 == true do
+		if Busy == false then
+			game.Players.LocalPlayer.Character.HumanoidRootPart:SetAttribute("EasyPosition", game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+		end
 		if workspace.Map.Obby.Obby1.Panel.Part.SurfaceGui.Cooldown.Visible == false then
+			Busy = true
+			wait(0.33)
 			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Map.Obby.Obby1.End.Part, 0)
 			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Map.Obby.Obby1.End.Part, 1)
+			wait(1)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart:GetAttribute("EasyPosition")
+			Busy = false
 		end
-		wait(0.01)
+		wait(0.67)
 	end
 end
 local function Win2()
+	local Busy = false
 	while _G.Win2 == true do
+		if Busy == false then
+			game.Players.LocalPlayer.Character.HumanoidRootPart:SetAttribute("MediumPosition", game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+		end
 		if workspace.Map.Obby.Obby2.Panel.Part.SurfaceGui.Cooldown.Visible == false then
+			Busy = true
+			wait(0.33)
 			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Map.Obby.Obby2.End.Part, 0)
 			firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart, workspace.Map.Obby.Obby2.End.Part, 1)
+			wait(1)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart:GetAttribute("MediumPosition")
+			Busy = false
 		end
-		wait(0.01)
+		wait(0.67)
 	end
 end
 local function AutoBuy()
