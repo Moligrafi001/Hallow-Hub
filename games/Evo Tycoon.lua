@@ -67,7 +67,7 @@ _G.AutoCollect = false
 _G.AutoBuy = false
 _G.AntiLasers = false
 _G.StealWepe = false
-_G.PlayerESP
+_G.PlayerESP = false
 
 -- Locais
 local CorInocente = Color3.fromRGB(255, 125, 0)
