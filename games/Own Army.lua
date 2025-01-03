@@ -94,6 +94,12 @@ local function AutoBomb()
 		wait(BombCooldown)
 	end
 end
+local a = game.Players.LocalPlayer.Team
+local b = workspace.Live["Warrior 364"]:GetAttribute("Team")
+
+if b == "Red" then
+print(a)
+end
 local function Killahr()
 	while _G.Killahr == true do
 		for _, enemy in pairs(workspace.Live:GetChildren()) do
