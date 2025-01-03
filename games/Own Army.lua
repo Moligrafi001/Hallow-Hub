@@ -90,16 +90,6 @@ local function Killahr()
 			if player.Team ~= game.Players.LocalPlayer.Team then
 				game:GetService("ReplicatedStorage").Remotes.Sword:FireServer("RegisterHit", {workspace.Live:FindFirstChild(player.Name)})
 			end
-			for _, enemy in pairs(workspace.Live:GetChildren()) do
-				if enemy.Name ~= player.Name then
-					if enemy:GetAttribute("Team") == "Red" and game.Players.LocalPlayer.Team == "Blue" then
-						game:GetService("ReplicatedStorage").Remotes.Sword:FireServer("RegisterHit", {workspace.Live:FindFirstChild(enemy.Name)})
-					elseif enemy:GetAttribute("Team") == "Blue" and game.Players.LocalPlayer.Team == "Red" then
-						game:GetService("ReplicatedStorage").Remotes.Sword:FireServer("RegisterHit", {workspace.Live:FindFirstChild(enemy.Name)})
-						
-					end
-				end
-			end
 		end
 		wait(0.05)
 	end
@@ -145,7 +135,7 @@ local Toggle =  Menu:CreateToggle({
 })
 local Section = Menu:CreateSection("Super OP")
 local Toggle =  Menu:CreateToggle({
-   Name = "Auto Shoot Bomb",
+   Name = "Kill Aura (Players Only)",
    CurrentValue = false,
    Callback = function(Value)
    	_G.Killahr = Value
