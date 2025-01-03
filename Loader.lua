@@ -77,6 +77,8 @@ elseif game.PlaceId == 72142739704679 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Evo%20Tycoon.lua",true))()
 elseif game.PlaceId == 82328132093590 then
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Inc%20game.lua",true))()
+elseif game.PlaceId == 18631989034 then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Own%20Army.lua",true))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/HallowHub.lua",true))()
 end
