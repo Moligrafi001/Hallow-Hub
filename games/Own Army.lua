@@ -1,13 +1,3 @@
-workspace.Live["Warrior 843"]
-local args = {
-    [1] = "RegisterHit",
-    [2] = {
-        [1] = workspace.Live:FindFirstChild("Warrior 710")
-    }
-}
-
-game:GetService("ReplicatedStorage").Remotes.Sword:FireServer(unpack(args))
-
 -- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/games/Own%20Army.lua",true))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
@@ -94,17 +84,21 @@ local function AutoBomb()
 		wait(BombCooldown)
 	end
 end
-local a = game.Players.LocalPlayer.Team
-local b = workspace.Live["Warrior 364"]:GetAttribute("Team")
-
-if b == "Red" then
-print(a)
-end
 local function Killahr()
 	while _G.Killahr == true do
-		for _, enemy in pairs(workspace.Live:GetChildren()) do
-			if enemy:GetAttribute("Team") ~= game.Players.LocalPlayer.Team then
-				game:GetService("ReplicatedStorage").Remotes.Sword:FireServer("RegisterHit", {workspace.Live:FindFirstChild(enemy.Name)})
+		for _, player in pairs(game.Players:GetPlayers()) do
+			if player.Team ~= game.Players.LocalPlayer.Team then
+				game:GetService("ReplicatedStorage").Remotes.Sword:FireServer("RegisterHit", {workspace.Live:FindFirstChild(player.Name)})
+			end
+			for _, enemy in pairs(workspace.Live:GetChildren()) do
+				if enemy.Name ~= player.Name then
+					if enemy:GetAttribute("Team") == "Red" and game.Players.LocalPlayer.Team == "Blue" then
+						game:GetService("ReplicatedStorage").Remotes.Sword:FireServer("RegisterHit", {workspace.Live:FindFirstChild(enemy.Name)})
+					elseif enemy:GetAttribute("Team") == "Blue" and game.Players.LocalPlayer.Team == "Red" then
+						game:GetService("ReplicatedStorage").Remotes.Sword:FireServer("RegisterHit", {workspace.Live:FindFirstChild(enemy.Name)})
+						
+					end
+				end
 			end
 		end
 		wait(0.05)
