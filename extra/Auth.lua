@@ -1,13 +1,23 @@
--- loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/extra/Auth.lua",true))()
+-- Auth.lua
+
 local Auth = {}
 
--- Função de verificação de usuário
+Auth.Config = {
+    Webhook = false,
+}
+
+function Auth:Initialize(config)
+    for key, value in pairs(config) do
+        self.Config[key] = value
+    end
+    print("Configurações aplicadas!")
+end
+
 function Auth:Check()
-    -- Lógica para checar, pode ser qualquer condição.
-    if game.Players.LocalPlayer.Name == "HallowHub" then
-        return true
+    if self.Config.Webhook then
+        print("Webhook está habilitado.")
     else
-        return false
+        print("Webhook está desabilitado.")
     end
 end
 
