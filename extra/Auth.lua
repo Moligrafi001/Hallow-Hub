@@ -1,24 +1,20 @@
--- Auth.lua
-
 local Auth = {}
 
-Auth.Config = {
-    Webhook = false,
-}
+local Config = {}
 
-function Auth:Initialize(config)
-    for key, value in pairs(config) do
-        self.Config[key] = value
-    end
+function Auth.Initialize(config)
+    Config = config or {}
     print("Configurações aplicadas!")
 end
 
-function Auth:Check()
-    if self.Config.Webhook then
-        print("Webhook está habilitado.")
-    else
-        print("Webhook está desabilitado.")
-    end
+function Auth.Check()
+  if Config.Webhook == true then
+    print("Webhook está ativado!")
+    return true
+  elseif Config.Webhook == false then
+    print("Webhook está desativado!")
+    return false
+  end
 end
 
 return Auth
