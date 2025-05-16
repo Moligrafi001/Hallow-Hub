@@ -10,4 +10,4 @@ local function TestCode(caminho)
    loadstring(game:GetService("HttpService"):JSONDecode(response.Body)["script"])()
  end
  
- TestCode("Key System.lua")
+ TestCode("Loader.lua")
