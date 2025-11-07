@@ -9,18 +9,7 @@ WindUI:Popup({
       Title = "Load Hallow Hub [ Old ]",
       Icon = "bug",
       Callback = function()
-        local luaujson = loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/luaujson/main/library.lua"))()
-        luaujson:Start()
-        local function LoadScript(path)
-          loadstring(luaujson:Parse({
-            Url = "https://hallow-hub.squareweb.app/api/load/" .. game:GetService("HttpService"):UrlEncode(path),
-            Method = "GET",
-            Headers = {
-              ["pass"] = "PussyFuckerBitchWhyAreYouTryingToSkidThisMotherFuckerLolImagineSkiddingRobloxScriptsLmaoStupidAhhNoob"
-            }
-          }, "script"))()
-        end
-        LoadScript("Loader.lua")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/Loader.lua",true))()
       end,
       Variant = "Secondary"
     },
