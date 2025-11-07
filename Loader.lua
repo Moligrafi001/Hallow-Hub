@@ -9,7 +9,7 @@ WindUI:Popup({
       Title = "Load Hallow Hub [ Old ]",
       Icon = "bug",
       Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Hub/main/Loader.lua",true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Moligrafi001/Hallow-Priv/main/Loader.lua",true))()
       end,
       Variant = "Secondary"
     },
